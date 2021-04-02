@@ -7,13 +7,13 @@ export default function Login() {
   const user = getUser();
 
   useEffect(() => {
-    window.gapi.load("signin2", () => {
-      window.gapi.signin2.render("login-button", {
-        theme: "dark",
-        // 'width': 160,
-        // 'height': 40,
+    if (window.gapi) {
+      window.gapi.load("signin2", () => {
+        window.gapi.signin2.render("login-button", {
+          theme: "dark",
+        });
       });
-    });
+    }
   });
 
   return (

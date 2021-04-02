@@ -18,8 +18,7 @@ export default function Profile() {
           <div>
             Your name is "{user.Te}" and your email is "{user.zt}."
           </div>
-          <br />
-          <div>Google also says that your a fan of cute doggos :)</div>
+          <div>Google also says that you're a fan of good doggos :)</div>
           <br />
           <img
             src={

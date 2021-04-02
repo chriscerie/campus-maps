@@ -12,22 +12,20 @@ export default function NavBar(props) {
       window.gapi.load("signin2", () => {
         window.gapi.signin2.render("login-button", {
           theme: "dark",
-          // 'width': 160,
-          // 'height': 40,
         });
       });
     }
   });
 
   return (
-    <Container>
-      <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg">
+      <Container>
         <Navbar.Brand href="/">ReactCRAStarterCode</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
+            {user && <Nav.Link href="/profile">Profile</Nav.Link>}
           </Nav>
           <Nav>
             {!user ? (
@@ -52,7 +50,7 @@ export default function NavBar(props) {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
-    </Container>
+      </Container>
+    </Navbar>
   );
 }

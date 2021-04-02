@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://apis.google.com/js/platform.js";
@@ -34,7 +37,14 @@ export default function App() {
   function PrivateRoute(props) {
     const { Component, ...rest } = props;
     if (isSignedIn === null) {
-      return <div>Checking if you're signed in...</div>;
+      return (
+        <Layout>
+          <Container>
+            <div>Checking if you're signed in...</div>
+            <br />
+          </Container>
+        </Layout>
+      );
     }
     return (
       <Route
