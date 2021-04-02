@@ -2,17 +2,17 @@ export default function authenticate() {
   if (window.gapi) {
     const authInstance = window.gapi.auth2.getAuthInstance();
     const isSignedIn = authInstance.isSignedIn.get();
-    
+
     if (isSignedIn === false) {
-      return {};
+      return null;
     }
-    
+
     const user = authInstance.currentUser.get();
-    const profile = { 
+    const profile = {
       ...user.getBasicProfile(),
-      signOut: authInstance.signOut
+      signOut: authInstance.signOut,
     };
 
-    return (profile);
+    return profile;
   }
 }
