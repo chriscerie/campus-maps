@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Layout from "./components/Layout";
+import CheckingSignedIn from "./pages/CheckingSignedIn";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Login from "./pages/Login";
+import Private from "./pages/Private";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
@@ -37,19 +37,12 @@ export default function App() {
   function PrivateRoute(props) {
     const { Component, ...rest } = props;
     if (isSignedIn === null) {
-      return (
-        <Layout>
-          <Container>
-            <div>Checking if you're signed in...</div>
-            <br />
-          </Container>
-        </Layout>
-      );
+      return <CheckingSignedIn />;
     }
     return (
       <Route
         {...rest}
-        render={() => (isSignedIn ? <Component /> : <Login />)}
+        render={() => (isSignedIn ? <Component /> : <Private />)}
       />
     );
   }
@@ -57,8 +50,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <PrivateRoute path="/profile" exact Component={Profile} />
-        <Route path="/" render={Home} />
+        <Route exact path="/" render={Home} />
+        <PrivateRoute exact path="/profile" Component={Profile} />
+        <Route path="/" render={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );

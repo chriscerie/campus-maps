@@ -17,14 +17,12 @@ export default function Login() {
   });
 
   return (
-    <div>
-      <Layout user={user}>
-        <Container>
-          <h1>This page is private!</h1>
-          <div>(meaning you have to login to view the page)</div>
-          <br />
-        </Container>
-      </Layout>
-    </div>
+    <Layout user={user}>
+      <Container>
+        <h1>This page is private!</h1>
+        <div>(meaning you have to login to view the page)</div>
+        <br />
+      </Container>
+    </Layout>
   );
 }
