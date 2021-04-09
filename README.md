@@ -2,7 +2,9 @@
 
 # Getting Started
 
-This README.md covers how to use the starter code at "https://react-google-auth-starter.herokuapp.com/". To get started, make sure you have node and npm installed. You can check that by running "node -v" and "npm -v" on your computer. If no versions of node or npm appear on your computer, you can download them here: "https://nodejs.org/en/".
+This README.md covers how to use the starter code at "https://react-google-auth-starter.herokuapp.com/". Here is a link to a video where I explain the basics of React as well as provide a tutorial on how to use ReactGoogleAuthStarter: https://www.youtube.com/watch?v=XZceEXlYC1w&ab_channel=VincentTieu.
+
+To get started, make sure you have node and npm installed. You can check that by running "node -v" and "npm -v" on your computer. If no versions of node or npm appear on your computer, you can download them here: "https://nodejs.org/en/".
 
 Next, clone the repo onto your machine.
 
