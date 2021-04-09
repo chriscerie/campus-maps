@@ -32,9 +32,11 @@ Now that you have the .env file setup and your app is identical to "https://reac
 
 Go to "https://www.heroku.com/", which is a **FREE** cloud platform to host your app to the web. Click create new project. Name it. Then go to the settings. In "Config Vars", add a key called "REACT_APP_AUTH_CLIENT_ID" with a key value of your "client_id". Make sure that you committed and pushed your changes onto your github repo. Link the github repo and deploy it.
 
-**Remember to add the name of your app on website into "Authorized JavaScript origins" and "Authorized redirect URIs" of your OAuth consent screen!**
+**Remember to add the name of your website into "Authorized JavaScript origins" and "Authorized redirect URIs" of your OAuth consent screen!**
 
-You are now done to go!
+You are now done! Congratulations!
+
+Thanks for sticking through to the end of the tutorial. Come to my office hours if you have any questions.
 
 # General Setup and Tips
 
