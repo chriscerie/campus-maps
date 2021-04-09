@@ -1,8 +1,8 @@
 export default function getUser() {
   if (!window.gapi) {
-    return {};
+    return null;
   }
-  
+
   const authInstance = window.gapi.auth2.getAuthInstance();
   const isSignedIn = authInstance.isSignedIn.get();
 
