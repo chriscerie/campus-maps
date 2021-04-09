@@ -2,6 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Layout from "../components/Layout";
 import getUser from "../utils/get-user";
+import Doggo from "../images/doggo.jpg";
+
+const doggoStyle = { maxWidth: "100%", width: "500px", height: "auto" };
 
 export default function Profile() {
   const user = getUser();
@@ -19,12 +22,7 @@ export default function Profile() {
         </div>
         <div>Google also says that you're a fan of good doggos :)</div>
         <br />
-        <img
-          src={
-            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-          }
-          style={{ width: "500px", height: "auto" }}
-        />
+        <img src={Doggo} style={doggoStyle} alt="doggo" />
         <br />
         <br />
       </Container>
