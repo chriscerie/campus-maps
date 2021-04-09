@@ -21,11 +21,21 @@ You can check this by right clicking anywhere on the website and performing an "
 
 Screen Shot 2021-04-08 at 7.03.52 PM![image](https://user-images.githubusercontent.com/46038043/114118579-dffb2e00-989d-11eb-8ffb-b53dd417a0b8.png)
 
-The next step to setup the "client_id" for your app! TODO TODO TODO
+The next step to setup the "client_id" for your app in the ".env". Go to this link: https://console.cloud.google.com/apis/credentials and create a project. In the OAuth consent screen, you should set the user type to "external." Now go ahead to the "credentials" screen and add a new "OAuth Client ID."
+
+**When adding an "OAuth Client ID," add it for a "web application" and remember to set the "Authorized JavaScript origins" and "Authorized redirect URIs" to "http://localhost:3000" and "https://localhost:3000".**
+
+In your folder, copy a file called ".env.SAMPLE" into ".env". Finally add your "client_id" into your ".env" file and do "npm run start". You should now have the React app running locally on your computer!
 
 # Deploying
 
-Now that you have the .env file setup and your app is identical to "https://react-google-auth-starter.herokuapp.com/," you are finally ready to deploy your app to the World Wide Web! TODO TODO TODO
+Now that you have the .env file setup and your app is identical to "https://react-google-auth-starter.herokuapp.com/," you are finally ready to deploy your app to the World Wide Web!
+
+Go to "https://www.heroku.com/", which is a **FREE** cloud platform to host your app to the web. Click create new project. Name it. Then go to the settings. In "Config Vars", add a key called "REACT_APP_AUTH_CLIENT_ID" with a key value of your "client_id". Make sure that you committed and pushed your changes onto your github repo. Link the github repo and deploy it.
+
+**Remember to add the name of your app on website into "Authorized JavaScript origins" and "Authorized redirect URIs" of your OAuth consent screen!**
+
+You are now done to go!
 
 # General Setup and Tips
 
