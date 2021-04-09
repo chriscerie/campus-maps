@@ -19,7 +19,7 @@ You should now have an instance of the app running on localhost:3000/. Awesome! 
 
 You can check this by right clicking anywhere on the website and performing an "inspect." Then check the "console" tab. You should see an uncaught error regarding "client_id".
 
-Screen Shot 2021-04-08 at 7.03.52 PM![image](https://user-images.githubusercontent.com/46038043/114118187-361ba180-989d-11eb-8c7f-74aaebdd08c6.png)
+Screen Shot 2021-04-08 at 7.03.52 PM![image](https://user-images.githubusercontent.com/46038043/114118579-dffb2e00-989d-11eb-8ffb-b53dd417a0b8.png)
 
 The next step to setup the "client_id" for your app! TODO TODO TODO
 
@@ -27,8 +27,8 @@ The next step to setup the "client_id" for your app! TODO TODO TODO
 
 Now that you have the .env file setup and your app is identical to "https://react-google-auth-starter.herokuapp.com/," you are finally ready to deploy your app to the World Wide Web! TODO TODO TODO
 
-# How the App is Setup
+# General Setup and Tips
 
-The application is setup with Google Authentication, Private and Public Routing (how you change the url), and some basic HTML CSS page layouts. The application also includes some npm libraries located in package-lock.json called "prettier" and "react-bootstrap." <a href="https://prettier.io/">Prettier </a> is a code formatter, which you can use with the command "npm run format".<a href="https://react-bootstrap.github.io/">React-Bootstrap</a> is a frontend library used to setup some components like the nav bar for example.
+The application is setup with Google Authentication, Private and Public Routing (how you change the url), and some basic HTML CSS page layouts. The application also includes some npm libraries located in package-lock.json called "prettier" and "react-bootstrap." <a href="https://prettier.io/">Prettier </a> is a code formatter, which you can use with the command "npm run format". <a href="https://react-bootstrap.github.io/">React-Bootstrap</a> is a frontend library used to setup some components like the nav bar for example.
 
 In App.js, we can see how the routing takes place. The most important lines of the file is on lines 51-59. Everything else can be blackboxed for the most part. We have a switch tag with routes to a "Home", "Profile", and "404 Page Not Found" page. "Home" is a public route, meaning you don't have to login to view the information. "Profile" is a private page where you do have to log in to view the information. In both the "Home" and "Profile" pages, we have a layout which takes a parameter of "user" which is used to load the page.
