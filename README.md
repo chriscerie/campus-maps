@@ -1,5 +1,16 @@
 # This is some starter code in React with Google Auth
 
+# Adding code to Github
+For new repos, you can fork into a new Github repository by clicking "Fork" at the top of this screen.
+
+For existing repos, add a starter branch into your local .git file by doing these commands.
+1) "git remote add starter https://github.com/vincentktieu101/ReactGoogleAuthStarter.git"
+2) "git pull starter master --allow-unrelated-histories"
+
+You need the flag "--allow-unrelated-histories" if you have a README.md in your existing repo. There will then be a merge conflict where you must resolve by editing the README.md accordingly. Finally...
+
+3) push your code to Github!
+
 # Getting Started
 
 Example of the app: https://react-google-auth-starter.herokuapp.com/. I also have a video on how to use this starter code here! https://www.youtube.com/watch?v=XZceEXlYC1w&ab_channel=VincentTieu.
@@ -38,8 +49,8 @@ Go to https://www.heroku.com/, which is a **FREE** cloud platform to host your a
 
 You are now done! Congratulations for sticking through to the end of the tutorial. Come to my office hours (Monday 4-5 PM PST) if you have any questions more related to the starter code / Google Authentication. For questions about general React and Heroku, I'm sure that anyone on the **awesome** teaching team would be happy to answer them.
 
-# General Setup and Tips
+# React Tips
 
-The application is setup with Google Authentication, Private and Public Routing (how you change the url), and some basic HTML CSS page layouts. The application also includes some npm libraries located in package-lock.json called "prettier" and "react-bootstrap." <a href="https://prettier.io/">Prettier </a> is a code formatter, which you can use with the command "npm run format". <a href="https://react-bootstrap.github.io/">React-Bootstrap</a> is a frontend library used to setup some components like the nav bar for example.
+The application is setup with Google Authentication, Private and Public Routing (how you change the url), and some basic HTML CSS page layouts. The application also includes some npm libraries located in package-lock.json called "prettier" and "react-bootstrap." <a href="https://prettier.io/">Prettier </a> is a code formatter, which you can use with the command "npm run format". <a href="https://react-bootstrap.github.io/">React-Bootstrap</a> is a frontend library used to setup some components like the nav bar for example. Another npm library that I'd **really** recommend is called "Material-UI" which is developed by Google. This isn't added into this repo but is very easy to setup :)
 
 In App.js, we can see how the routing takes place. The most important lines of the file is on lines 51-59. Everything else can be blackboxed for the most part. We have a switch tag with routes to a "Home", "Profile", and "404 Page Not Found" page. "Home" is a public route, meaning you don't have to login to view the information. "Profile" is a private page where you do have to log in to view the information. In both the "Home" and "Profile" pages, we have a layout which takes a parameter of "user" which is used to load the page.
