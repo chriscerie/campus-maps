@@ -6,16 +6,6 @@ import getUser from "../utils/get-user";
 export default function Login() {
   const user = getUser();
 
-  useEffect(() => {
-    if (window.gapi) {
-      window.gapi.load("signin2", () => {
-        window.gapi.signin2.render("login-button", {
-          theme: "dark",
-        });
-      });
-    }
-  });
-
   return (
     <Layout user={user}>
       <Container>
