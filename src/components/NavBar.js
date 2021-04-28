@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -6,16 +6,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavBar(props) {
   const user = props.user;
-
-  useEffect(() => {
-    if (window.gapi) {
-      window.gapi.load("signin2", () => {
-        window.gapi.signin2.render("login-button", {
-          theme: "dark",
-        });
-      });
-    }
-  });
 
   return (
     <Navbar bg="light" expand="lg">
