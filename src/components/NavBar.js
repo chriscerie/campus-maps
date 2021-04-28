@@ -34,9 +34,9 @@ export default function NavBar(props) {
               <NavDropdown
                 title={
                   <span>
-                    Hello, {user.Te}{" "}
+                    Hello, {user.fullName}{" "}
                     <img
-                      src={user.EI}
+                      src={user.imageUrl}
                       alt="profile"
                       style={{ width: "24px", height: "24px" }}
                     />{" "}

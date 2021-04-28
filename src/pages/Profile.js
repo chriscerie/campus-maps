@@ -18,7 +18,7 @@ export default function Profile() {
         </div>
         <pre>{JSON.stringify(user, null, "\t")}</pre>
         <div>
-          Your name is "{user.Te}" and your email is "{user.zt}."
+          Your name is "{user.fullName}" and your email is "{user.email}."
         </div>
         <div>Google also says that you're a fan of good doggos :)</div>
         <br />

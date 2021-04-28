@@ -35,14 +35,14 @@ export default function App() {
   }
 
   function PrivateRoute(props) {
-    const { Component, ...rest } = props;
+    const { component, ...rest } = props;
     if (isSignedIn === null) {
       return <CheckingSignedIn />;
     }
     return (
       <Route
         {...rest}
-        render={() => (isSignedIn ? <Component /> : <Private />)}
+        component={isSignedIn ? component : Private}
       />
     );
   }
@@ -50,9 +50,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={Home} />
-        <PrivateRoute exact path="/profile" Component={Profile} />
-        <Route path="/" render={PageNotFound} />
+        <Route exact path="/" component={Home} />
+        <PrivateRoute exact path="/profile" component={Profile} />
+        <Route path="/" component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );
