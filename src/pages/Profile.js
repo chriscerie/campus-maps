@@ -1,10 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 import Container from "react-bootstrap/Container";
+
 import Layout from "../components/Layout";
 import getUser from "../utils/get-user";
-import Doggo from "../images/doggo.jpg";
+import DoggoImg from "../images/doggo.jpg";
 
-const doggoStyle = { maxWidth: "100%", width: "500px", height: "auto" };
+const Doggo = styled.img`
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+`;
 
 export default function Profile() {
   const user = getUser();
@@ -20,11 +26,9 @@ export default function Profile() {
         <div>
           Your name is "{user.fullName}" and your email is "{user.email}."
         </div>
-        <div>Google also says that you're a fan of good doggos :)</div>
+        <div>Google also thinks you'll like this picture :)</div>
         <br />
-        <img src={Doggo} style={doggoStyle} alt="doggo" />
-        <br />
-        <br />
+        <Doggo src={DoggoImg} />
       </Container>
     </Layout>
   );
