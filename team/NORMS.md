@@ -3,6 +3,7 @@
 1. Check any branches or pull requests for similar files to avoid conflicts
 2. If working on a new feature/bug, create a new branch with `git checkout -b branch-name`
 3. Push changes and create a pull request
+    - All PRs are assumed to be ready to reviewed if they pass tests unless they are marked as draft
 4. Wait for another member to review pull request and merge to main branch
 
 ## Git Styling
