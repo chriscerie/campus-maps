@@ -22,10 +22,11 @@ jobs:
         working-directory: client
 
       - name: Lint and Style Check
-        run: yarn prettier-check
+        run: yarn lint
   test:
     name: "yarn_test"
     runs-on: ubuntu-latest
+    needs: lint
 
     steps:
       - name: Checkout code
