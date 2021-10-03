@@ -1,0 +1,9 @@
+{
+  "name": "campus-map",
+  "private": true,
+  "scripts": {
+    "test": "yarn --cwd client jest",
+    "prettier-all": "yarn --cwd client prettier-all",
+    "prettier-check": "yarn --cwd client prettier-check"
+  }
+}
