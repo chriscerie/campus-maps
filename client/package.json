@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "test-report": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test-report": "jest --coverage && cat ./coverage/lcov.info",
     "eject": "react-scripts eject",
     "prettier-all": "yarn prettier --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
     "prettier-check": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
