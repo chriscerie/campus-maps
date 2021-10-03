@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "test": "yarn --cwd client test",
+    "test-report": "yarn --cwd client test-report",
     "prettier-all": "yarn --cwd client prettier-all",
     "prettier-check": "yarn --cwd client prettier-check"
   }
