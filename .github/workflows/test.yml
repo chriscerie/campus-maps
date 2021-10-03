@@ -3,11 +3,9 @@ name: Tests
 on:
   push:
     branches:
-      - master
       - main
   pull_request:
     branches:
-      - master
       - main
 
 jobs:
@@ -16,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Enter client
+        run: cd client
+
       - name: Checkout code
         uses: actions/checkout@v2
 
