@@ -1,4 +1,4 @@
-name: Tests
+name: ci
 
 on:
   push:
@@ -9,28 +9,27 @@ on:
       - main
 
 jobs:
-  setup:
-    name: "Setup CI"
+  lint:
+    name: "Lint"
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         working-directory: client
-  lint:
-    name: "Lint"
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Lint and Style Check
         run: yarn run prettier-check
   test:
     name: "Test"
-    needs: setup
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: client
       - name: Run tests
         run: yarn test
