@@ -21,8 +21,8 @@
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info",
     "eject": "react-scripts eject",
-    "prettier-all": "yarn prettier --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
-    "prettier-check": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
+    "prettier": "yarn prettier --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
+    "lint": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
   },
   "eslintConfig": {
     "extends": [
