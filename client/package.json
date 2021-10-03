@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --coverage",
     "eject": "react-scripts eject",
     "prettier-all": "yarn prettier --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
     "prettier-check": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
