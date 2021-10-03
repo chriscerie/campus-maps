@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: "yarn_prettier_check"
+    name: "yarn_lint"
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +23,10 @@ jobs:
 
       - name: Lint and Style Check
         run: yarn lint
+
   test:
     name: "yarn_test"
     runs-on: ubuntu-latest
-    needs: lint
 
     steps:
       - name: Checkout code
@@ -38,7 +38,13 @@ jobs:
 
       - name: Run tests
         run: yarn test-report
+  
+  report:
+    name: "report_coverage"
+    runs-on: ubuntu-latest
+    needs: [lint, test]
 
+    steps:
       - name: Report coverage
         uses: coverallsapp/github-action@1.1.3
         with:
