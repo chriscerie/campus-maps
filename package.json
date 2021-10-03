@@ -4,7 +4,7 @@
   "scripts": {
     "test": "yarn --cwd client test",
     "test-report": "yarn --cwd client test-report",
-    "prettier": "yarn --cwd client prettier",
+    "format": "yarn --cwd client format",
     "lint": "yarn --cwd client lint"
   }
 }
