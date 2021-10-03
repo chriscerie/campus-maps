@@ -9,20 +9,28 @@ on:
       - main
 
 jobs:
-  build:
-    name: "Test Suite"
+  setup:
+    name: "Setup CI"
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         working-directory: client
+  lint:
+    name: "Lint"
+    needs: setup
+    runs-on: ubuntu-latest
 
+    steps:
       - name: Lint and Style Check
         run: yarn run prettier-check
+  test:
+    name: "Test"
+    needs: setup
+    runs-on: ubuntu-latest
 
+    steps:
       - name: Run tests
-        run: yarn test -- --coverage
+        run: yarn test
