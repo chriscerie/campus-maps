@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "test-report": "jest --coverage && cat ./coverage/lcov.info",
+    "test-report": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "eject": "react-scripts eject",
     "format": "yarn format --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
     "lint": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
@@ -50,6 +50,7 @@
     "@testing-library/dom": "^8.7.1",
     "@types/jest": "^27.0.2",
     "babel-jest": "^26.6.0",
+    "coveralls": "^3.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.2.4",
     "prettier": "2.4.1",
