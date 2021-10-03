@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "test-report": "jest --coverage && coveralls < coverage/lcov.info",
+    "test-report": "jest --coverage && cat ./coverage/lcov.info",
     "eject": "react-scripts eject",
     "format": "yarn format --single-quote --write \"src/**/*.{tsx,ts,jsx,js}\"",
     "lint": "yarn prettier --single-quote --check \"src/**/*.{tsx,ts,jsx,js}\""
