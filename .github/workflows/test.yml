@@ -18,11 +18,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm run ci
+        run: yarn install --frozen-lockfile
         working-directory: client
 
       - name: Lint and Style Check
-        run: npm run prettier-check
+        run: yarn run prettier-check
 
       - name: Run tests
-        run: npm test -- --coverage
+        run: yarn test -- --coverage
