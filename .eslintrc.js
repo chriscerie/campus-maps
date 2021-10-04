@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'plugin:css-modules/recommended',
+    'plugin:jest/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -27,6 +28,7 @@ module.exports = {
     'jsx-a11y',
     'import',
     'flowtype',
+    'jest',
   ],
   rules: {
     'prettier/prettier': [
