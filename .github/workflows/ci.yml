@@ -1,0 +1,59 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: "yarn_lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint and Style Check
+        run: yarn lint
+
+  test:
+    name: "yarn_test"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install server dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install client dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: client
+
+      - name: Run tests
+        run: yarn test-report
+
+      - name: Report coverage
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel: true
+  
+  finish:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+
+    steps:
+      - name: Finish Coveralls
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
