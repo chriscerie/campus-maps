@@ -19,7 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        working-directory: client
 
       - name: Lint and Style Check
         run: yarn lint
