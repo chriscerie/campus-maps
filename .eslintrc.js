@@ -29,6 +29,7 @@ module.exports = {
     'import',
     'flowtype',
     'jest',
+    'testing-library',
   ],
   rules: {
     'prettier/prettier': [
