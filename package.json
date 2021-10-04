@@ -7,6 +7,7 @@
     "start": "tsc & node .",
     "dev": "tsc -w & nodemon .",
     "test": "yarn --cwd client test",
+    "test-report": "yarn --cwd client test-report",
     "format": "yarn prettier --single-quote --write src/ client/src/ && eslint --fix src/ client/src/ --ext .js,.ts,.jsx,.tsx",
     "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx"
   },
