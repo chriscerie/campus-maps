@@ -5,10 +5,15 @@ Campus Maps is an app that focuses on offering detailed maps of university campu
 ## Contributors
 
 Christopher Chang | chriscerie
+
 Janet Zhao | birded
+
 Jonathan Wang | jwangathan
+
 Max Bonham | mpbonham
+
 Sarah Kwon | sarahkwon
+
 Jason Em | jasonem225
 
 ## Contributing
