@@ -31,8 +31,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install server dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Install client dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: client
 
       - name: Run tests
         run: yarn test-report
