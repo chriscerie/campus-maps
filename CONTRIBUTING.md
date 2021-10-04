@@ -10,7 +10,7 @@ To contribute, you will need:
 
 ### Steps to contribute
 
-1. After cloning, run `yarn` to fetch any dependencies
+1. After cloning, run `yarn` in both the root and client folder to fetch any dependencies
 2. Check any branches or pull requests for similar files/features to avoid conflicts
 3. Pull changes with `git pull`
 4. If working on a new feature/bug, create a new branch with `git checkout -b branch-name`
