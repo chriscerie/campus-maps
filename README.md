@@ -2,6 +2,15 @@
 
 Campus Maps is an app that focuses on offering detailed maps of university campuses.
 
+## Contributors
+
+Christopher Chang | chriscerie
+Janet Zhao | birded
+Jonathan Wang | jwangathan
+Max Bonham | mpbonham
+Sarah Kwon | sarahkwon
+Jason Em | jasonem225
+
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
