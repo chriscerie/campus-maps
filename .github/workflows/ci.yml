@@ -31,7 +31,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install server dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install client dependencies
         run: yarn install --frozen-lockfile
         working-directory: client
 
@@ -42,7 +45,6 @@ jobs:
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./client/coverage/lcov.info
           parallel: true
   
   finish:
@@ -54,5 +56,4 @@ jobs:
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./client/coverage/lcov.info
           parallel-finished: true
