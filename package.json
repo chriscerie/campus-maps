@@ -3,7 +3,6 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc",
     "start": "tsc & node .",
     "dev": "tsc -w & nodemon .",
