@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy Heroku
+      - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Deploy Heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
             heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
