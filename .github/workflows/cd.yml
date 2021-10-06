@@ -10,10 +10,10 @@ jobs:
     name: "deploy"
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Deploy Heroku
-      uses: AkhileshNS/heroku-deploy@v3.12.12
-      with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "campusmaps"
-          heroku_email: "me@chrisc.dev"
+    steps:
+      - name: Deploy Heroku
+        uses: AkhileshNS/heroku-deploy@v3.12.12
+        with:
+            heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+            heroku_app_name: "campusmaps"
+            heroku_email: "me@chrisc.dev"
