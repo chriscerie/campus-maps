@@ -3,14 +3,15 @@
   "private": true,
   "main": "dist/index.js",
   "scripts": {
+    "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc",
-    "start": "node .",
+    "start": "tsc & node .",
+    "postinstall": "npm run build",
     "dev": "tsc -w & nodemon .",
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info",
     "format": "yarn prettier --single-quote --write src/ client/src/ && eslint --fix src/ client/src/ --ext .js,.ts,.jsx,.tsx",
-    "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx",
-    "postinstall": "npm run build"
+    "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "express": "^4.17.1"
