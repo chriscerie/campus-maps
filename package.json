@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc & node .",
+    "start": "node .",
     "dev": "tsc -w & nodemon .",
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info",
