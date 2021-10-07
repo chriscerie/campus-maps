@@ -53,5 +53,5 @@
     "jest": "26.6.0",
     "ts-jest": "^27.0.5"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8000"
 }

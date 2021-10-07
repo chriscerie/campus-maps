@@ -13,7 +13,9 @@ const callBackendAPI = async () => {
 };
 
 function App() {
-  const [data, setData] = useState<any>({ data: 'Waiting for data.' });
+  const [data, setData] = useState<{ data: string }>({
+    data: 'Waiting for data.',
+  });
 
   useEffect(() => {
     callBackendAPI()
