@@ -4,10 +4,9 @@
   "main": "dist/index.js",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
-    "build": "tsc",
+    "build": "cd client && yarn && yarn run build",
     "start": "node dist/index.js",
     "postinstall": "npm run build",
-    "heroku-postbuild": "cd client && yarn && yarn run build",
     "dev": "tsc -w & nodemon .",
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info",
