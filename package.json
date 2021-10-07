@@ -4,8 +4,8 @@
   "main": "dist/index.js",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
-    "build": "cd client && yarn && yarn run build",
-    "start": "node ./dist/index.js",
+    "build": "tsc && cd client && yarn && yarn run build",
+    "start": "node dist/index.js",
     "postinstall": "npm run build",
     "dev": "tsc -w & nodemon .",
     "test": "jest --coverage",
