@@ -13,7 +13,7 @@ app.get('/express_backend', (_, res) => {
 
 // Send all other requests back to React
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
 });
 
 app.listen(port, () => console.log(`Running on port ${port}`));
