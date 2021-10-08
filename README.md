@@ -16,6 +16,10 @@ Sarah Kwon | sarahkwon
 
 Jason Em | jasonem225
 
+## Tech Stack
+
+We will be using MERN Stack (Mongo, Express, React, Node).
+
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
