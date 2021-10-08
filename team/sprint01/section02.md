@@ -16,3 +16,4 @@ The team looked at possible references and guides for the app that members sent 
 
 The team worked on adding stories and TODOs to the Kanban board. 
 
+Jonathan Wang volunteered to lead next week's retrospective.
