@@ -1,3 +1,3 @@
 ## Problem Scenario
 
-- When people start the school quarter, many have to go around campus for a while just find their classes. GoGaucho may give the general area of the classes, but does not give the most accurate directions on how to find the class once in the general area. We are trying to make a web app that will allow students to add pictures and comments to help find classes. We will also try to add a gps function to give the shortest route to the class.
+- When people start the school quarter, many have to go around campus for a while just find their classrooms. GoGaucho may give the general area of the classes, but does not give the most accurate directions on how to find the class once in the general area. We are going to make a web app that will allow students to add pictures and comments to help find their classes. We will also add a gps function to give the shortest route to the class.
