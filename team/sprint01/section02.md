@@ -14,4 +14,5 @@ The team deployed their running app of the "Hello World" program on Heroku.
 
 The team looked at possible references and guides for the app that members sent on Slack
 
-Janet, Chris, and Max worked on adding stories and TODOs to the Kanban board. 
+The team worked on adding stories and TODOs to the Kanban board. 
+
