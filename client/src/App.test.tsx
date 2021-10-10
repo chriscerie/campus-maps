@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import App from './App';
 
 describe('App', () => {
   it('should render successfully', () => {
-    render(<App />);
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

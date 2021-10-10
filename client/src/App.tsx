@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-// fetching the GET route from the Express server which matches the GET route from server.js
+// Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
   const response = await fetch('/express_backend');
   const body = await response.json();
