@@ -1,5 +1,4 @@
 import express from 'express';
-import * as path from 'path';
 
 const app = express();
 const port = process.env.PORT || 5000;
