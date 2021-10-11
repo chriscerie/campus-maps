@@ -1,10 +1,15 @@
 import supertest from 'supertest';
-import express, { response } from 'express';
+import app from './app';
 
-import App from './App';
-
-describe('App', () => {
-  it('should be successful', async () => {
-    expect(true).toBe(true);
+describe('/express_backend', () => {
+  it('should get the correct status and response', async () => {
+    await supertest(app)
+      .get('/express_backend')
+      .expect(200)
+      .then((response) => {
+        expect(response.body.message).toBe(
+          'EXPRESS BACKEND IS CONNECTED TO REACT'
+        );
+      });
   });
 });

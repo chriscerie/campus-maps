@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     callBackendAPI()
-      .then((res) => setData({ data: res.express }))
+      .then((res) => setData({ data: res.message }))
       .catch((err) => console.log(err));
   }, []);
 
