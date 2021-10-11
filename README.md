@@ -20,6 +20,11 @@ Jason Em | jasonem225
 
 We will be using MERN Stack (Mongo, Express, React, Node).
 
+## User Roles
+
+- User can look for locations and add comments 
+- Admins can add more content and delete irrelevent/inappropriate comments
+
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
