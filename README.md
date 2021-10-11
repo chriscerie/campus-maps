@@ -19,3 +19,7 @@ Jason Em | jasonem225
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
+
+## License
+
+Campus Maps is distributed under the MIT license. See [LICENSE](./LICENSE) for details.
