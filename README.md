@@ -23,3 +23,7 @@ We will be using MERN Stack (Mongo, Express, React, Node).
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
+
+## License
+
+Campus Maps is distributed under the MIT license. See [LICENSE](./LICENSE) for details.
