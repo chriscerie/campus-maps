@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
+import HomePage from './pages/HomePage';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
@@ -28,6 +29,7 @@ function App() {
       <header className="App-header">
         <p>{data.data}</p>
       </header>
+      <HomePage />
     </div>
   );
 }
