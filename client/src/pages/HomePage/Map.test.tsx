@@ -1,10 +1,10 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import App from './App';
+import Map from './Map';
 
-describe('App', () => {
+describe('Map', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(<App />);
+    const tree = renderer.render(<Map />);
     expect(tree).toMatchSnapshot();
   });
 });
