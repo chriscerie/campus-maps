@@ -22,8 +22,9 @@ We will be using MERN Stack (Mongo, Express, React, Node).
 
 ## User Roles
 
-- User can look for locations and add comments 
-- Admins can add more content and delete irrelevent/inappropriate comments
+- User can look for locations 
+- Users with UCSB ID can comment
+- Admins can add more content and delete irrelevant/inappropriate comments
 
 ## Contributing
 
