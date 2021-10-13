@@ -1,5 +1,8 @@
 import { useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
+// Exclude mapboxgl transpilation - https://docs.mapbox.com/mapbox-gl-js/guides/install/#transpiling
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import mapboxgl from '!mapbox-gl';
 import './Map.scss';
 
 mapboxgl.accessToken =
