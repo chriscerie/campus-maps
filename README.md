@@ -20,6 +20,16 @@ Jason Em | jasonem225
 
 We will be using MERN Stack (Mongo, Express, React, Node).
 
+## User Roles
+
+- User can look for locations 
+- Users with UCSB ID can comment
+- Admins can add more content and delete irrelevant/inappropriate comments
+
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
+
+## License
+
+Campus Maps is distributed under the MIT license. See [LICENSE](./LICENSE) for details.
