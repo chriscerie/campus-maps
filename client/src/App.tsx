@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
+import HomePage from './pages/HomePage';
 
-// fetching the GET route from the Express server which matches the GET route from server.js
+// Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
   const response = await fetch('/express_backend');
   const body = await response.json();
@@ -19,7 +20,7 @@ function App() {
 
   useEffect(() => {
     callBackendAPI()
-      .then((res) => setData({ data: res.express }))
+      .then((res) => setData({ data: res.message }))
       .catch((err) => console.log(err));
   }, []);
 
@@ -28,6 +29,7 @@ function App() {
       <header className="App-header">
         <p>{data.data}</p>
       </header>
+      <HomePage />
     </div>
   );
 }
