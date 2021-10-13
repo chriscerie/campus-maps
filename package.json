@@ -15,7 +15,8 @@
     "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mapbox-gl": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -28,6 +29,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.0.2",
+    "@types/mapbox-gl": "^2.4.2",
     "@types/node": "^16.10.2",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
