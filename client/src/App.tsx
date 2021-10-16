@@ -28,8 +28,6 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
-      <Logout />
       <header className="App-header">
         <p>{data.data}</p>
       </header>
