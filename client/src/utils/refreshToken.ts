@@ -1,4 +1,4 @@
-import { GoogleLoginResponse } from "react-google-login";
+import { GoogleLoginResponse } from 'react-google-login';
 
 export const refreshTokenSetup = (res: GoogleLoginResponse) => {
   // Timing to renew access token

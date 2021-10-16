@@ -1,5 +1,9 @@
 import React from 'react';
-import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
+import {
+  GoogleLogin,
+  GoogleLoginResponse,
+  GoogleLoginResponseOffline,
+} from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 
 const clientId =
@@ -7,7 +11,7 @@ const clientId =
 
 function LoginButton() {
   const onSuccess = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    if ("profileObj" in res) {
+    if ('profileObj' in res) {
       console.log('Login Success: currentUser:', res.profileObj);
       refreshTokenSetup(res);
     }
