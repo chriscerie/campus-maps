@@ -1,17 +1,19 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 
 const clientId =
   '678281921235-a3c8fq4225vp8ppgjmann65pmt7plaik.apps.googleusercontent.com';
 
-function Login() {
-  const onSuccess = (res) => {
-    console.log('Login Success: currentUser:', res.profileObj);
-    refreshTokenSetup(res);
+function LoginButton() {
+  const onSuccess = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    if ("profileObj" in res) {
+      console.log('Login Success: currentUser:', res.profileObj);
+      refreshTokenSetup(res);
+    }
   };
 
-  const onFailure = (res) => {
+  const onFailure = (res: any) => {
     console.log('Login failed: res:', res);
   };
 
@@ -30,4 +32,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginButton;
