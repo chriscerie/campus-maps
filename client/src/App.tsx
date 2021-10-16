@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage';
+import Login from './components/Login';
+import Logout from './components/Logout';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
@@ -26,6 +28,8 @@ function App() {
 
   return (
     <div className="App">
+      <Login />
+      <Logout />
       <header className="App-header">
         <p>{data.data}</p>
       </header>

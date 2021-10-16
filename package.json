@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mapbox-gl": "^2.5.1"
+    "google-auth-library": "^7.10.1",
+    "mapbox-gl": "^2.5.1",
+    "react-google-login": "^5.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
