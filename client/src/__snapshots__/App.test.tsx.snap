@@ -4,13 +4,6 @@ exports[`App should render successfully 1`] = `
 <div
   className="App"
 >
-  <header
-    className="App-header"
-  >
-    <p>
-      Waiting for data.
-    </p>
-  </header>
   <HomePage />
 </div>
 `;
