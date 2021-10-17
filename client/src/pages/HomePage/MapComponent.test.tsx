@@ -1,7 +1,7 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import Map from './Map';
+import Map from './MapComponent';
 
-describe('Map', () => {
+describe('MapComponent', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
     const tree = renderer.render(<Map />);
