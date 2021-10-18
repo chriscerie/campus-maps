@@ -6,6 +6,7 @@ import mapboxgl from '!mapbox-gl';
 import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
+import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
 
 mapboxgl.accessToken =
@@ -95,6 +96,7 @@ function MapComponent() {
 
   return (
     <div className="map-container" ref={mapContainerRef}>
+      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}

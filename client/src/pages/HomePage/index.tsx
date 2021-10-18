@@ -1,14 +1,7 @@
-import Sidebar from '../../components/Sidebar'
-import React from 'react';
 import MapComponent from './MapComponent';
 
 function HomePage() {
-  return (
-    <React.Fragment>
-      <Sidebar />
-      <MapComponent />
-    </React.Fragment>
-  );
+  return <MapComponent />;
 }
 
 export default HomePage;
