@@ -12,12 +12,14 @@ function PopupSelected(props: {
 
   return (
     properties && (
-      <Container className="popup-selected-container" maxWidth="xl">
-        <Paper
-          elevation={3}
-          className="popup-selected"
-          sx={{ borderRadius: '10px', overflow: 'auto' }}
-        >
+      <Container
+        className="popup-selected-container"
+        maxWidth="xl"
+        sx={{
+          padding: 0,
+        }}
+      >
+        <Paper elevation={3} className="popup-selected">
           <Box className="header-title">
             <h1 className="header-title-title">
               {properties.name || 'Name unavailable'}
