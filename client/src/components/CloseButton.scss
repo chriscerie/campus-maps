@@ -1,7 +1,7 @@
 .close-button {
-  transition: background-color color 0.2s ease;
+  transition: background-color 0.2s, color 0.2s ease;
   background-color: #ccc;
-  opacity: 50%;
+  opacity: 0.5;
   position: relative;
   width: 1.8rem;
   height: 1.8rem;
