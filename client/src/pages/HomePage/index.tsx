@@ -1,12 +1,12 @@
-import Map from './Map';
 import Sidebar from '../../components/Sidebar'
 import React from 'react';
+import MapComponent from './MapComponent';
 
 function HomePage() {
   return (
     <React.Fragment>
       <Sidebar />
-      <Map />
+      <MapComponent />
     </React.Fragment>
   );
 }

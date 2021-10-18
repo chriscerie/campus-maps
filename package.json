@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "google-auth-library": "^7.10.1",
     "mapbox-gl": "^2.5.1"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.2.1",
     "@types/express": "^4.17.13",
+    "@types/geojson": "^7946.0.8",
     "@types/jest": "^27.0.2",
     "@types/mapbox-gl": "^2.4.2",
     "@types/node": "^16.10.2",
