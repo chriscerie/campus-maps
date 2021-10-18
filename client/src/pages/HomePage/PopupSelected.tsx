@@ -2,7 +2,7 @@ import { Button, Container, Divider, Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import { Feature } from 'geojson';
 import './PopupSelected.scss';
-import CloseButton from 'components/CloseButton';
+import CloseButton from '../../components/CloseButton';
 
 function PopupSelected(props: {
   selected: Feature;
