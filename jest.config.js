@@ -7,5 +7,6 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '!mapbox-gl': '<rootDir>/client/__mocks__/mapbox-gl.js',
+    'components/(.*)': '<rootDir>/client/src/components/$1',
   },
 };
