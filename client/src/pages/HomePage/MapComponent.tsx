@@ -27,8 +27,8 @@ function MapComponent() {
     const map: Map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/chriscerie/ckuua1bz9it4j18qxt0tyuf71',
-      center: [-104.9876, 39.7405],
-      zoom: 12.5,
+      center: [-119.84671926350703,34.41130734053741],
+      zoom: 15,
     });
 
     // Navigation control (the +/- zoom buttons)
