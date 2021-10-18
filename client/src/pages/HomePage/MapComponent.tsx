@@ -13,7 +13,10 @@ mapboxgl.accessToken =
 
 function MapComponent() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<null | Feature>(null);
+  const [selected, setSelected] = useState<null | {
+    feature: Feature;
+    popup: Popup;
+  }>(null);
 
   // Initialize map
   useEffect(() => {
@@ -60,16 +63,10 @@ function MapComponent() {
             setSelected(null);
           });
 
-          map.flyTo({
-            center: [
-              feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
-            ],
-            curve: 1,
-            screenSpeed: 0.7,
+          setSelected({
+            feature: feature,
+            popup: popup,
           });
-
-          setSelected(feature);
         }
       }
     });
@@ -98,7 +95,15 @@ function MapComponent() {
 
   return (
     <div className="map-container" ref={mapContainerRef}>
-      {selected != null && <PopupSelected selected={selected} />}
+      {selected && (
+        <PopupSelected
+          selected={selected.feature}
+          removeSelection={() => {
+            selected.popup.remove();
+            setSelected(null);
+          }}
+        />
+      )}
     </div>
   );
 }
