@@ -1,15 +1,17 @@
 .popup-selected-container {
   height: 100%;
+  display: flex !important;
 }
 
 .popup-selected {
   position: relative;
-  height: 90%;
-  width: 400px;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 40%;
+  width: 100%;
   z-index: 10;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-top: auto;
+  overflow: auto;
+  border-radius: 10px 10px 0 0 !important;
 }
 
 .header-title {
@@ -34,4 +36,15 @@
   padding: 26px 22px;
   text-align: left;
   font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .popup-selected {
+    margin-top: inherit;
+    top: 50%;
+    height: 90%;
+    width: 400px;
+    transform: translateY(-50%);
+    border-radius: 10px !important;
+  }
 }
