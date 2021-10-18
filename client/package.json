@@ -3,6 +3,9 @@
   "version": "1.22.10",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -13,6 +16,7 @@
     "@types/react-router": "^5.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-router": "^5.2.1",
     "react-scripts": "4.0.3",
     "react-spring": "^9.3.0",

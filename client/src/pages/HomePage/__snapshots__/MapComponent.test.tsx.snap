@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Map should render successfully 1`] = `
+exports[`MapComponent should render successfully 1`] = `
 <div
   className="map-container"
 />

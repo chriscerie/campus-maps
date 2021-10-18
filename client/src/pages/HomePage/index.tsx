@@ -1,4 +1,4 @@
-import Map from './Map';
+import Map from './MapComponent';
 
 function HomePage() {
   return <Map />;

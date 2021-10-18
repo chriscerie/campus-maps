@@ -8,4 +8,5 @@ module.exports = {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '!mapbox-gl': '<rootDir>/client/__mocks__/mapbox-gl.js',
   },
+  "moduleDirectories": ["node_modules", "client/src"],
 };
