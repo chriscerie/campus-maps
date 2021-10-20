@@ -11,8 +11,8 @@
     "dev": "tsc -w & nodemon .",
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info",
-    "format": "yarn prettier --single-quote --write src/ models/ routes/ client/src/ && eslint --fix src/ models/ routes/ client/src/ --ext .js,.ts,.jsx,.tsx",
-    "lint": "yarn prettier --single-quote --check src/ models/ routes/ client/src/ && eslint src/ models/ routes/ client/src/ --ext .js,.ts,.jsx,.tsx"
+    "format": "yarn prettier --single-quote --write src/ client/src/ && eslint --fix src/ client/src/ --ext .js,.ts,.jsx,.tsx",
+    "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
