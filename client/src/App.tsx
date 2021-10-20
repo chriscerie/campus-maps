@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage';
+import DetailPage from './pages/DetailPage';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
@@ -26,7 +27,8 @@ function App() {
 
   return (
     <div className="App">
-      <HomePage />
+      {/* <HomePage /> */}
+      <DetailPage />
     </div>
   );
 }
