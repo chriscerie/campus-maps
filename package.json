@@ -5,7 +5,7 @@
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc",
-    "start": "tsc & node dist/src/index.js",
+    "start": "tsc & node dist/index.js",
     "postinstall": "yarn run build",
     "heroku-postbuild": "cd client && yarn && yarn run build",
     "dev": "tsc -w & nodemon .",

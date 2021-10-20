@@ -4,8 +4,8 @@ import session from 'express-session';
 import passport from 'passport';
 import dotenv from 'dotenv';
 import * as path from 'path';
-import auth from '../routes/auth';
-import '../models/usersModel';
+import auth from './routes/auth';
+import './models/usersModel';
 
 dotenv.config();
 
@@ -35,10 +35,10 @@ app.use(passport.session());
 import './config/passport';
 
 auth(app);
-import '../routes/posts';
+import './routes/posts';
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('/express_backend', (_, res) => {
   res.status(200).send({ message: 'EXPRESS BACKEND IS CONNECTED TO REACT' });
@@ -46,7 +46,7 @@ app.get('/express_backend', (_, res) => {
 
 // Send all other requests back to React
 app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 export default app;
