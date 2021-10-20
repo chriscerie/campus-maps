@@ -14,7 +14,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-require('../models/usersModel');
+require('./models/usersModel');
 
 app.use(
   session({
