@@ -14,8 +14,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-require('./models/usersModel');
-
 app.use(
   session({
     secret: 'Our little secret.',
@@ -35,7 +33,6 @@ app.use(passport.session());
 import './config/passport';
 
 auth(app);
-import './routes/posts';
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
