@@ -7,6 +7,7 @@ import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import './MapComponent.scss';
+import SearchBar from './SearchBar';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
@@ -18,18 +19,22 @@ function MapComponent() {
     popup: Popup;
   }>(null);
 
+  const [map, setMap] = useState<null | Map>(null);
+
   // Initialize map
   useEffect(() => {
     if (!mapContainerRef.current) {
       return;
     }
 
-    const map: Map = new mapboxgl.Map({
+    const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/chriscerie/ckuua1bz9it4j18qxt0tyuf71',
       center: [-119.8462, 34.4132],
       zoom: 15.5,
     });
+
+    setMap(map);
 
     // Navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
@@ -95,6 +100,7 @@ function MapComponent() {
 
   return (
     <div className="map-container" ref={mapContainerRef}>
+      {map && <SearchBar map={map} />}
       {selected && (
         <PopupSelected
           selected={selected.feature}

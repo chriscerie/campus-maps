@@ -2090,6 +2090,11 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
+"@types/geojson@*":
+  version "7946.0.8"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.8.tgz#30744afdb385e2945e22f3b033f897f76b1f12ca"
+  integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
+
 "@types/glob@^7.1.1":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.4.tgz#ea59e21d2ee5c517914cb4bc8e4153b99e566672"
@@ -2151,6 +2156,21 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+
+"@types/mapbox-gl@*":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.4.2.tgz#b2d5d6572a49561eef0eb361afd92365027efc50"
+  integrity sha512-mKgjmhUN780YGy9ZEyJK0Sr9gMtERmTQimGsIa5WrBHPlBXdmjYfqtz8nSMI7hOnQFphcuSMyqQswaQESFLHsA==
+  dependencies:
+    "@types/geojson" "*"
+
+"@types/mapbox__mapbox-gl-geocoder@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@types/mapbox__mapbox-gl-geocoder/-/mapbox__mapbox-gl-geocoder-4.7.1.tgz#6f1631ed0128525fe928ced630485d76919b00b8"
+  integrity sha512-PSXzZJIcAy8zNisDnTv2n3UmO7CnhLBPwnLgAueoQ3FpgI1cdXxhLZaAcXBrYvZHJw3Mjk758IxR8XM8RI/hYA==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/mapbox-gl" "*"
 
 "@types/minimatch@*":
   version "3.0.5"
@@ -5713,6 +5733,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+fuzzy@^0.1.1:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/fuzzy/-/fuzzy-0.1.3.tgz#4c76ec2ff0ac1a36a9dccf9a00df8623078d4ed8"
+  integrity sha1-THbsL/CsGjap3M+aAN+GIweNTtg=
+
 gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
@@ -7585,7 +7610,7 @@ lodash.clonedeep@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.debounce@^4.0.8:
+lodash.debounce@^4.0.6, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
@@ -7718,6 +7743,23 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+mapbox-gl-geocoder@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/mapbox-gl-geocoder/-/mapbox-gl-geocoder-2.0.1.tgz#4776f9c5fd770e756006a5ac1849e529a8d1de94"
+  integrity sha1-R3b5xf13DnVgBqWsGEnlKajR3pQ=
+  dependencies:
+    lodash.debounce "^4.0.6"
+    mapbox "1.0.0-beta5"
+    suggestions "^1.3.1"
+    xtend "^4.0.1"
+
+mapbox@1.0.0-beta5:
+  version "1.0.0-beta5"
+  resolved "https://registry.yarnpkg.com/mapbox/-/mapbox-1.0.0-beta5.tgz#6342f98df74464fdca007bf19e58ec24133f0d66"
+  integrity sha1-Y0L5jfdEZP3KAHvxnljsJBM/DWY=
+  dependencies:
+    rest "^2.0.0"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -10176,6 +10218,11 @@ resolve@^2.0.0-next.3:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
+rest@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rest/-/rest-2.0.0.tgz#6dfadf66a405c49cfbd5b4bd25b59fd29cd861bc"
+  integrity sha1-bfrfZqQFxJz71bS9JbWf0pzYYbw=
+
 ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
@@ -11054,6 +11101,14 @@ stylis@^4.0.3:
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.10.tgz#446512d1097197ab3f02fb3c258358c3f7a14240"
   integrity sha512-m3k+dk7QeJw660eIKRRn3xPF6uuvHs/FFzjX3HQ5ove0qYsiygoAhwn5a3IYKaZPo5LrYD0rfVmtv1gNY1uYwg==
+
+suggestions@^1.3.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/suggestions/-/suggestions-1.7.1.tgz#2fefcbde8967353056d1d6eaed891b46d98a7e5c"
+  integrity sha512-gl5YPAhPYl07JZ5obiD9nTZsg4SyZswAQU/NNtnYiSnFkI3+ZHuXAiEsYm7AaZ71E0LXSFaGVaulGSWN3Gd71A==
+  dependencies:
+    fuzzy "^0.1.1"
+    xtend "^4.0.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
@@ -12209,7 +12264,7 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
-xtend@^4.0.0, xtend@~4.0.1:
+xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
