@@ -22,7 +22,7 @@ passport.use(
         '796959289157-ser2d8agd1nv5t1kl64ii4rtqfi7blb7.apps.googleusercontent.com',
       clientSecret: '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',
       callbackURL: '/auth/google/callback',
-      userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo',
+      proxy: true,
     },
     (_accessToken, _refreshToken, profile, done) => {
       console.log('LOG');
