@@ -1,3 +1,31 @@
-.testClass {
-    background-color: red;
+body{
+    line-height: 2em;
+}
+
+.align-text-left{
+    text-align: left;
+}
+
+.align-text-right{
+    text-align: right;
+}
+
+.grid-item{
+    padding: 16px !important;
+    padding-bottom: 0px;
+}
+
+.building-info {
+    // line-height: 2em;
+    padding-bottom: 0px !important;
+}
+
+.building-title-header{
+    padding-top: 40px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#test-image{
+    max-width: 100%;
 }
