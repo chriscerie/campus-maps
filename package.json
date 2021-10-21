@@ -15,6 +15,7 @@
     "lint": "yarn prettier --single-quote --check src/ client/src/ && eslint src/ client/src/ --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",

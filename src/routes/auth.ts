@@ -4,15 +4,10 @@ import express from 'express';
 const mockApp = express();
 
 function auth(app: typeof mockApp): void {
-  app.get('/auth/test', (req, res) => {
-    console.log('WORKING');
-    res.send('Auth working properly');
-  });
-
   app.get(
     '/auth/google',
     passport.authenticate('google', {
-      scope: ['profile'],
+      scope: ['profile', 'email'],
     })
   );
 
