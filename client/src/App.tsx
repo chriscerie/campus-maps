@@ -27,8 +27,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <HomePage /> */}
-      <DetailPage />
+      <HomePage />
+      {/* <DetailPage /> */}
     </div>
   );
 }
