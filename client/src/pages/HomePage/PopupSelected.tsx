@@ -45,7 +45,6 @@ function PopupSelected(props: {
                 marginTop: '1rem',
                 borderRadius: '8px',
               }}
-              href="/auth/google"
             >
               More information
             </Button>

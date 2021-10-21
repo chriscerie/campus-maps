@@ -1,0 +1,51 @@
+.header-container {
+  position: absolute;
+  display: block;
+  height: 64px;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.header-text-shadow {
+  transition: text-shadow 0.4s ease;
+  text-shadow: 0 0 5px #999;
+}
+
+.header-text-shadow:hover {
+  transition: text-shadow 0.4s ease;
+  text-shadow: none;
+}
+
+.signup-button {
+  float: right;
+  border-radius: 4px;
+  margin-top: -3px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px #bbb;
+  padding: 6px 22px 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  background-color: transparent;
+  color: #fff;
+}
+
+.signup-button:hover {
+  transition: background-color 0.4s ease, color 0.4s ease;
+  background-color: #fff;
+  color: #666;
+}
+
+.signin-button {
+  float: right;
+  padding: 6px 8px 8px;
+  margin-right: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+}
+
+.signin-button:hover {
+  border-bottom: 3px solid #fff;
+  text-shadow: 0 0 5px #999;
+}
