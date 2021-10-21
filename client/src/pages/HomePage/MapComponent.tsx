@@ -42,7 +42,8 @@ function MapComponent() {
         },
         trackUserLocation: true,
         showUserHeading: true,
-      }), 'bottom-right'
+      }),
+      'bottom-right'
     );
 
     // Popup icon when user clicks on a point of interest
