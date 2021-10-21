@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
+import Header from './components/Header';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
@@ -26,10 +28,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <HomePage />
-      {/* <DetailPage /> */}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/detail" component={DetailPage} />
+      </div>
+    </BrowserRouter>
   );
 }
 
