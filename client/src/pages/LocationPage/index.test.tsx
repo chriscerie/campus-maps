@@ -1,9 +1,10 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import LoginButton from './LoginButton';
+import LocationPage from './index';
 
-describe('LoginButton', () => {
+describe('LocationPage', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    renderer.render(<LoginButton />);
+    const tree = renderer.render(<LocationPage />);
+    expect(tree).toMatchSnapshot();
   });
 });

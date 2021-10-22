@@ -1,9 +1,9 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import LoginButton from './LoginButton';
+import LocationHeader from './LocationHeader';
 
-describe('LoginButton', () => {
+describe('LocationHeader', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    renderer.render(<LoginButton />);
+    renderer.render(<LocationHeader />);
   });
 });

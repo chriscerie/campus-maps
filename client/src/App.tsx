@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
+import LocationPage from './pages/LocationPage';
 import Header from './components/Header';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
@@ -30,7 +31,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route exact path="/" component={HomePage} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/loc" component={LocationPage} />
+        </Switch>
       </div>
     </BrowserRouter>
   );

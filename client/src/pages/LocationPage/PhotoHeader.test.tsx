@@ -1,9 +1,10 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import LoginButton from './LoginButton';
+import PhotoHeader from './PhotoHeader';
 
-describe('LoginButton', () => {
+describe('PhotoHeader', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    renderer.render(<LoginButton />);
+    const tree = renderer.render(<PhotoHeader />);
+    expect(tree).toMatchSnapshot();
   });
 });

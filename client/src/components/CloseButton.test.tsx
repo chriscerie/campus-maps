@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import CloseButton from './CloseButton';
 
 describe('CloseButton', () => {
   it('should render successfully', () => {
-    render(<CloseButton />);
+    const renderer = ShallowRenderer.createRenderer();
+    renderer.render(<CloseButton />);
   });
 });
