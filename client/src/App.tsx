@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
@@ -31,8 +31,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/detail" component={DetailPage} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/loc" component={DetailPage} />
+        </Switch>
       </div>
     </BrowserRouter>
   );

@@ -45,7 +45,7 @@ function PopupSelected(props: {
                 marginTop: '1rem',
                 borderRadius: '8px',
               }}
-              href="/detail"
+              href="/loc"
             >
               More information
             </Button>

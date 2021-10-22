@@ -1,5 +1,10 @@
-body {
+.detail-page-container {
+  display: block;
   line-height: 2em;
+}
+
+.images-list-container {
+  height: 100%;
 }
 
 .align-text-left {
@@ -16,7 +21,6 @@ body {
 }
 
 .building-info {
-  // line-height: 2em;
   padding-bottom: 0px !important;
 }
 
@@ -26,6 +30,6 @@ body {
   margin-bottom: 0px;
 }
 
-#test-image {
-  max-width: 100%;
+#header-image {
+  z-index: -1;
 }

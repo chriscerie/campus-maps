@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhotoHeader should render successfully 1`] = `
+<div
+  className="detail-page-container"
+>
+  <div
+    className="photo-header-container"
+  >
+    <ForwardRef(Container)
+      className="photo-header-content-container"
+    >
+      <div
+        className="photo-header-content"
+      >
+        <div
+          className="photo-header-heading"
+        >
+          Phelps Hall
+        </div>
+        <div
+          className="photo-header-subheading"
+        >
+          University Building
+        </div>
+      </div>
+      <a
+        href="/loc"
+        id="see-more-button"
+      >
+        See more photos
+      </a>
+    </ForwardRef(Container)>
+    <ForwardRef(Stack)
+      alignItems="stretch"
+      className="images-list-container"
+      direction="row"
+      justifyContent="flex-start"
+      spacing={0}
+    >
+      <img
+        alt="Map"
+        id="header-image"
+        src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
+      />
+      <img
+        alt="Map"
+        id="header-image"
+        src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
+      />
+      <img
+        alt="Map"
+        id="header-image"
+        src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
+      />
+    </ForwardRef(Stack)>
+  </div>
+</div>
+`;
