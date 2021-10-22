@@ -1,4 +1,5 @@
 import { Container, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 import './PhotoHeader.scss';
 
 function PhotoHeader() {
@@ -10,9 +11,9 @@ function PhotoHeader() {
             <div className="photo-header-heading">Phelps Hall</div>
             <div className="photo-header-subheading">University Building</div>
           </div>
-          <a href="/loc" id="see-more-button">
+          <Link to="/" id="see-more-button">
             See more photos
-          </a>
+          </Link>
         </Container>
         <Stack
           direction="row"

@@ -31,8 +31,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
+        <HomePage />
         <Switch>
-          <Route exact path="/" component={HomePage} />
           <Route exact path="/loc" component={LocationPage} />
         </Switch>
       </div>

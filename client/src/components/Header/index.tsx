@@ -1,15 +1,13 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import MapHeader from './MapHeader';
 import LocationHeader from './LocationHeader';
 
 function Header() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={MapHeader} />
-        <Route path="/loc" component={LocationHeader} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={MapHeader} />
+      <Route exact path="/loc" component={LocationHeader} />
+    </Switch>
   );
 }
 

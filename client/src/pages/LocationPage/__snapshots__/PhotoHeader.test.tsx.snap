@@ -24,12 +24,12 @@ exports[`PhotoHeader should render successfully 1`] = `
           University Building
         </div>
       </div>
-      <a
-        href="/loc"
+      <Link
         id="see-more-button"
+        to="/"
       >
         See more photos
-      </a>
+      </Link>
     </ForwardRef(Container)>
     <ForwardRef(Stack)
       alignItems="stretch"
