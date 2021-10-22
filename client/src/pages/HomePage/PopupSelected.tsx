@@ -1,4 +1,4 @@
-import { Button, Container, Divider, Paper } from '@mui/material';
+import { Container, Divider, Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import { Feature } from 'geojson';
 import './PopupSelected.scss';
