@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import LoginButton from './LoginButton';
 
 describe('LoginButton', () => {
   it('should render successfully', () => {
-    render(<LoginButton />);
+    const renderer = ShallowRenderer.createRenderer();
+    renderer.render(<LoginButton />);
   });
 });

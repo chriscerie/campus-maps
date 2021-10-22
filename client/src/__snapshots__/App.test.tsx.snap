@@ -6,11 +6,18 @@ exports[`App should render successfully 1`] = `
     className="App"
   >
     <Header />
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/loc"
+      />
+    </Switch>
   </div>
 </BrowserRouter>
 `;
