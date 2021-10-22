@@ -8,7 +8,6 @@
   height: 40%;
   width: 100%;
   z-index: 10;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin-top: auto;
   overflow: auto;
   border-radius: 10px 10px 0 0 !important;
@@ -36,6 +35,26 @@
   padding: 26px 22px;
   text-align: left;
   font-size: 12px;
+}
+
+#popup-location-button {
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2266e3;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  width: 100%;
+  margin-top: 0.8em;
+  transition: background-color 0.2s ease;
+}
+
+#popup-location-button:hover {
+  background-color: #1c57c6;
 }
 
 @media (min-width: 600px) {
