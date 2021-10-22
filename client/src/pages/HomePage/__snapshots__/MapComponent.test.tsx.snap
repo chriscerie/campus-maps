@@ -3,11 +3,6 @@
 exports[`MapComponent should render successfully 1`] = `
 <div
   className="map-container"
-  style={
-    Object {
-      "height": 0,
-      "visibility": "hidden",
-    }
-  }
+  style={Object {}}
 />
 `;
