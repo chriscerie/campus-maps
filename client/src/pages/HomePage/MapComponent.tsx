@@ -100,7 +100,6 @@ function MapComponent() {
     <div
       className="map-container"
       ref={mapContainerRef}
-
       // Only render map if user is in root page
       style={
         location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
