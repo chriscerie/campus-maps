@@ -32,3 +32,11 @@ Max Bonham: Will do JS and React tutorials
 Sarah Kwon: Will do React tutorials
 
 Jason Em: Will do HTML, CSS, React, and JS tutorials, 
+
+## Articles
+
+Max added an article regarding typescript express development, in the backend_articles page.
+
+Chris added a JS tutorial in the JS_articles page. 
+
+Janet added an figma tutorial to the frontend_articles page.
