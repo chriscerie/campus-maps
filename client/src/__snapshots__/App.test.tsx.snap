@@ -6,12 +6,8 @@ exports[`App should render successfully 1`] = `
     className="App"
   >
     <Header />
+    <HomePage />
     <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
       <Route
         component={[Function]}
         exact={true}
