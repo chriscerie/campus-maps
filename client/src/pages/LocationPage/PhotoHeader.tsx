@@ -3,7 +3,7 @@ import './PhotoHeader.scss';
 
 function PhotoHeader() {
   return (
-    <div className="detail-page-container">
+    <div className="location-page-container">
       <div className="photo-header-container">
         <Container className="photo-header-content-container">
           <div className="photo-header-content">

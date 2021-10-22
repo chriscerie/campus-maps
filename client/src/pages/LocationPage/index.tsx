@@ -2,9 +2,9 @@ import { Container } from '@mui/material';
 import PhotoHeader from './PhotoHeader';
 import './index.scss';
 
-function DetailPage() {
+function LocationPage() {
   return (
-    <div className="detail-page-container">
+    <div className="location-page-container">
       <PhotoHeader />
 
       <Container>
@@ -47,4 +47,4 @@ function DetailPage() {
   );
 }
 
-export default DetailPage;
+export default LocationPage;

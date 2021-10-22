@@ -2,7 +2,7 @@
 
 exports[`PhotoHeader should render successfully 1`] = `
 <div
-  className="detail-page-container"
+  className="location-page-container"
 >
   <div
     className="photo-header-container"

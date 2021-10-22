@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
-import DetailPage from './pages/DetailPage';
+import LocationPage from './pages/LocationPage';
 import Header from './components/Header';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
@@ -33,7 +33,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/loc" component={DetailPage} />
+          <Route exact path="/loc" component={LocationPage} />
         </Switch>
       </div>
     </BrowserRouter>

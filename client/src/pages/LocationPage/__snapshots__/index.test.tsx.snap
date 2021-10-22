@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DetailPage should render successfully 1`] = `
+exports[`LocationPage should render successfully 1`] = `
 <div
-  className="detail-page-container"
+  className="location-page-container"
 >
   <PhotoHeader />
   <ForwardRef(Container)>

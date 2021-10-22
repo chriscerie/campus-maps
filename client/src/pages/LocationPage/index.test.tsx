@@ -1,10 +1,10 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import DetailPage from './index';
+import LocationPage from './index';
 
-describe('DetailPage', () => {
+describe('LocationPage', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(<DetailPage />);
+    const tree = renderer.render(<LocationPage />);
     expect(tree).toMatchSnapshot();
   });
 });
