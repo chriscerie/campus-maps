@@ -8,11 +8,13 @@ import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
+import { useLocation } from 'react-router-dom';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
 
 function MapComponent() {
+  const location = useLocation();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<null | {
     feature: Feature;
@@ -28,8 +30,8 @@ function MapComponent() {
     const map: Map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/chriscerie/ckuua1bz9it4j18qxt0tyuf71',
-      center: [-104.9876, 39.7405],
-      zoom: 12.5,
+      center: [-119.8462, 34.4132],
+      zoom: 15.5,
     });
 
     // Navigation control (the +/- zoom buttons)
@@ -43,7 +45,8 @@ function MapComponent() {
         },
         trackUserLocation: true,
         showUserHeading: true,
-      })
+      }),
+      'bottom-right'
     );
 
     // Popup icon when user clicks on a point of interest
@@ -95,8 +98,15 @@ function MapComponent() {
   }, []);
 
   return (
-    <div className="map-container" ref={mapContainerRef}>
-      <Sidebar />
+    <div
+      className="map-container"
+      ref={mapContainerRef}
+      // Only render map if user is in root page
+      style={
+        location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
+      }
+    >
+      <Sidebar/>
       {selected && (
         <PopupSelected
           selected={selected.feature}

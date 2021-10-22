@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
+import LocationPage from './pages/LocationPage';
+import Header from './components/Header';
 
 // Fetching the GET route from the Express server which matches the GET route from server.js
 const callBackendAPI = async () => {
@@ -25,9 +28,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <HomePage />
+        <Switch>
+          <Route exact path="/loc" component={LocationPage} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
