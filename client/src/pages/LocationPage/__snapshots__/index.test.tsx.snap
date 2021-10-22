@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationPage should render successfully 1`] = `
+<div
+  className="location-page-container"
+>
+  <PhotoHeader />
+  <ForwardRef(Container)>
+    <div
+      className="building-info align-text-left"
+    >
+      <p>
+        <strong>
+          Building code:
+        </strong>
+         PHELP 3526
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, purus at eleifend ornare, libero metus tincidunt velit, quis tincidunt nisl eros non tellus. Nunc ullamcorper porttitor risus, eu luctus justo auctor sed. Vestibulum ornare eros est, in tempus massa congue ut. Duis eu fringilla nulla, nec mattis ex. Quisque viverra justo a luctus feugiat. Aliquam erat volutpat. Nullam varius odio ex, non aliquet eros tristique ullamcorper. Donec dignissim nisl dui, in sollicitudin magna faucibus eu. Duis porta ornare erat, ut lacinia lacus volutpat id. Suspendisse potenti. Suspendisse et iaculis velit.
+      </p>
+    </div>
+    <div
+      className="align-text-left"
+    >
+      <h1>
+        Comments
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, purus at eleifend ornare, libero metus tincidunt velit, quis tincidunt nisl eros non tellus. Nunc ullamcorper porttitor risus, eu luctus justo auctor sed. Vestibulum ornare eros est, in tempus massa congue ut. Duis eu fringilla nulla, nec mattis ex. Quisque viverra justo a luctus feugiat. Aliquam erat volutpat. Nullam varius odio ex, non aliquet eros tristique ullamcorper. Donec dignissim nisl dui, in sollicitudin magna faucibus eu. Duis porta ornare erat, ut lacinia lacus volutpat id. Suspendisse potenti. Suspendisse et iaculis velit.
+      </p>
+    </div>
+  </ForwardRef(Container)>
+</div>
+`;

@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import LogoutButton from './LogoutButton';
 
 describe('LogoutButton', () => {
   it('should render successfully', () => {
-    render(<LogoutButton />);
+    const renderer = ShallowRenderer.createRenderer();
+    renderer.render(<LogoutButton />);
   });
 });

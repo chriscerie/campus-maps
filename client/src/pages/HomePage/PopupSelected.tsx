@@ -1,8 +1,9 @@
-import { Button, Container, Divider, Paper } from '@mui/material';
+import { Container, Divider, Paper } from '@mui/material';
 import { Box } from '@mui/system';
 import { Feature } from 'geojson';
 import './PopupSelected.scss';
 import CloseButton from '../../components/CloseButton';
+import { Link } from 'react-router-dom';
 
 function PopupSelected(props: {
   selected: Feature;
@@ -35,19 +36,9 @@ function PopupSelected(props: {
             <h2 className="header-title-subheader">
               {properties.category_en || properties.type}
             </h2>
-            <Button
-              variant="contained"
-              disableElevation
-              fullWidth
-              sx={{
-                background: '#2266e3',
-                textTransform: 'capitalize',
-                marginTop: '1rem',
-                borderRadius: '8px',
-              }}
-            >
+            <Link to="/loc" id="popup-location-button">
               More information
-            </Button>
+            </Link>
           </Box>
           <Divider variant="middle" />
         </Paper>

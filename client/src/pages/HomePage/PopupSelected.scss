@@ -37,6 +37,26 @@
   font-size: 12px;
 }
 
+#popup-location-button {
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2266e3;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  width: 100%;
+  margin-top: 0.8em;
+  transition: background-color 0.2s ease;
+}
+
+#popup-location-button:hover {
+  background-color: #1c57c6;
+}
+
 @media (min-width: 600px) {
   .popup-selected {
     margin-top: inherit;

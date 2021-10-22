@@ -8,11 +8,13 @@ import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import './MapComponent.scss';
 import SearchBar from './SearchBar';
+import { useLocation } from 'react-router-dom';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
 
 function MapComponent() {
+  const location = useLocation();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<null | {
     feature: Feature;
@@ -38,7 +40,6 @@ function MapComponent() {
 
     // Navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-
     // Geolocation control
     map.addControl(
       new mapboxgl.GeolocateControl({
@@ -98,9 +99,15 @@ function MapComponent() {
 
     return () => map.remove();
   }, []);
-
   return (
-    <div className="map-container" ref={mapContainerRef}>
+    <div
+      className="map-container"
+      ref={mapContainerRef}
+      // Only render map if user is in root page
+      style={
+        location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
+      }
+    >
       {map && <SearchBar map={map} />}
       {selected && (
         <PopupSelected
