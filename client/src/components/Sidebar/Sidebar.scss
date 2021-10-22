@@ -1,0 +1,14 @@
+
+.side-nav{
+    width: 150px;
+    background:beige;
+    height: 15vh;
+    transition: all 1s;
+    position: absolute;
+    z-index: 900;
+}
+
+.burger-menu{
+    position:absolute ;
+    z-index: 9000;
+}
