@@ -3,21 +3,21 @@
 [**Campus Maps**](https://campusmaps.herokuapp.com/) Campus maps will provide a detailed map of UCSB. This service will also provide detailed locations of individual classrooms on campus. Users can add comments regrading the location of classrooms.
 ## Contributors
 
-Christopher Chang | chriscerie
+Christopher Chang @chriscerie
 
-Janet Zhao | birded
+Janet Zhao @birded
 
-Jonathan Wang | jwangathan
+Jonathan Wang @jwangathan
 
-Max Bonham | mpbonham
+Max Bonham @mpbonham
 
-Sarah Kwon | sarahkwon
+Sarah Kwon @sarahkwon
 
-Jason Em | jasonem225
+Jason Em @jasonem225
 
 ## Tech Stack
 
-We will be using MERN Stack (Mongo, Express, React, Node).
+We are using MERN (Mongo, Express, React, Node) with Redux.
 
 ## User Roles
 
