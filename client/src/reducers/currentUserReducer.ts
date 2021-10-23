@@ -4,12 +4,7 @@ import {
   CurrentUserState,
 } from '../actions/currentUserActions';
 
-const initialState: CurrentUserState = {
-  name: '',
-  email: '',
-  photo: '',
-  googleId: '',
-};
+const initialState: CurrentUserState = null;
 
 const currentUser: Reducer<CurrentUserState> = (
   state = initialState,
