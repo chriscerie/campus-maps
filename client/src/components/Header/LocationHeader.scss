@@ -1,6 +1,5 @@
 #header-container {
-  display: block;
-  height: 4em;
+  overflow: hidden;
   padding: 1em;
   z-index: 1000;
   box-shadow: inset 0 -1px 0 0 #fff, 0 1px 5px rgb(0 0 0 / 10%);
