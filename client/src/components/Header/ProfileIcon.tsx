@@ -67,10 +67,9 @@ function ProfileIcon() {
       >
         <MenuItem>
           {/* TODO: Replace avatar with profile icon */}
-          <Avatar />{' '}
+          <Avatar />
           <Link to="/" className="menu-item-link">
-            {' '}
-            My Profile{' '}
+            My Profile
           </Link>
         </MenuItem>
         <Divider />
@@ -79,8 +78,7 @@ function ProfileIcon() {
             <Settings fontSize="small" />
           </ListItemIcon>
           <Link to="/" className="menu-item-link">
-            {' '}
-            Settings{' '}
+            Settings
           </Link>
         </MenuItem>
         <MenuItem>
@@ -88,8 +86,7 @@ function ProfileIcon() {
             <Logout fontSize="small" />
           </ListItemIcon>
           <a href="/api/logout" className="menu-item-link">
-            {' '}
-            Logout{' '}
+            Logout
           </a>
         </MenuItem>
       </Menu>
