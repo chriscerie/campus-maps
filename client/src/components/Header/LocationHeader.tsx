@@ -1,9 +1,10 @@
-import { Avatar, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../reducers';
 import SearchBar from './SearchBar';
 import './LocationHeader.scss';
+import ProfileIcon from './ProfileIcon';
 import { Link } from 'react-router-dom';
 
 function LocationHeader() {
@@ -14,13 +15,7 @@ function LocationHeader() {
       <Link to="/" className="header-logo-link" />
       <SearchBar />
       {currentUser ? (
-        <a href="/api/logout">
-          <Avatar
-            alt={currentUser.name}
-            src={currentUser.photo}
-            className="profile-icon-container"
-          />
-        </a>
+        <ProfileIcon />
       ) : (
         <Fragment>
           <a

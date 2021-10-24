@@ -1,7 +1,8 @@
-import { Avatar, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { Fragment } from 'react';
 import SearchBar from './SearchBar';
 import './MapHeader.scss';
+import ProfileIcon from './ProfileIcon';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 
@@ -12,13 +13,7 @@ function MapHeader() {
     <Container className="header-container" maxWidth="xl">
       <SearchBar />
       {currentUser ? (
-        <a href="/api/logout">
-          <Avatar
-            alt={currentUser.name}
-            src={currentUser.photo}
-            className="profile-icon-container"
-          />
-        </a>
+        <ProfileIcon />
       ) : (
         <Fragment>
           <a href="/auth/google" className="signin-button  header-text-shadow">
