@@ -1,4 +1,5 @@
 #header-container {
+  display: table;
   overflow: hidden;
   padding: 1em;
   z-index: 1000;
@@ -33,6 +34,11 @@
 
 #location-header-signin-button:hover {
   background-color: #ccc;
+}
+
+.header-logo-link {
+  display: table-cell;
+  width: 32px;
 }
 
 .header-logo {
