@@ -1,5 +1,5 @@
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import mapboxgl, { Map } from 'mapbox-gl';
+import { Map } from 'mapbox-gl';
 import { useEffect } from 'react';
 import './SearchBar.scss';
 
@@ -12,7 +12,7 @@ function SearchBar(props: { map: Map }) {
       marker: false, // Do not use the default marker style
       placeholder: 'Search', // Placeholder text for the search bar
     });
-    props.map.addControl(geocoder);
+    props.map.addControl(geocoder, 'top-left');
   }, [props.map]);
 
   return null;

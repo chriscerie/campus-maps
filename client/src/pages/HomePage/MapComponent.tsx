@@ -96,7 +96,6 @@ function MapComponent() {
         });
       });
     }
-
     return () => map.remove();
   }, []);
   return (
