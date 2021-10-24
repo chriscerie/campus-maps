@@ -12,6 +12,9 @@ function LocationHeader() {
 
   return (
     <Container id="header-container" maxWidth="xl">
+      <h1 className="header-logo">
+
+      </h1>
       <a
         href="/auth/google"
         id="location-header-signup-button"
