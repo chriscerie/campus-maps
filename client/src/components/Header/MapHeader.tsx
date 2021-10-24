@@ -1,23 +1,29 @@
-import { Container } from '@mui/material';
-import axios from 'axios';
-import { useEffect } from 'react';
+import { Avatar, Container } from '@mui/material';
+import { Fragment } from 'react';
+import type { CurrentUserState } from '../../actions/currentUserActions';
 import './MapHeader.scss';
 
-function MapHeader() {
-  useEffect(() => {
-    axios.get('/api/current_user').then((res) => {
-      console.log(res.data);
-    });
-  }, []);
-
+function MapHeader(props: { currentUser: CurrentUserState }) {
   return (
     <Container className="header-container" maxWidth="xl">
-      <a href="/auth/google" className="signup-button  header-text-shadow">
-        Sign up
-      </a>
-      <a href="/auth/google" className="signin-button  header-text-shadow">
-        Sign in
-      </a>
+      {props.currentUser ? (
+        <a href="/api/logout">
+          <Avatar
+            alt={props.currentUser.name}
+            src={props.currentUser.photo}
+            className="profile-icon-container"
+          />
+        </a>
+      ) : (
+        <Fragment>
+          <a href="/auth/google" className="signup-button  header-text-shadow">
+            Sign up
+          </a>
+          <a href="/auth/google" className="signin-button  header-text-shadow">
+            Sign in
+          </a>
+        </Fragment>
+      )}
     </Container>
   );
 }
