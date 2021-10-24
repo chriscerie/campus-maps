@@ -1,5 +1,7 @@
 .profile-icon-container {
-  float: right;
+  display: flex;
+  box-sizing: border-box;
   width: 1.8em;
   height: 1.8em;
+  cursor: pointer;
 }
