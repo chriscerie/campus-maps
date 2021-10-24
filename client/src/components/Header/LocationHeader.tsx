@@ -2,18 +2,17 @@ import { Avatar, Container } from '@mui/material';
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../reducers';
-import type { CurrentUserState } from '../../actions/currentUserActions';
+import SearchBar from './SearchBar';
 import './LocationHeader.scss';
 import { Link } from 'react-router-dom';
 
-function LocationHeader(props: { currentUser: CurrentUserState }) {
+function LocationHeader() {
   const currentUser = useSelector((state: RootState) => state.currentUser);
 
   return (
     <Container id="header-container" maxWidth="xl">
-      <Link to="/" className="header-logo-link">
-        <div className="header-logo" />
-      </Link>
+      <Link to="/" className="header-logo-link" />
+      <SearchBar />
       {currentUser ? (
         <a href="/api/logout">
           <Avatar
@@ -26,17 +25,17 @@ function LocationHeader(props: { currentUser: CurrentUserState }) {
         <Fragment>
           <a
             href="/auth/google"
-            id="location-header-signup-button"
-            className="location-header-sign-buttons"
-          >
-            Sign up
-          </a>
-          <a
-            href="/auth/google"
             id="location-header-signin-button"
             className="location-header-sign-buttons"
           >
             Sign in
+          </a>
+          <a
+            href="/auth/google"
+            id="location-header-signup-button"
+            className="location-header-sign-buttons"
+          >
+            Sign up
           </a>
         </Fragment>
       )}

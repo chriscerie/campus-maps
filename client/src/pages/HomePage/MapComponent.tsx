@@ -3,11 +3,13 @@ import { useRef, useEffect, useState } from 'react';
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from '!mapbox-gl';
-import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
+import { MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
+import { setMapInstance } from '../../actions/mapActions';
+import { useDispatch } from 'react-redux';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
@@ -19,6 +21,7 @@ function MapComponent() {
     feature: Feature;
     popup: Popup;
   }>(null);
+  const dispatch = useDispatch();
 
   // Initialize map
   useEffect(() => {
@@ -26,16 +29,16 @@ function MapComponent() {
       return;
     }
 
-    const map: Map = new mapboxgl.Map({
+    const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/chriscerie/ckuua1bz9it4j18qxt0tyuf71',
       center: [-119.8462, 34.4132],
       zoom: 15.5,
     });
+    dispatch(setMapInstance(map));
 
     // Navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-
     // Geolocation control
     map.addControl(
       new mapboxgl.GeolocateControl({
@@ -92,9 +95,8 @@ function MapComponent() {
         });
       });
     }
-
     return () => map.remove();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div
