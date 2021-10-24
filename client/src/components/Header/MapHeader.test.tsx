@@ -8,7 +8,7 @@ describe('MapHeader', () => {
     const renderer = ShallowRenderer.createRenderer();
     renderer.render(
       <Provider store={store}>
-        <MapHeader currentUser={null} />
+        <MapHeader />
       </Provider>
     );
   });
