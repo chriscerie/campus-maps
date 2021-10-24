@@ -1,6 +1,7 @@
 .header-container {
   position: absolute;
-  display: block;
+  display: flex !important;
+  align-items: center;
   height: 4em;
   padding: 1em;
   z-index: 1000;
@@ -17,7 +18,8 @@
 }
 
 .signup-button {
-  float: right;
+  display: flex;
+  box-sizing: border-box;
   border-radius: 4px;
   margin-top: -3px;
   border: 3px solid #fff;
@@ -37,7 +39,8 @@
 }
 
 .signin-button {
-  float: right;
+  display: flex;
+  box-sizing: border-box;
   padding: 6px 8px 8px;
   margin-right: 12px;
   text-decoration: none;

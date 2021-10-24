@@ -3,12 +3,13 @@ import { useRef, useEffect, useState } from 'react';
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from '!mapbox-gl';
-import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
+import { MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import './MapComponent.scss';
-import SearchBar from './SearchBar';
 import { useLocation } from 'react-router-dom';
+import { setMapInstance } from '../../actions/mapActions';
+import { useDispatch } from 'react-redux';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
@@ -20,8 +21,7 @@ function MapComponent() {
     feature: Feature;
     popup: Popup;
   }>(null);
-
-  const [map, setMap] = useState<null | Map>(null);
+  const dispatch = useDispatch();
 
   // Initialize map
   useEffect(() => {
@@ -35,8 +35,7 @@ function MapComponent() {
       center: [-119.8462, 34.4132],
       zoom: 15.5,
     });
-
-    setMap(map);
+    dispatch(setMapInstance(map));
 
     // Navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
@@ -97,7 +96,8 @@ function MapComponent() {
       });
     }
     return () => map.remove();
-  }, []);
+  }, [dispatch]);
+
   return (
     <div
       className="map-container"
@@ -107,7 +107,6 @@ function MapComponent() {
         location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
       }
     >
-      {map && <SearchBar map={map} />}
       {selected && (
         <PopupSelected
           selected={selected.feature}
