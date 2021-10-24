@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../../reducers';
 import type { CurrentUserState } from '../../actions/currentUserActions';
 import './LocationHeader.scss';
+import { Link } from 'react-router-dom';
 
 function LocationHeader(props: { currentUser: CurrentUserState }) {
   const currentUser = useSelector((state: RootState) => state.currentUser);
 
   return (
     <Container id="header-container" maxWidth="xl">
+      <Link to="/" className="header-logo-link">
+        <div className="header-logo" />
+      </Link>
       {currentUser ? (
         <a href="/api/logout">
           <Avatar
