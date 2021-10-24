@@ -11,9 +11,9 @@ function LocationHeader(props: { currentUser: CurrentUserState }) {
 
   return (
     <Container id="header-container" maxWidth="xl">
-        <Link to="/" className="header-logo-link">
-          <div className="header-logo" />
-        </Link>
+      <Link to="/" className="header-logo-link">
+        <div className="header-logo" />
+      </Link>
       {currentUser ? (
         <a href="/api/logout">
           <Avatar

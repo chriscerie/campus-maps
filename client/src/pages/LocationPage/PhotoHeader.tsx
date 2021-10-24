@@ -8,8 +8,7 @@ function PhotoHeader() {
       <div className="photo-header-container">
         <Container className="photo-header-content-container">
           <div className="photo-header-content">
-            <div className="photo-header-heading">Phelps Hall
-            </div>
+            <div className="photo-header-heading">Phelps Hall</div>
             <div className="photo-header-subheading">University Building</div>
           </div>
           <Link to="/" id="see-more-button">
