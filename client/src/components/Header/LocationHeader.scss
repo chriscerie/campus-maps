@@ -1,13 +1,14 @@
 #header-container {
-  display: table;
-  overflow: hidden;
+  display: flex;
   padding: 1em;
   z-index: 1000;
   box-shadow: inset 0 -1px 0 0 #fff, 0 1px 5px rgb(0 0 0 / 10%);
+  align-items: center;
 }
 
 .location-header-sign-buttons {
-  float: right;
+  display: flex;
+  box-sizing: border-box;
   border-radius: 4px;
   padding: 0.6em 1.1em;
   text-decoration: none;
@@ -25,7 +26,6 @@
 }
 
 #location-header-signin-button {
-  box-sizing: border-box;
   margin-right: 0.8em;
   font-weight: 600;
   outline: 1px solid #aaa;
@@ -37,12 +37,10 @@
 }
 
 .header-logo-link {
-  display: table-cell;
-  width: 32px;
-}
-
-.header-logo {
+  display: flex;
   background-image: url('../../images/logo32px.png');
-  width: 32px;
-  height: 32px;
+  background-size: cover;
+  width: 2em;
+  height: 2em;
+  margin-right: 2em;
 }
