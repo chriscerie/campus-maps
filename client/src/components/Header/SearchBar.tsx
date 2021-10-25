@@ -16,6 +16,7 @@ function SearchBar() {
         mapboxgl: mapInstance.map, // Set the mapbox-gl instance
         marker: false, // Do not use the default marker style
         placeholder: 'Search', // Placeholder text for the search bar
+        trackProximity: true,
       });
       geocoder.addTo('#mapbox-geocoder-container');
 
