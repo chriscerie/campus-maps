@@ -1,16 +1,15 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { Provider } from 'react-redux';
-import store from './reducers';
-import App from './App';
+import store from '../../reducers';
+import ProfileIcon from './ProfileIcon';
 
-describe('App', () => {
+describe('ProfileIcon', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(
+    renderer.render(
       <Provider store={store}>
-        <App />
+        <ProfileIcon />
       </Provider>
     );
-    expect(tree).toMatchSnapshot();
   });
 });

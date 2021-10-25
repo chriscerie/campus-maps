@@ -1491,12 +1491,20 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/mapbox-gl@^2.4.2":
+"@types/mapbox-gl@*", "@types/mapbox-gl@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@types/mapbox-gl/-/mapbox-gl-2.4.2.tgz#b2d5d6572a49561eef0eb361afd92365027efc50"
   integrity sha512-mKgjmhUN780YGy9ZEyJK0Sr9gMtERmTQimGsIa5WrBHPlBXdmjYfqtz8nSMI7hOnQFphcuSMyqQswaQESFLHsA==
   dependencies:
     "@types/geojson" "*"
+
+"@types/mapbox__mapbox-gl-geocoder@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@types/mapbox__mapbox-gl-geocoder/-/mapbox__mapbox-gl-geocoder-4.7.1.tgz#6f1631ed0128525fe928ced630485d76919b00b8"
+  integrity sha512-PSXzZJIcAy8zNisDnTv2n3UmO7CnhLBPwnLgAueoQ3FpgI1cdXxhLZaAcXBrYvZHJw3Mjk758IxR8XM8RI/hYA==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/mapbox-gl" "*"
 
 "@types/mime@^1":
   version "1.3.2"
