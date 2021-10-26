@@ -1,7 +1,8 @@
+import { Map } from 'mapbox-gl';
 import { Dispatch } from 'redux';
 
 export type MapState = {
-  map: any;
+  map: null | Map;
 };
 
 export const MapActionTypes = {
