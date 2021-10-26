@@ -4,7 +4,7 @@ import PhotoHeader from './PhotoHeader';
 describe('PhotoHeader', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(<PhotoHeader />);
+    const tree = renderer.render(<PhotoHeader selected={null}/>);
     expect(tree).toMatchSnapshot();
   });
 });
