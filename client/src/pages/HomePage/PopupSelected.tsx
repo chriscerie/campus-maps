@@ -36,7 +36,7 @@ function PopupSelected(props: {
             <h2 className="header-title-subheader">
               {properties.category_en || properties.type}
             </h2>
-            <Link to="/loc" id="popup-location-button">
+            <Link to={'/loc/' + props.selected.id} id="popup-location-button">
               More information
             </Link>
           </Box>
