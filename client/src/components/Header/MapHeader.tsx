@@ -1,23 +1,29 @@
 import { Container } from '@mui/material';
-import axios from 'axios';
-import { useEffect } from 'react';
+import { Fragment } from 'react';
+import SearchBar from './SearchBar';
 import './MapHeader.scss';
+import ProfileIcon from './ProfileIcon';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../reducers';
 
 function MapHeader() {
-  useEffect(() => {
-    axios.get('/api/current_user').then((res) => {
-      console.log(res.data);
-    });
-  }, []);
+  const currentUser = useSelector((state: RootState) => state.currentUser);
 
   return (
     <Container className="header-container" maxWidth="xl">
-      <a href="/auth/google" className="signup-button  header-text-shadow">
-        Sign up
-      </a>
-      <a href="/auth/google" className="signin-button  header-text-shadow">
-        Sign in
-      </a>
+      <SearchBar />
+      {currentUser ? (
+        <ProfileIcon />
+      ) : (
+        <Fragment>
+          <a href="/auth/google" className="signin-button  header-text-shadow">
+            Sign in
+          </a>
+          <a href="/auth/google" className="signup-button  header-text-shadow">
+            Sign up
+          </a>
+        </Fragment>
+      )}
     </Container>
   );
 }

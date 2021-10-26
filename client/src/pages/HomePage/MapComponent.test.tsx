@@ -1,4 +1,6 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
+import { Provider } from 'react-redux';
+import store from '../../reducers';
 import Map from './MapComponent';
 
 jest.mock('react-router-dom', () => ({
@@ -15,7 +17,11 @@ jest.mock('react-router-dom', () => ({
 describe('MapComponent', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(<Map />);
+    const tree = renderer.render(
+      <Provider store={store}>
+        <Map />
+      </Provider>
+    );
     expect(tree).toMatchSnapshot();
   });
 });

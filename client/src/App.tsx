@@ -1,31 +1,18 @@
-import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import HomePage from './pages/HomePage';
 import LocationPage from './pages/LocationPage';
 import Header from './components/Header';
-
-// Fetching the GET route from the Express server which matches the GET route from server.js
-const callBackendAPI = async () => {
-  const response = await fetch('/express_backend');
-  const body = await response.json();
-
-  if (response.status !== 200) {
-    throw Error(body.message);
-  }
-  return body;
-};
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from './actions/currentUserActions';
 
 function App() {
-  const [data, setData] = useState<{ data: string }>({
-    data: 'Waiting for data.',
-  });
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    callBackendAPI()
-      .then((res) => setData({ data: res.message }))
-      .catch((err) => console.log(err));
-  }, []);
+    dispatch(setCurrentUser());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>

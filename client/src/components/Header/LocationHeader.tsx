@@ -1,31 +1,39 @@
 import { Container } from '@mui/material';
-import axios from 'axios';
-import { useEffect } from 'react';
+import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../reducers';
+import SearchBar from './SearchBar';
 import './LocationHeader.scss';
+import ProfileIcon from './ProfileIcon';
+import { Link } from 'react-router-dom';
 
 function LocationHeader() {
-  useEffect(() => {
-    axios.get('/api/current_user').then((res) => {
-      console.log(res.data);
-    });
-  }, []);
+  const currentUser = useSelector((state: RootState) => state.currentUser);
 
   return (
     <Container id="header-container" maxWidth="xl">
-      <a
-        href="/auth/google"
-        id="location-header-signup-button"
-        className="location-header-sign-buttons"
-      >
-        Sign up
-      </a>
-      <a
-        href="/auth/google"
-        id="location-header-signin-button"
-        className="location-header-sign-buttons"
-      >
-        Sign in
-      </a>
+      <Link to="/" className="header-logo-link" />
+      <SearchBar />
+      {currentUser ? (
+        <ProfileIcon />
+      ) : (
+        <Fragment>
+          <a
+            href="/auth/google"
+            id="location-header-signin-button"
+            className="location-header-sign-buttons"
+          >
+            Sign in
+          </a>
+          <a
+            href="/auth/google"
+            id="location-header-signup-button"
+            className="location-header-sign-buttons"
+          >
+            Sign up
+          </a>
+        </Fragment>
+      )}
     </Container>
   );
 }

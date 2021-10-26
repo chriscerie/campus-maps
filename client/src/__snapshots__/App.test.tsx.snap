@@ -1,19 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render successfully 1`] = `
-<BrowserRouter>
-  <div
-    className="App"
-  >
-    <Header />
-    <HomePage />
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/loc"
-      />
-    </Switch>
-  </div>
-</BrowserRouter>
+<Context.Provider
+  value={
+    Object {
+      "store": Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <App />
+</Context.Provider>
 `;
