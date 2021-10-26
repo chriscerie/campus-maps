@@ -39,5 +39,6 @@ module.exports = {
         singleQuote: true,
       },
     ],
+    eqeqeq: 'off',
   },
 };

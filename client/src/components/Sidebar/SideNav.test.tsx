@@ -1,23 +1,15 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { Provider } from 'react-redux';
 import store from '../../reducers';
-import LocationPage from './index';
+import SideNav from './SideNav';
 
-jest.mock('react-router-dom', () => ({
-  __esModule: true,
-  useParams: jest.fn().mockReturnValue({
-    id: '1',
-  }),
-}));
-
-describe('LocationPage', () => {
+describe('SideNav', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(
+    renderer.render(
       <Provider store={store}>
-        <LocationPage />
+        <SideNav onClick={() => {}} />
       </Provider>
     );
-    expect(tree).toMatchSnapshot();
   });
 });

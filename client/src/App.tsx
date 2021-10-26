@@ -20,7 +20,7 @@ function App() {
         <Header />
         <HomePage />
         <Switch>
-          <Route exact path="/loc" component={LocationPage} />
+          <Route exact path="/loc/:id" component={LocationPage} />
         </Switch>
       </div>
     </BrowserRouter>
