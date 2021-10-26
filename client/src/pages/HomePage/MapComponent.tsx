@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from '!mapbox-gl';
-import { MapLayerMouseEvent, Popup } from 'mapbox-gl';
+import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
 import './MapComponent.scss';
@@ -29,7 +29,7 @@ function MapComponent() {
       return;
     }
 
-    const map = new mapboxgl.Map({
+    const map: Map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/chriscerie/ckuua1bz9it4j18qxt0tyuf71',
       center: [-119.8462, 34.4132],
@@ -95,6 +95,7 @@ function MapComponent() {
         });
       });
     }
+
     return () => map.remove();
   }, [dispatch]);
   return (
