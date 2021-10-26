@@ -106,7 +106,7 @@ function MapComponent() {
         location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
       }
     >
-      <Sidebar/>
+      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}
