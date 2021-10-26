@@ -6,6 +6,7 @@ import mapboxgl from '!mapbox-gl';
 import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
+import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
 import { setMapInstance } from '../../actions/mapActions';
@@ -107,6 +108,7 @@ function MapComponent() {
         location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
       }
     >
+      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}
