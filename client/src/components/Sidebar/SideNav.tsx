@@ -13,7 +13,7 @@ function Sidenav(props: { onClick: () => void }) {
       <SideArrowRight onClick={props.onClick} />
 
       <List className="items">
-        {['Temp1', 'Temp2'].map((text, index) => (
+        {['Temp', 'Sidebar'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <SettingsIcon /> : <LoginIcon />}
