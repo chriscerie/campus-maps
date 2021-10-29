@@ -13,3 +13,9 @@
 ## Optional
 
 * remember goals and hopefully implment changes
+
+## Retro Assessment
+
+* Followed the Goal/Change/Measurement outline
+* Went well; everyone contributed ideas on current weaknesses
+* Have an open mind and listen to all members
