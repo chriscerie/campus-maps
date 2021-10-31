@@ -1,6 +1,6 @@
 import Comments from './components/Comments';
 
-const App = () => {
+const CommentSection = () => {
     return (
         <div>
             <Comments/>
@@ -8,4 +8,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default CommentSection;

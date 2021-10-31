@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./index.css";
+import CommentSection from "./CommentSection";
+import "./index.scss";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <CommentSection />
     </React.StrictMode>,
     document.getElementById("root")
 );
