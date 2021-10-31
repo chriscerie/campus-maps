@@ -6,6 +6,7 @@ import { RootState } from '../../reducers';
 import { useParams } from 'react-router-dom';
 import './index.scss';
 import { useState, useEffect } from 'react';
+import Comments from '../../comments/components/Comments'
 
 function LocationPage() {
   const { id } = useParams<{ id: string }>();
@@ -61,19 +62,7 @@ function LocationPage() {
 
         <div className="align-text-left">
           {/* TODO implement comments */}
-          <h1>Comments</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            accumsan, purus at eleifend ornare, libero metus tincidunt velit,
-            quis tincidunt nisl eros non tellus. Nunc ullamcorper porttitor
-            risus, eu luctus justo auctor sed. Vestibulum ornare eros est, in
-            tempus massa congue ut. Duis eu fringilla nulla, nec mattis ex.
-            Quisque viverra justo a luctus feugiat. Aliquam erat volutpat.
-            Nullam varius odio ex, non aliquet eros tristique ullamcorper. Donec
-            dignissim nisl dui, in sollicitudin magna faucibus eu. Duis porta
-            ornare erat, ut lacinia lacus volutpat id. Suspendisse potenti.
-            Suspendisse et iaculis velit.
-          </p>
+          <Comments/>
         </div>
       </Container>
     </div>

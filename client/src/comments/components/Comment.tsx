@@ -1,10 +1,14 @@
 import comment from '../types'
 
+
 const Comment = (comm : comment, replies: Array<comment>) => {
+    const emptyArrayReplies = {
+        replies : []
+    }
     return (
         <div className="comment">
             <div className="comment-image-container">
-                <img src="../user-icon.png"/>
+                <img src="../user-icon.png" alt=""/>
             </div>
             <div className="comment-right-part">
                 <div className="comment-content">
@@ -15,7 +19,7 @@ const Comment = (comm : comment, replies: Array<comment>) => {
                 {replies.length > 0 && (
                     <div className="replies">
                         {replies.map((reply : comment) => (
-                            <Comment {...reply} key={reply.id} {...replies}/> //replies part might be wrong 
+                            <Comment {...reply} key={reply.id} {...emptyArrayReplies} /> //replies part might be wrong 
                         ))}
                     </div>
                 )}
