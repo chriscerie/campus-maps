@@ -1,6 +1,6 @@
 import comment from '../types'
 
-const Comment = (comm : comment, replies: comment) => {
+const Comment = (comm : comment, replies: Array<comment>) => {
     return (
         <div className="comment">
             <div className="comment-image-container">
@@ -12,7 +12,7 @@ const Comment = (comm : comment, replies: comment) => {
                     <div>{comm.createdAt}</div>
                 </div>
                 <div className="comment-text">{comm.body}</div>
-                {replies.userId.length > 0 && (
+                {replies.length > 0 && (
                     <div className="replies">
                         {replies.map((reply : comment) => (
                             <Comment {...reply} key={reply.id} {...replies}/> //replies part might be wrong 
