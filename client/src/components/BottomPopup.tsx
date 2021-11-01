@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import { useRef, ReactNode, CSSProperties } from 'react';
@@ -25,7 +24,7 @@ function BottomPopup({
   children?: ReactNode;
   zIndex?: number;
 }) {
-  const isBigScreen = useMediaQuery({ query: '(min-width: 600px)' });
+  const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' });
   const currentHeight = useRef(initialHeight);
   const currentBreakPoint = useRef(initialHeight);
 
@@ -58,11 +57,9 @@ function BottomPopup({
   });
 
   return (
-    <Container
+    <div
       className="bottom-popup-container"
-      maxWidth="xl"
-      sx={{
-        padding: 0,
+      style={{
         zIndex: zIndex,
       }}
     >
@@ -72,10 +69,11 @@ function BottomPopup({
         </div>
       ) : (
         <animated.div {...bind()} className="bottom-popup" style={{ height }}>
+          <div id="bottom-popup-handle" />
           {children}
         </animated.div>
       )}
-    </Container>
+    </div>
   );
 }
 
