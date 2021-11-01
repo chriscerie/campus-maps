@@ -2,7 +2,7 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import BottomPopup from './BottomPopup';
 
 jest.mock('@use-gesture/react', () => ({
-  useDrag: jest.fn().mockReturnValue(() => ({})),
+  useDrag: () => () => {},
 }));
 
 describe('BottomPopup', () => {
