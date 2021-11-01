@@ -1,10 +1,11 @@
 .header-container {
-  position: absolute;
+  position: relative;
   display: flex !important;
   align-items: center;
   height: 4em;
   padding: 1em;
   z-index: 1000;
+  bottom: 0;
 }
 
 .header-text-shadow {
@@ -30,6 +31,7 @@
   transition: background-color 0.4s ease, color 0.4s ease;
   background-color: transparent;
   color: #fff;
+  pointer-events: all;
 }
 
 .signup-button:hover {
@@ -46,9 +48,16 @@
   text-decoration: none;
   font-weight: 700;
   color: #fff;
+  pointer-events: all;
 }
 
 .signin-button:hover {
   border-bottom: 3px solid #fff;
   text-shadow: 0 0 5px #999;
+}
+
+@media (min-width: 769px) {
+  .header-container {
+    bottom: auto;
+  }
 }
