@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import CommentSection from "./CommentSection";
-import "./index.scss";
+import Comments from './components/Comments';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <CommentSection />
-    </React.StrictMode>,
-    document.getElementById("root")
-);
+const CommentSection = () => {
+  return (
+    <div>
+      <Comments />
+    </div>
+  );
+};
+
+export default CommentSection;

@@ -6,7 +6,7 @@ import { RootState } from '../../reducers';
 import { useParams } from 'react-router-dom';
 import './index.scss';
 import { useState, useEffect } from 'react';
-import Comments from '../../comments/components/Comments'
+import Comments from '../../comments/components/Comments';
 
 function LocationPage() {
   const { id } = useParams<{ id: string }>();
@@ -62,7 +62,7 @@ function LocationPage() {
 
         <div className="align-text-left">
           {/* TODO implement comments */}
-          <Comments/>
+          <Comments />
         </div>
       </Container>
     </div>
