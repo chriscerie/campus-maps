@@ -24,18 +24,18 @@ const Comments = () => {
         });
     }, []);
 
+    
 
     return (
         <div className = "comments">
             <h3 className="comments-title">Comments</h3>
             <div className="comment-form-title">Write comment</div>
-            <CommentForm handleSubmit={addComment}/>
             <div className="comments-container">
                 {rootComments.map((rootComment: comment) => (
-                    <Comment 
-                        key={rootComment.id} 
+                    <Comment  
                         {...rootComment} 
-                        {...getReplies(rootComment.id)} 
+                        {...getReplies(rootComment.id)}
+                        key={rootComment.id} 
                     /> //key, comm, replies
                 ))}
             </div>

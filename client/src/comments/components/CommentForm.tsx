@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CommentForm = (handleSubmit: any) => {
+const CommentForm = (handleSubmit: (text: string) => void) => {
     const [text, setText] = useState("");
     const onSubmit = (event: any) => {
         event.preventDefault()
