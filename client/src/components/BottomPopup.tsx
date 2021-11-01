@@ -1,3 +1,6 @@
+// no
+//ds
+
 import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import { useRef, ReactNode, CSSProperties } from 'react';
@@ -40,7 +43,8 @@ function BottomPopup({
     },
   }));
 
-  const bind = useDrag(({ active, movement: [mx, my] }) => {
+  // Any type as type inference messes up tests (complains that ...bind() is not callable)
+  const bind: any = useDrag(({ active, movement: [mx, my] }) => {
     // Update current breakpoint when user stops dragging
     if (!active) {
       currentBreakPoint.current = getClosestBreakPoint(currentHeight.current);
