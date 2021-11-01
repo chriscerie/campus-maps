@@ -23,6 +23,7 @@ function PopupSelected(props: {
           width: '400px',
           transform: 'translateY(-50%)',
           borderRadius: '10px',
+          left: '3em',
         }}
       >
         <Box className="header-title">
