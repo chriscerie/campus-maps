@@ -1,0 +1,16 @@
+.bottom-popup-container {
+  height: 100%;
+  display: flex !important;
+}
+
+.bottom-popup {
+  position: relative;
+  height: 40%;
+  width: 100%;
+  z-index: 10;
+  margin-top: auto;
+  overflow: auto;
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  touch-action: none;
+}
