@@ -9,4 +9,10 @@ module.exports = {
     '!mapbox-gl': '<rootDir>/client/__mocks__/mapbox-gl.js',
   },
   moduleDirectories: ["node_modules", "client/src"],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/client/src/actions/',
+    '<rootDir>/client/src/reducers/',
+    '<rootDir>/client/node_modules/',
+  ]
 };
