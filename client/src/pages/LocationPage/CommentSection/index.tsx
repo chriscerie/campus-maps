@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getComments as getCommentsApi } from '../api';
+import { getComments as getCommentsApi } from './api';
 import { CommentType } from './Comment';
 import Comment from './Comment';
 import CommentForm from './CommentForm';
 
-const Comments = () => {
+const CommentSection = () => {
   const [backendComments, setBackendComments] = useState([]);
   const rootComments: Array<CommentType> = backendComments.filter(
     (backendComment: CommentType) => backendComment.parentId === null
@@ -32,8 +32,6 @@ const Comments = () => {
     });
   }, []);
 
-  console.log(rootComments);
-
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
@@ -51,4 +49,4 @@ const Comments = () => {
   );
 };
 
-export default Comments;
+export default CommentSection;

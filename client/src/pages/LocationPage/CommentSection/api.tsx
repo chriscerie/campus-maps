@@ -1,4 +1,4 @@
-import { CommentType } from './components/Comment';
+import { CommentType } from './Comment';
 
 export const getComments = async () => {
   let comments: Array<CommentType> = [

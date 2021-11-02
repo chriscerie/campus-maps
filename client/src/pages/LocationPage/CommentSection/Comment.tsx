@@ -1,3 +1,5 @@
+import './Comment.scss';
+
 export type CommentType = {
   id: string;
   body: string;
@@ -29,7 +31,7 @@ const Comment = ({
         {replies.length > 0 && (
           <div className="replies">
             {replies.map((reply: CommentType) => (
-              <Comment comm={reply} key={reply.id} replies={[]} /> //replies part might be wrong
+              <Comment comm={reply} key={reply.id} replies={[]} />
             ))}
           </div>
         )}
