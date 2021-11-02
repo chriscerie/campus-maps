@@ -11,7 +11,7 @@ function LeftColumnDetais() {
   return (
     <div id="location-page-left-column">
       <div id="location-page-left-buttons-container">
-        <td className="location-page-left-button">
+        <div className="location-page-left-button">
           <Button
             variant="contained"
             disableElevation
@@ -20,8 +20,8 @@ function LeftColumnDetais() {
           >
             Write a comment
           </Button>
-        </td>
-        <td className="location-page-left-button">
+        </div>
+        <div className="location-page-left-button">
           <Button
             variant="outlined"
             color="inherit"
@@ -30,8 +30,8 @@ function LeftColumnDetais() {
           >
             Add Photo
           </Button>
-        </td>
-        <td className="location-page-left-button">
+        </div>
+        <div className="location-page-left-button">
           <Button
             variant="outlined"
             color="inherit"
@@ -40,8 +40,8 @@ function LeftColumnDetais() {
           >
             Share
           </Button>
-        </td>
-        <td className="location-page-left-button">
+        </div>
+        <div className="location-page-left-button">
           <Button
             variant="outlined"
             color="inherit"
@@ -50,7 +50,7 @@ function LeftColumnDetais() {
           >
             Save
           </Button>
-        </td>
+        </div>
       </div>
 
       <LocationSection title="Details">
@@ -72,8 +72,6 @@ function LeftColumnDetais() {
 
       <LocationSection title="Comments">
         <div className="align-text-left">
-          <CommentSection />
-          <CommentSection />
           <CommentSection />
         </div>
       </LocationSection>

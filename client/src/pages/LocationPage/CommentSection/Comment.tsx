@@ -1,3 +1,5 @@
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { IconButton } from '@mui/material';
 import './Comment.scss';
 
 export type CommentType = {
@@ -5,38 +7,40 @@ export type CommentType = {
   body: string;
   username: string;
   userId: string;
-  parentId: string | null;
   createdAt: string;
+  photo: string;
 };
 
-const Comment = ({
-  comm,
-  replies,
-}: {
-  comm: CommentType;
-  replies: Array<CommentType>;
-}) => {
+const Comment = ({ comm }: { comm: CommentType }) => {
   console.log(comm);
   return (
-    <div className="comment">
-      <div className="comment-image-container">
-        <img src="../user-icon.png" alt="" />
+    <li className="comment-container">
+      <div className="comment-header-container">
+        <div className="comment-header-leftside">
+          <div className="comment-header-leftside-body">
+            <div className="comment-profile-image-container">
+              <img
+                src={comm.photo}
+                alt="profile"
+                className="comment-profile-image"
+              />
+            </div>
+            <div className="comment-user-info-container">
+              <div className="comment-user-info">{comm.username}</div>
+              <div className="comment-date">{comm.createdAt}</div>
+            </div>
+          </div>
+        </div>
+        <div className="comment-header-rightside">
+          <IconButton>
+            <MoreHorizIcon />
+          </IconButton>
+        </div>
       </div>
       <div className="comment-right-part">
-        <div className="comment-content">
-          <div className="comment-author">{comm.username}</div>
-          <div>{comm.createdAt}</div>
-        </div>
         <div className="comment-text">{comm.body}</div>
-        {replies.length > 0 && (
-          <div className="replies">
-            {replies.map((reply: CommentType) => (
-              <Comment comm={reply} key={reply.id} replies={[]} />
-            ))}
-          </div>
-        )}
       </div>
-    </div>
+    </li>
   );
 };
 
