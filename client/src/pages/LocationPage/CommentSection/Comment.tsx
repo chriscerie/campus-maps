@@ -37,8 +37,8 @@ const Comment = ({ comm }: { comm: CommentType }) => {
           </IconButton>
         </div>
       </div>
-      <div className="comment-right-part">
-        <div className="comment-text">{comm.body}</div>
+      <div className="comment-text-container">
+        <p className="comment-text">{comm.body}</p>
       </div>
     </li>
   );
