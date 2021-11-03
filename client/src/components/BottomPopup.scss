@@ -1,0 +1,32 @@
+.bottom-popup-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex !important;
+  pointer-events: none;
+}
+
+.bottom-popup {
+  position: relative;
+  height: 40%;
+  width: 100%;
+  padding: 0.8em 2em 0 2em;
+  z-index: 10;
+  margin-top: auto;
+  overflow: auto;
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  touch-action: none;
+  pointer-events: all;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #bbb;
+}
+
+#bottom-popup-handle {
+  width: 10%;
+  border-radius: 50px;
+  height: 5px;
+  background-color: #bbb;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}

@@ -9,7 +9,7 @@ function Header() {
       <Route exact path="/">
         <MapHeader />
       </Route>
-      <Route exact path="/loc">
+      <Route path="/loc">
         <LocationHeader />
       </Route>
     </Switch>

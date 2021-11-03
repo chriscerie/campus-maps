@@ -1,0 +1,13 @@
+#location-page-right-column {
+  display: table-cell;
+  width: calc(100% / 3);
+  vertical-align: top;
+  box-sizing: border-box;
+  height: 100%;
+  padding-left: 1em;
+}
+
+#sticky-sidebar {
+  position: sticky;
+  top: 1em;
+}

@@ -12,5 +12,6 @@ describe('App', () => {
       </Provider>
     );
     expect(tree).toMatchSnapshot();
+    renderer.unmount();
   });
 });
