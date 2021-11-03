@@ -26,6 +26,10 @@ function SearchBar() {
           zoom: 16,
         });
       });
+
+      return () => {
+        mapInstance.removeControl(geocoder);
+      }
     }
   }, [mapInstance]);
 
