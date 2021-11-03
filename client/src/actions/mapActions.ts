@@ -16,3 +16,12 @@ export const setMapInstance = (newMap: any) => {
     });
   };
 };
+
+export const setSelected = (newSelected: any) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: MapActionTypes.SET_NEW_SELECTED,
+      payload: { selected: newSelected}
+    })
+  }
+}

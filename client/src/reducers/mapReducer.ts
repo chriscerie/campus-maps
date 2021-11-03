@@ -3,6 +3,7 @@ import { MapState, MapActionTypes } from '../actions/mapActions';
 
 const initialState: MapState = {
   map: null,
+  selected: null,
 };
 
 const mapInstance: Reducer<MapState> = (state = initialState, action) => {
@@ -13,5 +14,7 @@ const mapInstance: Reducer<MapState> = (state = initialState, action) => {
       return state;
   }
 };
+
+
 
 export default mapInstance;

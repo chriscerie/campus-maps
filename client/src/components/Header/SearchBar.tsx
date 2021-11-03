@@ -1,13 +1,11 @@
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import mapInstance from 'reducers/mapReducer';
 import { RootState } from '../../reducers';
 import './SearchBar.scss';
 
 function SearchBar() {
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-
   useEffect(() => {
     if (mapInstance) {
       const geocoder = new MapboxGeocoder({
@@ -35,6 +33,11 @@ function SearchBar() {
           center: e.result.geometry.coordinates,
           zoom: 16,
         });
+        const feature = e.
+        dispatch(setSelected({
+            feature: feature,
+            popup: popup,
+          }));
       });
     }
   }, [mapInstance]);

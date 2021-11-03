@@ -10,6 +10,7 @@ import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
 import { setMapInstance } from '../../actions/mapActions';
 import { useDispatch } from 'react-redux';
+import { features } from 'process';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
@@ -36,7 +37,6 @@ function MapComponent() {
       zoom: 15.5,
     });
     dispatch(setMapInstance(map));
-
     // Navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     // Geolocation control
@@ -69,14 +69,14 @@ function MapComponent() {
             setSelected(null);
           });
 
-          setSelected({
+          dispatch(setSelected({
             feature: feature,
             popup: popup,
-          });
+          }));
         }
       }
     });
-
+    
     map.on('mouseenter', 'poi-label', (_e: MapLayerMouseEvent) => {
       map.getCanvas().style.cursor = 'pointer';
     });
