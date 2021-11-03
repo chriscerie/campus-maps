@@ -29,7 +29,7 @@ function SearchBar() {
 
       return () => {
         mapInstance.removeControl(geocoder);
-      }
+      };
     }
   }, [mapInstance]);
 
