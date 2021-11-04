@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: "yarn_lint"
+    name: yarn_lint
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +23,37 @@ jobs:
       - name: Lint and Style Check
         run: yarn lint
 
+  compress:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    name: compress_imgs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Compress images
+        id: calibre
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          # For non-PRs, run in compressOnly mode PR after.
+          compressOnly: ${{ github.event_name != 'pull_request' }}
+
+      - name: Create pull request
+        # If not a PR, commit any changes as a new PR.
+        if: |
+          github.event_name != 'pull_request' &&
+          steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: Compress images
+          branch-suffix: timestamp
+          commit-message: Compress images
+          body: ${{ steps.calibre.outputs.markdown }}
+
   test:
-    name: "yarn_test"
+    name: yarn_test
     runs-on: ubuntu-latest
 
     steps:

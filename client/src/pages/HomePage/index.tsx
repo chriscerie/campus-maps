@@ -1,7 +1,7 @@
-import Map from './MapComponent';
+import MapComponent from './MapComponent';
 
 function HomePage() {
-  return <Map />;
+  return <MapComponent />;
 }
 
 export default HomePage;

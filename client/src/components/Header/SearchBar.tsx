@@ -39,6 +39,10 @@ function SearchBar() {
             popup: popup,
           }));
       });
+
+      return () => {
+        mapInstance.removeControl(geocoder);
+      };
     }
   }, [mapInstance]);
 

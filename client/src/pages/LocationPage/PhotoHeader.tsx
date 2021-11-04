@@ -2,14 +2,25 @@ import { Container, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './PhotoHeader.scss';
 
-function PhotoHeader() {
+function PhotoHeader(props: {
+  selected: null | mapboxgl.MapboxGeoJSONFeature;
+}) {
+  let name = '...';
+  let category = '...';
+
+  if (props.selected && props.selected.properties) {
+    const properties = props.selected.properties;
+    name = properties.name;
+    category = properties.category_en || properties.type;
+  }
+
   return (
     <div className="location-page-container">
       <div className="photo-header-container">
         <Container className="photo-header-content-container">
           <div className="photo-header-content">
-            <div className="photo-header-heading">Phelps Hall</div>
-            <div className="photo-header-subheading">University Building</div>
+            <div className="photo-header-heading">{name}</div>
+            <div className="photo-header-subheading">{category}</div>
           </div>
           <Link to="/" id="see-more-button">
             See more photos

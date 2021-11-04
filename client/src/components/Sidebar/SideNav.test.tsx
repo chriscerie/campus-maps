@@ -1,17 +1,15 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { Provider } from 'react-redux';
-import store from './reducers';
-import App from './App';
+import store from '../../reducers';
+import SideNav from './SideNav';
 
-describe('App', () => {
+describe('SideNav', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(
+    renderer.render(
       <Provider store={store}>
-        <App />
+        <SideNav onClick={() => {}} />
       </Provider>
     );
-    expect(tree).toMatchSnapshot();
-    renderer.unmount();
   });
 });

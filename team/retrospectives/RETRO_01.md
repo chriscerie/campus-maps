@@ -19,3 +19,9 @@
 * Followed the Goal/Change/Measurement outline
 * Everyone contributed ideas to each item; Went smoothly and quickly since we are still early in the process
 * Do your best encouraging people to speak up and get everyone to participate
+
+## Action Outcome
+
+* Met more outside of class, both in person and over zoom
+* Utilized Slack to share resources and arrange meeting times.
+* Moved existing issues to Done on the Kanban board.
