@@ -1,6 +1,17 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const usersSchema = new mongoose.Schema({
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  profile_picture: string;
+  accounts: {
+    google: {
+      id: string;
+    };
+  };
+}
+
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -9,16 +20,20 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  googleId: {
+  profile_picture: {
     type: String,
     required: true,
   },
-  photo: {
-    type: String,
-    required: true,
+  accounts: {
+    google: {
+      id: {
+        type: String,
+        required: true,
+      },
+    },
   },
 });
 
-const User = mongoose.model('User', usersSchema);
+const User = mongoose.model<IUser>('User', UserSchema);
 
 export default User;

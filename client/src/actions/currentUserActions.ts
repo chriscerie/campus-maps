@@ -4,8 +4,12 @@ import { Dispatch } from 'redux';
 export type CurrentUserState = null | {
   name: string;
   email: string;
-  photo: string;
-  googleId: string;
+  profile_picture: string;
+  accounts: {
+    google: {
+      id: string;
+    };
+  };
 };
 
 export const currentUserActionTypes = {

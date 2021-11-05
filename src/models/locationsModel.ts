@@ -1,6 +1,12 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const locationsSchema = new mongoose.Schema({
+export interface ILocationsModel extends Document {
+  name: string;
+  id: string;
+  type?: string;
+}
+
+const locationsSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -12,6 +18,6 @@ const locationsSchema = new mongoose.Schema({
   type: String,
 });
 
-const Location = mongoose.model('Location', locationsSchema);
+const Location = mongoose.model<ILocationsModel>('Location', locationsSchema);
 
 export default Location;

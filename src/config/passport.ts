@@ -1,8 +1,6 @@
-import mongoose from 'mongoose';
 import passport from 'passport';
 import GoogleAuth from 'passport-google-oauth20';
-
-const User = mongoose.model('User');
+import User from '../models/usersModel';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 passport.serializeUser((user: any, done) => {
@@ -25,20 +23,28 @@ passport.use(
       proxy: true,
     },
     (_accessToken, _refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then((existingUser) => {
-        if (existingUser) {
-          done(null, existingUser);
-        } else {
-          new User({
-            googleId: profile.id,
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            photo: profile.photos[0].value.split('?')[0],
-          })
-            .save()
-            .then((user) => done(null, user));
+      User.findOne({ acccounts: { google: { id: profile.id } } }).then(
+        (existingUser) => {
+          if (existingUser) {
+            console.log(existingUser);
+            done(null, existingUser);
+          } else {
+            new User({
+              first_name: profile.name.givenName,
+              last_name: profile.name.familyName,
+              email: profile.emails[0].value,
+              profile_picture: profile.photos[0].value.split('?')[0],
+              accounts: {
+                google: {
+                  id: profile.id,
+                },
+              },
+            })
+              .save()
+              .then((user) => done(null, user));
+          }
         }
-      });
+      );
     }
   )
 );
