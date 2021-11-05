@@ -22,7 +22,7 @@ function App() {
         <HomePage />
         <Switch>
           <Route exact path="/loc/:id" component={LocationPage} />
-          <Route exact path="/profile" component={ProfilePage}/>
+          <Route exact path="/profile" component={ProfilePage} />
         </Switch>
       </div>
     </BrowserRouter>
