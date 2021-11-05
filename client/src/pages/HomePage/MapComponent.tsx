@@ -18,7 +18,9 @@ mapboxgl.accessToken =
 
 function MapComponent() {
   const location = useLocation();
-  const selectedLocation = useSelector((state: RootState) => state.mapInstance.selectedLocation);
+  const selectedLocation = useSelector(
+    (state: RootState) => state.mapInstance.selectedLocation
+  );
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
 
@@ -67,14 +69,16 @@ function MapComponent() {
             dispatch(setSelectedLocation(null));
           });
 
-          dispatch(setSelectedLocation({
-            feature: feature,
-            popup: popup,
-          }));
+          dispatch(
+            setSelectedLocation({
+              feature: feature,
+              popup: popup,
+            })
+          );
         }
       }
     });
-    
+
     map.on('mouseenter', 'poi-label', (_e: MapLayerMouseEvent) => {
       map.getCanvas().style.cursor = 'pointer';
     });

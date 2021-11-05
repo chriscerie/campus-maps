@@ -7,7 +7,7 @@ export type MapState = {
   selectedLocation: null | {
     feature: Feature;
     popup: Popup;
-  }
+  };
 };
 
 export const MapActionTypes = {
@@ -24,11 +24,13 @@ export const setMapInstance = (newMap: MapState['map']) => {
   };
 };
 
-export const setSelectedLocation = (newSelectedLocation: MapState['selectedLocation']) => {
+export const setSelectedLocation = (
+  newSelectedLocation: MapState['selectedLocation']
+) => {
   return (dispatch: Dispatch) => {
     dispatch({
       type: MapActionTypes.SET_SELECTED_LOCATION,
-      payload: { selectedLocation: newSelectedLocation }
-    })
-  }
-}
+      payload: { selectedLocation: newSelectedLocation },
+    });
+  };
+};

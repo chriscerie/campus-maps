@@ -28,10 +28,10 @@ function SearchBar() {
         trackProximity: true,
       });
 
-      const setProximity = () =>{
+      const setProximity = () => {
         const center = mapInstance.getCenter().wrap();
-        geocoder.setProximity({longitude: center.lng, latitude: center.lat});
-      }
+        geocoder.setProximity({ longitude: center.lng, latitude: center.lat });
+      };
       mapInstance.on('load', setProximity);
       mapInstance.on('moveend', setProximity);
 
@@ -44,12 +44,12 @@ function SearchBar() {
       });
 
       mapInstance.on('sourcedata', () => {
-        console.log(mapInstance.getStyle())
+        console.log(mapInstance.getStyle());
         const points = mapInstance.querySourceFeatures('composite', {
           sourceLayer: 'poi_label',
         });
         console.log(points);
-      })
+      });
 
       geocoder.on('result', (e) => {
         console.log(e);

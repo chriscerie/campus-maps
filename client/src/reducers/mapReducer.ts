@@ -10,11 +10,11 @@ const initialState: MapState = {
 const mapInstance: Reducer<MapState> = (state = initialState, action) => {
   switch (action.type) {
     case MapActionTypes.SET_NEW_MAP:
-      return produce(state, draft => {
+      return produce(state, (draft) => {
         draft.map = action.payload.map;
       });
     case MapActionTypes.SET_SELECTED_LOCATION:
-      return produce(state, draft => {
+      return produce(state, (draft) => {
         draft.selectedLocation = action.payload.selectedLocation;
       });
     default:
