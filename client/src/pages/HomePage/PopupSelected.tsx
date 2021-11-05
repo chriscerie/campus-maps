@@ -18,8 +18,8 @@ function PopupSelected(props: {
         zIndex={100}
         bigScreenStyle={{
           marginTop: 'inherit',
-          top: '50%',
-          height: '90%',
+          top: '52%',
+          height: '85%',
           width: '400px',
           transform: 'translateY(-50%)',
           borderRadius: '10px',
@@ -31,7 +31,7 @@ function PopupSelected(props: {
             {properties.name || 'Name unavailable'}
           </h1>
           <CloseButton
-            sx={{ marginLeft: 'auto' }}
+            sx={{ marginLeft: 'auto', marginTop:'0.5rem'}}
             onClick={() => {
               props.removeSelection();
             }}
