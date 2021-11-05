@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 // Exclude mapboxgl transpilation - https://docs.mapbox.com/mapbox-gl-js/guides/install/#transpiling
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -9,20 +9,17 @@ import PopupSelected from './PopupSelected';
 import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
-import { setMapInstance } from '../../actions/mapActions';
-import { useDispatch } from 'react-redux';
-import { features } from 'process';
+import { setMapInstance, setSelectedLocation } from '../../actions/mapActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'reducers';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
 
 function MapComponent() {
   const location = useLocation();
+  const selectedLocation = useSelector((state: RootState) => state.mapInstance.selectedLocation);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<null | {
-    feature: Feature;
-    popup: Popup;
-  }>(null);
   const dispatch = useDispatch();
 
   // Initialize map
@@ -67,10 +64,10 @@ function MapComponent() {
             .addTo(map);
 
           popup.on('close', () => {
-            setSelected(null);
+            dispatch(setSelectedLocation(null));
           });
 
-          dispatch(setSelected({
+          dispatch(setSelectedLocation({
             feature: feature,
             popup: popup,
           }));
@@ -99,6 +96,7 @@ function MapComponent() {
 
     return () => map.remove();
   }, [dispatch]);
+
   return (
     <div
       className="map-container"
@@ -109,12 +107,12 @@ function MapComponent() {
       }
     >
       <Sidebar />
-      {selected && (
+      {selectedLocation && (
         <PopupSelected
-          selected={selected.feature}
+          selected={selectedLocation.feature}
           removeSelection={() => {
-            selected.popup.remove();
-            setSelected(null);
+            selectedLocation.popup.remove();
+            dispatch(setSelectedLocation(null));
           }}
         />
       )}
