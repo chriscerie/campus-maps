@@ -19,10 +19,10 @@ function ProfilePage() {
                 <div className="profile-icon-container">
                   <Avatar
                     id="profile-greeting-icon"
-                    src={currentUser ? currentUser.photo : ''}
+                    src={currentUser ? currentUser.profile_picture : ''}
                   />
                   <div id="profile-greeting-text">
-                    Hello, {currentUser.name}!
+                    Hello, {currentUser.first_name}!
                   </div>
                 </div>
               </Grid>
