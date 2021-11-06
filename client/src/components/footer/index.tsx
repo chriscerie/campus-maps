@@ -4,7 +4,7 @@ import PrimaryFooter from './PrimaryFooter';
 function Footer() {
   return (
     <Route path="/loc">
-        <PrimaryFooter />
+      <PrimaryFooter />
     </Route>
   );
 }

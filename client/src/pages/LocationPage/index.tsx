@@ -47,7 +47,7 @@ function LocationPage() {
         <LeftColumnDetails />
         <RightColumnDetails />
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
