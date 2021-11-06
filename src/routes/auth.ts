@@ -19,12 +19,12 @@ function auth(app: typeof mockApp): void {
     }
   );
 
-  app.get('/api/logout', (req, res) => {
+  app.get('/api/v1/logout', (req, res) => {
     req.logout();
     res.redirect('/');
   });
 
-  app.get('/api/current_user', (req, res) => {
+  app.get('/api/v1/current-user', (req, res) => {
     res.send(req.user);
   });
 }

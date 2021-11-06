@@ -20,7 +20,7 @@ export const currentUserActionTypes = {
 export const setCurrentUser = () => {
   return (dispatch: Dispatch) => {
     axios
-      .get<any>('/api/current_user')
+      .get<any>('/api/v1/current-user')
       .then((res) => {
         console.log(res.data);
         if (res.data) {
