@@ -8,6 +8,7 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
+import Footer from '../../components/footer';
 
 function LocationPage() {
   const { id } = useParams<{ id: string }>();
@@ -46,6 +47,7 @@ function LocationPage() {
         <LeftColumnDetails />
         <RightColumnDetails />
       </Container>
+      <Footer/>
     </div>
   );
 }

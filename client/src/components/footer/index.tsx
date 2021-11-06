@@ -3,8 +3,8 @@ import PrimaryFooter from './PrimaryFooter';
 
 function Footer() {
   return (
-    <Route exact path="/">
-      <PrimaryFooter />
+    <Route path="/loc">
+        <PrimaryFooter />
     </Route>
   );
 }
