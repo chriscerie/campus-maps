@@ -68,7 +68,7 @@ function ProfileIcon() {
         <MenuItem>
           {/* TODO: Replace avatar with profile icon */}
           <Avatar />
-          <Link to="/" className="menu-item-link">
+          <Link to="/profile" className="menu-item-link">
             My Profile
           </Link>
         </MenuItem>

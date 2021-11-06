@@ -10,12 +10,17 @@
 * a change: communicate more often and clearly about current progress
 * a measurement: more communcations through slack/texts
 
-## Optional
+# Optional
 
 * remember goals and hopefully implment changes
 
-## Retro Assessment
+# Retro Assessment
 
 * Followed the Goal/Change/Measurement outline
 * Went well; everyone contributed ideas on current weaknesses
 * Have an open mind and listen to all members
+
+# Action Outcome
+
+* Continued to work on Kanban Board by adding & moving issues
+* Used Slack and texts more to try and understand where people were and plan future meetings
