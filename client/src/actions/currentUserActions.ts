@@ -2,7 +2,8 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 export type CurrentUserState = null | {
-  name: string;
+  first_name: string;
+  last_name: string;
   email: string;
   profile_picture: string;
   accounts: {
@@ -25,12 +26,7 @@ export const setCurrentUser = () => {
         if (res.data) {
           dispatch({
             type: currentUserActionTypes.SET_CURRENT_USER,
-            payload: {
-              name: res.data.name,
-              email: res.data.email,
-              photo: res.data.photo,
-              googleId: res.data.googleId,
-            },
+            payload: res.data,
           });
         }
       })

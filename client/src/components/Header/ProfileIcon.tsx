@@ -26,7 +26,7 @@ function ProfileIcon() {
   return (
     <Fragment>
       <Avatar
-        alt={currentUser ? currentUser.name : ''}
+        alt={currentUser ? currentUser.first_name : ''}
         src={currentUser ? currentUser.profile_picture : ''}
         className="profile-icon-container"
         onClick={handleClick}
