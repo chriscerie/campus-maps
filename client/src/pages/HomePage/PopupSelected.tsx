@@ -24,6 +24,7 @@ function PopupSelected(props: {
           transform: 'translateY(-50%)',
           borderRadius: '10px',
           left: '3em',
+          paddingTop: '1.6em',
         }}
       >
         <Box className="header-title">
@@ -31,7 +32,7 @@ function PopupSelected(props: {
             {properties.name || 'Name unavailable'}
           </h1>
           <CloseButton
-            sx={{ marginLeft: 'auto', marginTop:'0.5rem'}}
+            sx={{ marginLeft: 'auto' }}
             onClick={() => {
               props.removeSelection();
             }}
