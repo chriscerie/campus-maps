@@ -20,10 +20,10 @@ export const currentUserActionTypes = {
 export const setCurrentUser = () => {
   return (dispatch: Dispatch) => {
     axios
-      .get<any>('/api/v1/current-user')
+      .post<null | CurrentUserState>('/api/v1/current-user')
       .then((res) => {
         console.log(res.data);
-        if (res.data) {
+        if (res.data && res.status === 200) {
           dispatch({
             type: currentUserActionTypes.SET_CURRENT_USER,
             payload: res.data,
