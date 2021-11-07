@@ -2,10 +2,15 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 export type CurrentUserState = null | {
-  name: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  photo: string;
-  googleId: string;
+  profile_picture: string;
+  accounts: {
+    google: {
+      id: string;
+    };
+  };
 };
 
 export const currentUserActionTypes = {
@@ -15,18 +20,13 @@ export const currentUserActionTypes = {
 export const setCurrentUser = () => {
   return (dispatch: Dispatch) => {
     axios
-      .get<any>('/api/current_user')
+      .post<null | CurrentUserState>('/api/v1/current-user')
       .then((res) => {
         console.log(res.data);
-        if (res.data) {
+        if (res.data && res.status === 200) {
           dispatch({
             type: currentUserActionTypes.SET_CURRENT_USER,
-            payload: {
-              name: res.data.name,
-              email: res.data.email,
-              photo: res.data.photo,
-              googleId: res.data.googleId,
-            },
+            payload: res.data,
           });
         }
       })
