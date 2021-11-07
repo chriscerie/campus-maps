@@ -32,13 +32,13 @@ function MapHeader() {
           isBigScreen && (
             <Fragment>
               <a
-                href="/auth/google"
+                href="api/v1/auth/google"
                 className="signin-button  header-text-shadow"
               >
                 Sign in
               </a>
               <a
-                href="/auth/google"
+                href="api/v1/auth/google"
                 className="signup-button  header-text-shadow"
               >
                 Sign up

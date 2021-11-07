@@ -85,7 +85,7 @@ function ProfileIcon() {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          <a href="/api/v1/logout" className="menu-item-link">
+          <a href="/api/v1/auth/logout" className="menu-item-link">
             Logout
           </a>
         </MenuItem>
