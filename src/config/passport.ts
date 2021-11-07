@@ -19,7 +19,7 @@ passport.use(
       clientID:
         '796959289157-ser2d8agd1nv5t1kl64ii4rtqfi7blb7.apps.googleusercontent.com',
       clientSecret: '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',
-      callbackURL: '/auth/google/callback',
+      callbackURL: '/api/v1/auth/google/callback',
       proxy: true,
     },
     (_accessToken, _refreshToken, profile, done) => {

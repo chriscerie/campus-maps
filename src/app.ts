@@ -4,7 +4,7 @@ import session from 'express-session';
 import passport from 'passport';
 import dotenv from 'dotenv';
 import * as path from 'path';
-import auth from './routes/auth';
+import routes from './routes';
 import './models/usersModel';
 
 dotenv.config();
@@ -30,9 +30,7 @@ mongoose
 app.use(passport.initialize());
 app.use(passport.session());
 
-import './config/passport';
-
-auth(app);
+app.use('/api', routes);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
