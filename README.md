@@ -1,6 +1,7 @@
-# Campus Maps &middot; [![GitHub Actions](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/ci/badge.svg)](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/actions) [![Deployment](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/cd/badge.svg)](https://campusmaps.herokuapp.com/) [![Coveralls Coverage](https://coveralls.io/repos/github/ucsb-cs148-f21/project-t06-campusmaps/badge.svg)](https://coveralls.io/github/ucsb-cs148-f21/project-t06-campusmaps?branch=main)
+# [**Campus Maps**](https://campusmaps.herokuapp.com/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/blob/main/LICENSE) [![Docs](https://img.shields.io/badge/docs-website-blue.svg)](https://ucsb-cs148-f21.github.io/project-t06-campusmaps/) [![GitHub Actions](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/ci/badge.svg)](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/actions) [![Deployment](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/cd/badge.svg)](https://campusmaps.herokuapp.com/) [![Coveralls Coverage](https://coveralls.io/repos/github/ucsb-cs148-f21/project-t06-campusmaps/badge.svg)](https://coveralls.io/github/ucsb-cs148-f21/project-t06-campusmaps?branch=main)
 
-[**Campus Maps**](https://campusmaps.herokuapp.com/) Campus maps will provide a detailed map of UCSB. This service will also provide detailed locations of individual classrooms on campus. Users can add comments regrading the location of classrooms.
+Campus Maps is a crowd-sourced platform that offers detailed locations of individual classrooms of university campuses.
+
 ## Contributors
 
 Christopher Chang @chriscerie
@@ -17,7 +18,11 @@ Jason Em @jasonem225
 
 ## Tech Stack
 
-We are using MERN (Mongo, Express, React, Node) with Redux.
+* React
+* Redux
+* Node
+* Express
+* MongoDB
 
 ## User Roles
 

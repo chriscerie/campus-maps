@@ -8,39 +8,74 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
+import axios from 'axios';
+
+export type LocationType = {
+  id: number;
+  name: string;
+  type: string;
+  description: string;
+  tile: {
+    x: number;
+    y: number;
+    z: number;
+  };
+};
 
 function LocationPage() {
   const { id } = useParams<{ id: string }>();
-  const [selected, setSelected] =
-    useState<null | mapboxgl.MapboxGeoJSONFeature>(null);
+  const [selected, setSelected] = useState<null | LocationType>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
 
   // Set point
   useEffect(() => {
-    if (mapInstance) {
-      const setSelectedPoint = () => {
-        const points = mapInstance.querySourceFeatures('composite', {
-          sourceLayer: 'poi_label',
-        });
+    axios
+      .get<LocationType>(`/api/v1/locations/loc/${id}`)
+      .then((res) => {
+        setSelected(res.data);
+      })
+      .catch((err) => {
+        if (mapInstance) {
+          const setSelectedPoint = () => {
+            const points = mapInstance.querySourceFeatures('composite', {
+              sourceLayer: 'poi_label',
+            });
 
-        setSelected(points.filter((point) => point.id == id)[0]);
-      };
+            const point = points.filter((point) => point.id == id)[0];
 
-      if (mapInstance.isStyleLoaded()) {
-        setSelectedPoint();
-      } else {
-        mapInstance.once('loaded', () => {
-          setSelectedPoint();
-        });
-      }
-    }
+            if (point && point.properties) {
+              // Request to create location data
+              axios
+                .post<LocationType>(`/api/v1/locations/loc/${id}`, {
+                  id: point.id,
+                  name: point.properties.name,
+                  type: point.properties.category_en || point.properties.type,
+                  // @ts-ignore
+                  tile: point.tile,
+                })
+                .then((res) => {
+                  setSelected(res.data);
+                });
+            }
+          };
+
+          if (mapInstance.isStyleLoaded()) {
+            setSelectedPoint();
+          } else {
+            mapInstance.once('loaded', () => {
+              setSelectedPoint();
+            });
+          }
+        }
+      });
   }, [id, mapInstance]);
-
-  console.log(selected);
 
   return (
     <div className="location-page-container">
-      <PhotoHeader selected={selected} />
+      <PhotoHeader
+        name={selected ? selected.name : ''}
+        type={selected ? selected.type : ''}
+      />
 
       <Container id="location-page-container-inner">
         <LeftColumnDetails />

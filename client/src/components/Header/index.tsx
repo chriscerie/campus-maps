@@ -12,6 +12,9 @@ function Header() {
       <Route path="/loc">
         <LocationHeader />
       </Route>
+      <Route path="/profile">
+        <LocationHeader />
+      </Route>
     </Switch>
   );
 }

@@ -1,17 +1,44 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const locationsSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+export interface ILocation extends Document {
+  name: string;
+  id: string;
+  type?: string;
+}
+
+const locationsSchema = new Schema({
   id: {
     type: String,
     required: true,
   },
-  type: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  tile: {
+    x: {
+      type: Number,
+      required: true,
+    },
+    y: {
+      type: Number,
+      required: true,
+    },
+    z: {
+      type: Number,
+      required: true,
+    },
+  },
 });
 
-const Location = mongoose.model('Location', locationsSchema);
+const Location = mongoose.model<ILocation>('Location', locationsSchema);
 
 export default Location;

@@ -26,8 +26,8 @@ function ProfileIcon() {
   return (
     <Fragment>
       <Avatar
-        alt={currentUser ? currentUser.name : ''}
-        src={currentUser ? currentUser.photo : ''}
+        alt={currentUser ? currentUser.first_name : ''}
+        src={currentUser ? currentUser.profile_picture : ''}
         className="profile-icon-container"
         onClick={handleClick}
       />
@@ -68,7 +68,7 @@ function ProfileIcon() {
         <MenuItem>
           {/* TODO: Replace avatar with profile icon */}
           <Avatar />
-          <Link to="/" className="menu-item-link">
+          <Link to="/profile" className="menu-item-link">
             My Profile
           </Link>
         </MenuItem>
@@ -85,7 +85,7 @@ function ProfileIcon() {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          <a href="/api/logout" className="menu-item-link">
+          <a href="/api/v1/auth/logout" className="menu-item-link">
             Logout
           </a>
         </MenuItem>

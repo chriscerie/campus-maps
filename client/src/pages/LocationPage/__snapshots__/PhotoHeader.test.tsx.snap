@@ -16,12 +16,12 @@ exports[`PhotoHeader should render successfully 1`] = `
         <div
           className="photo-header-heading"
         >
-          ...
+          name
         </div>
         <div
           className="photo-header-subheading"
         >
-          ...
+          type
         </div>
       </div>
       <Link
