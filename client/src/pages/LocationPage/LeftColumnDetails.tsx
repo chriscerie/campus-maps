@@ -56,9 +56,7 @@ function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
 
       <LocationSection title="Description">
         <div className="building-info align-text-left">
-          <p style={{ margin: 0 }}>
-            {locationInfo.description}
-          </p>
+          <p style={{ margin: 0 }}>{locationInfo.description}</p>
         </div>
       </LocationSection>
 
