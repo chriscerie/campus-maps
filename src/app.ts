@@ -4,7 +4,7 @@ import session from 'express-session';
 import passport from 'passport';
 import dotenv from 'dotenv';
 import * as path from 'path';
-import auth from './routes/auth';
+import routes from './routes';
 import './models/usersModel';
 
 dotenv.config();
@@ -30,16 +30,10 @@ mongoose
 app.use(passport.initialize());
 app.use(passport.session());
 
-import './config/passport';
-
-auth(app);
+app.use('/api', routes);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
-
-app.get('/express_backend', (_, res) => {
-  res.status(200).send({ message: 'EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
 
 // Send all other requests back to React
 app.get('*', (_, res) => {

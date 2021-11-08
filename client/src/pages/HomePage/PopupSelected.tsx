@@ -18,12 +18,13 @@ function PopupSelected(props: {
         zIndex={100}
         bigScreenStyle={{
           marginTop: 'inherit',
-          top: '50%',
-          height: '90%',
+          top: '52%',
+          height: '85%',
           width: '400px',
           transform: 'translateY(-50%)',
           borderRadius: '10px',
           left: '3em',
+          paddingTop: '1.6em',
         }}
       >
         <Box className="header-title">
