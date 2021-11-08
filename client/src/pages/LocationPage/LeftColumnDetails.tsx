@@ -6,8 +6,9 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import type { LocationType } from '../../types/LocationType';
 
-function LeftColumnDetais() {
+function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
   return (
     <div id="location-page-left-column">
       <div id="location-page-left-buttons-container">
@@ -53,19 +54,10 @@ function LeftColumnDetais() {
         </div>
       </div>
 
-      <LocationSection title="Details">
+      <LocationSection title="Description">
         <div className="building-info align-text-left">
           <p style={{ margin: 0 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            accumsan, purus at eleifend ornare, libero metus tincidunt velit,
-            quis tincidunt nisl eros non tellus. Nunc ullamcorper porttitor
-            risus, eu luctus justo auctor sed. Vestibulum ornare eros est, in
-            tempus massa congue ut. Duis eu fringilla nulla, nec mattis ex.
-            Quisque viverra justo a luctus feugiat. Aliquam erat volutpat.
-            Nullam varius odio ex, non aliquet eros tristique ullamcorper. Donec
-            dignissim nisl dui, in sollicitudin magna faucibus eu. Duis porta
-            ornare erat, ut lacinia lacus volutpat id. Suspendisse potenti.
-            Suspendisse et iaculis velit.
+            {locationInfo.description}
           </p>
         </div>
       </LocationSection>
