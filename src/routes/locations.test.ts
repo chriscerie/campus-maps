@@ -18,12 +18,8 @@ const sendLocationData = {
 };
 
 describe('GET /v1/locations/loc/:id', () => {
-  let connection: any;
-  let db: any;
-
   beforeAll(async () => {
-    connection = await mongoose.connect(process.env.MONGO_URL);
-    db = await connection.db;
+    await mongoose.connect(process.env.MONGO_URL);
 
     new Location(
       Object.assign(
@@ -31,10 +27,6 @@ describe('GET /v1/locations/loc/:id', () => {
         sendLocationData
       )
     ).save();
-  });
-
-  afterAll(async () => {
-    await connection.close();
   });
 
   it('should status 404 when requesting nonexistent data', async () => {
@@ -57,12 +49,8 @@ describe('GET /v1/locations/loc/:id', () => {
 });
 
 describe('POST /v1/locations/loc/:id', () => {
-  let connection: any;
-  let db: any;
-
   beforeAll(async () => {
-    connection = await mongoose.connect(process.env.MONGO_URL);
-    db = await connection.db;
+    await mongoose.connect(process.env.MONGO_URL);
 
     new Location(
       Object.assign(
@@ -70,10 +58,6 @@ describe('POST /v1/locations/loc/:id', () => {
         sendLocationData
       )
     ).save();
-  });
-
-  afterAll(async () => {
-    await connection.close();
   });
 
   it('should send Location when requesting existing data', async () => {
