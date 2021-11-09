@@ -29,17 +29,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Cache dependencies
-        id: node-cache
+      - name: Cache server dependencies
+        id: node-cache-server
         uses: actions/cache@v2
         with:
-          path: |
-            node_modules
-            client/node_modules
+          path: node_modules
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
+        if: steps.node-cache-server.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Create docs
