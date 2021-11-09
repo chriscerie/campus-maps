@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: node-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         if: steps.node-cache-server.outputs.cache-hit != 'true'
@@ -73,7 +73,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: node-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install server dependencies
         if: steps.node-cache-server.outputs.cache-hit != 'true'
@@ -83,8 +83,8 @@ jobs:
         id: node-cache-client
         uses: actions/cache@v2
         with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          path: client/node_modules
+          key: node-modules-${{ hashFiles('client/yarn.lock') }}
 
       - name: Install client dependencies
         if: steps.node-cache-client.outputs.cache-hit != 'true'
