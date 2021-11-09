@@ -21,7 +21,9 @@ jobs:
         id: node-cache
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: |
+            node_modules
+            client/node_modules
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
@@ -72,7 +74,9 @@ jobs:
         id: node-cache
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: |
+            node_modules
+            client/node_modules
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install server dependencies
