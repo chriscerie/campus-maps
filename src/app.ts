@@ -1,13 +1,9 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import session from 'express-session';
 import passport from 'passport';
-import dotenv from 'dotenv';
 import * as path from 'path';
 import routes from './routes';
 import './models/usersModel';
-
-dotenv.config();
 
 const app = express();
 
@@ -21,11 +17,6 @@ app.use(
     saveUninitialized: false,
   })
 );
-
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/Primary')
-  .then(() => console.log('Database connected'))
-  .catch((err) => console.error(err));
 
 app.use(passport.initialize());
 app.use(passport.session());
