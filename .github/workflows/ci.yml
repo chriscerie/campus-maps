@@ -17,7 +17,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Cache server dependencies
+        id: node-cache-server
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
       - name: Install dependencies
+        if: steps.node-cache-server.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Lint and Style Check
@@ -60,10 +68,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Cache server dependencies
+        id: node-cache-server
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
       - name: Install server dependencies
+        if: steps.node-cache-server.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
+      - name: Cache client dependencies
+        id: node-cache-client
+        uses: actions/cache@v2
+        with:
+          path: client/node_modules
+          key: node-modules-${{ hashFiles('client/yarn.lock') }}
+
       - name: Install client dependencies
+        if: steps.node-cache-client.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
         working-directory: client
 
