@@ -29,6 +29,10 @@ describe('GET /v1/locations/loc/:id', () => {
     ).save();
   });
 
+  afterAll(async () => {
+    await mongoose.disconnect();
+  });
+
   it('should status 404 when requesting nonexistent data', async () => {
     await supertest(app)
       .get('/api/v1/locations/loc/0')
@@ -58,6 +62,10 @@ describe('POST /v1/locations/loc/:id', () => {
         sendLocationData
       )
     ).save();
+  });
+
+  afterAll(async () => {
+    await mongoose.disconnect();
   });
 
   it('should send Location when requesting existing data', async () => {
