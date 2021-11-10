@@ -9,22 +9,11 @@ import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
 import axios from 'axios';
-
-export type LocationType = {
-  id: number;
-  name: string;
-  type: string;
-  description: string;
-  tile: {
-    x: number;
-    y: number;
-    z: number;
-  };
-};
+import type { LocationType } from '../../types/LocationType';
 
 function LocationPage() {
   const { id } = useParams<{ id: string }>();
-  const [selected, setSelected] = useState<null | LocationType>(null);
+  const [locationInfo, setLocationInfo] = useState<null | LocationType>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
 
   // Set point
@@ -32,11 +21,11 @@ function LocationPage() {
     axios
       .get<LocationType>(`/api/v1/locations/loc/${id}`)
       .then((res) => {
-        setSelected(res.data);
+        setLocationInfo(res.data);
       })
       .catch((err) => {
         if (mapInstance) {
-          const setSelectedPoint = () => {
+          const createLocationInfo = () => {
             const points = mapInstance.querySourceFeatures('composite', {
               sourceLayer: 'poi_label',
             });
@@ -54,16 +43,16 @@ function LocationPage() {
                   tile: point.tile,
                 })
                 .then((res) => {
-                  setSelected(res.data);
+                  setLocationInfo(res.data);
                 });
             }
           };
 
           if (mapInstance.isStyleLoaded()) {
-            setSelectedPoint();
+            createLocationInfo();
           } else {
             mapInstance.once('loaded', () => {
-              setSelectedPoint();
+              createLocationInfo();
             });
           }
         }
@@ -73,12 +62,12 @@ function LocationPage() {
   return (
     <div className="location-page-container">
       <PhotoHeader
-        name={selected ? selected.name : ''}
-        type={selected ? selected.type : ''}
+        name={locationInfo ? locationInfo.name : ''}
+        type={locationInfo ? locationInfo.type : ''}
       />
 
       <Container id="location-page-container-inner">
-        <LeftColumnDetails />
+        {locationInfo && <LeftColumnDetails locationInfo={locationInfo} />}
         <RightColumnDetails />
       </Container>
     </div>

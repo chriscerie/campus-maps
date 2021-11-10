@@ -29,7 +29,7 @@ router.post('/v1/locations/loc/:id', (req, res) => {
         id: req.params.id,
         name: req.body.name,
         type: req.body.type,
-        description: `${req.body.name} is a location.`,
+        description: `No description found for ${req.body.name}. Consider contributing to Campus Maps by submitting a description.`,
         tile: req.body.tile,
       }).save((err: Error, location: ILocation) => {
         if (err) {
