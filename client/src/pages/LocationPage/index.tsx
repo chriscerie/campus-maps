@@ -8,6 +8,7 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
+import Footer from '../../components/footer';
 import axios from 'axios';
 import type { LocationType } from '../../types/LocationType';
 
@@ -70,6 +71,7 @@ function LocationPage() {
         {locationInfo && <LeftColumnDetails locationInfo={locationInfo} />}
         <RightColumnDetails />
       </Container>
+      <Footer />
     </div>
   );
 }
