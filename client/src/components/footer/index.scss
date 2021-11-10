@@ -1,0 +1,49 @@
+.footer-container {
+  color: #aaa;
+  background-color: #777;
+  position: relative;
+  z-index: 1000;
+  padding: 3em;
+  font-size: 1.3em;
+}
+
+.footer-container p {
+  margin: 0;
+}
+
+.footer-link-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3em 0;
+}
+
+.footer-link {
+  font-size: 2em;
+  padding: 0 1em;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-logo-link {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../../images/logo256px.png');
+  background-size: cover;
+  width: 4em;
+  height: 4em;
+}
