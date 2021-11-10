@@ -9,8 +9,8 @@
 | Mon 11/08 | Jason Em         | Scrum Master                    | 
 | Mon 11/08 | Christopher Chan | Testing/QA Coordinator          | 
 | Mon 11/08 | Max Bonham       | Retro 3 Leader                  | 
-| Mon 11/08 | Janet Zhou       | UX Coordinator                  | 
+| Mon 11/08 | Janet Zhao       | UX Coordinator                  | 
 | Mon 11/08 | Sarah Kwon       | Design Document Coordinator     | 
 | Mon 11/08 | Max Bonham       | Deployment Document Coordinator | 
-| Mon 11/08 | Janet Zhou       | User Manual Coordinator         | 
+| Mon 11/08 | Janet Zhao       | User Manual Coordinator         | 
 | Mon 11/08 | Jonathan Wang    | Final Presentation Leader       |
