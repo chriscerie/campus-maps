@@ -8,7 +8,7 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
-import Footer from '../../components/footer';
+import Footer from '../../components/Footer';
 import axios from 'axios';
 import type { LocationType } from '../../types/LocationType';
 
