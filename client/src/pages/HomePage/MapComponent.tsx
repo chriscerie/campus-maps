@@ -99,6 +99,7 @@ function MapComponent() {
 
     return () => map.remove();
   }, [dispatch]);
+
   return (
     <div
       className="map-container"
