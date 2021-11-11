@@ -25,7 +25,7 @@ exports[`PhotoHeader should render successfully 1`] = `
         </span>
         <Link
           className="photo-header-edit-button"
-          to="/loc-edit/undefined"
+          to="/loc-edit/1111"
         >
           Edit
         </Link>
