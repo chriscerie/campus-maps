@@ -19,22 +19,13 @@
 }
 
 .footer-link {
-  font-size: 2em;
+  font-size: 1.2em;
   padding: 0 1em;
-}
-
-a:link {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: white;
+.footer-link:hover {
   text-decoration: underline;
 }
 

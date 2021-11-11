@@ -20,15 +20,13 @@ function LocationHeader() {
         <Fragment>
           <a
             href="api/v1/auth/google"
-            id="location-header-signin-button"
-            className="location-header-sign-buttons"
+            className="header-sign-buttons header-signin-button"
           >
             Sign in
           </a>
           <a
             href="api/v1/auth/google"
-            id="location-header-signup-button"
-            className="location-header-sign-buttons"
+            className="header-sign-buttons header-signup-button"
           >
             Sign up
           </a>

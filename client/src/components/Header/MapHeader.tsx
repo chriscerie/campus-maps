@@ -33,13 +33,13 @@ function MapHeader() {
             <Fragment>
               <a
                 href="api/v1/auth/google"
-                className="sign-buttons signin-button"
+                className="header-sign-buttons header-signin-button"
               >
                 Sign in
               </a>
               <a
                 href="api/v1/auth/google"
-                className="sign-buttons signup-button"
+                className="header-sign-buttons header-signup-button"
               >
                 Sign up
               </a>
