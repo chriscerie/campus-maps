@@ -38,10 +38,29 @@
 }
 
 .photo-header-subheading {
+  display: inline;
   font-size: 1.4em;
   font-weight: 400;
   line-height: 1.2em;
   letter-spacing: -0.4px;
+  margin-right: 0.5em;
+  color: #fff;
+}
+
+.photo-header-edit-button {
+  @extend .photo-header-subheading;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 0.35em 0.7em;
+  transition: background-color 0.8s ease;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.3em;
+  font-weight: 600;
+}
+
+.photo-header-edit-button:hover {
+  transition: background-color 0.8s ease;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #see-more-button {

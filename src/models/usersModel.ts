@@ -1,10 +1,12 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IUser extends Document {
+  _id: string;
   first_name: string;
   last_name: string;
   email: string;
   profile_picture: string;
+  account_type: 'User' | 'Admin';
   accounts: {
     google: {
       id: string;
@@ -36,6 +38,11 @@ const UserSchema = new Schema({
         required: true,
       },
     },
+  },
+  account_type: {
+    type: String,
+    enum: ['User', 'Admin'],
+    default: 'User',
   },
 });
 

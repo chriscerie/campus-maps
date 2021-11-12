@@ -8,8 +8,7 @@ import './index.scss';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import RightColumnDetails from './RightColumnDetails';
-import Footer from '../../components/Footer';
-import axios from 'axios';
+import { getLocationInfo } from '../../api/LocationAPI';
 import type { LocationType } from '../../types/LocationType';
 
 function LocationPage() {
@@ -19,45 +18,13 @@ function LocationPage() {
 
   // Set point
   useEffect(() => {
-    axios
-      .get<LocationType>(`/api/v1/locations/loc/${id}`)
-      .then((res) => {
-        setLocationInfo(res.data);
-      })
-      .catch((err) => {
-        if (mapInstance) {
-          const createLocationInfo = () => {
-            const points = mapInstance.querySourceFeatures('composite', {
-              sourceLayer: 'poi_label',
-            });
-
-            const point = points.filter((point) => point.id == id)[0];
-
-            if (point && point.properties) {
-              // Request to create location data
-              axios
-                .post<LocationType>(`/api/v1/locations/loc/${id}`, {
-                  id: point.id,
-                  name: point.properties.name,
-                  type: point.properties.category_en || point.properties.type,
-                  // @ts-ignore
-                  tile: point.tile,
-                })
-                .then((res) => {
-                  setLocationInfo(res.data);
-                });
-            }
-          };
-
-          if (mapInstance.isStyleLoaded()) {
-            createLocationInfo();
-          } else {
-            mapInstance.once('loaded', () => {
-              createLocationInfo();
-            });
-          }
+    if (mapInstance) {
+      getLocationInfo(id, mapInstance).then((res) => {
+        if (res) {
+          setLocationInfo(res);
         }
       });
+    }
   }, [id, mapInstance]);
 
   return (
@@ -65,13 +32,13 @@ function LocationPage() {
       <PhotoHeader
         name={locationInfo ? locationInfo.name : ''}
         type={locationInfo ? locationInfo.type : ''}
+        id={id}
       />
 
       <Container id="location-page-container-inner">
         {locationInfo && <LeftColumnDetails locationInfo={locationInfo} />}
         <RightColumnDetails />
       </Container>
-      <Footer />
     </div>
   );
 }

@@ -1,11 +1,15 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
-import PhotoHeader from './PhotoHeader';
+import { Provider } from 'react-redux';
+import store from '../../reducers';
+import LocationEditPage from './index';
 
-describe('PhotoHeader', () => {
+describe('LocationEditPage', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
     const tree = renderer.render(
-      <PhotoHeader name="name" type="type" id="1111" />
+      <Provider store={store}>
+        <LocationEditPage />
+      </Provider>
     );
     expect(tree).toMatchSnapshot();
   });
