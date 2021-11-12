@@ -1,24 +1,53 @@
 .App {
   text-align: center;
   font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 2vw;
+  font-size: 60%;
+}
+
+.App h2 {
+  font-size: 1.6em;
+  color: #2537ff;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.App p {
+  font-size: 0.95em;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.App ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.App li {
+  list-style: none;
+}
+
+.App label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
 
 @media (min-width: 481px) {
-  .App {
-    font-size: 60%;
-  }
-}
-
-@media (min-width: 769px) {
   .App {
     font-size: 70%;
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
   .App {
     font-size: 80%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .App {
+    font-size: 90%;
   }
 }
 

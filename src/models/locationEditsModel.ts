@@ -1,12 +1,23 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-export interface ILocation extends Document {
-  name: string;
+export interface ILocationEdit extends Document {
+  author_id: string;
   id: string;
-  type?: string;
+  name: string;
+  type: string;
+  description: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zip_code: string;
 }
 
-export const locationsSchemaValues = {
+const locationEditsSchema = new Schema({
+  author_id: {
+    required: true,
+    type: String,
+  },
   id: {
     type: String,
     required: true,
@@ -43,24 +54,11 @@ export const locationsSchemaValues = {
     type: String,
     default: '',
   },
-  tile: {
-    x: {
-      type: Number,
-      required: true,
-    },
-    y: {
-      type: Number,
-      required: true,
-    },
-    z: {
-      type: Number,
-      required: true,
-    },
-  },
-};
+});
 
-const locationsSchema = new Schema(locationsSchemaValues);
+const LocationEdit = mongoose.model<ILocationEdit>(
+  'LocationEdit',
+  locationEditsSchema
+);
 
-const Location = mongoose.model<ILocation>('Location', locationsSchema);
-
-export default Location;
+export default LocationEdit;

@@ -6,9 +6,11 @@ function PhotoHeader({
   // TODO: change any type to LocationType
   name = '...',
   type = '...',
+  id,
 }: {
   name: string;
   type: string;
+  id: string;
 }) {
   return (
     <div className="location-page-container">
@@ -16,7 +18,10 @@ function PhotoHeader({
         <Container className="photo-header-content-container">
           <div className="photo-header-content">
             <div className="photo-header-heading">{name}</div>
-            <div className="photo-header-subheading">{type}</div>
+            <span className="photo-header-subheading">{type}</span>
+            <Link to={`/loc-edit/${id}`} className="photo-header-edit-button">
+              Edit
+            </Link>
           </div>
           <Link to="/" id="see-more-button">
             See more photos
