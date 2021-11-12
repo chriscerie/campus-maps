@@ -8,6 +8,7 @@
   float: left;
   box-sizing: border-box;
   width: 100%;
+  max-width: 500px;
   text-align: left;
 }
 
@@ -15,18 +16,59 @@
   margin-bottom: 2em;
 }
 
-#location-edit-page-inner input {
+%location-edit-textinput {
   display: block;
   margin: 0 0 1em;
-  padding: 0.5em 0.8em;
+  padding: 0.4em 0.8em;
   border: 1px solid #999;
   border-radius: 0.3em;
-  width: 30em;
-  max-width: 70%;
+  width: 100%;
+  font-size: 1em;
+  box-sizing: border-box;
 }
 
-#location-edit-page-inner input:focus {
+%location-edit-textinput:focus {
   outline: none;
   border-color: #2592ff;
   box-shadow: 0 0 3px rgba(52, 160, 255, 0.5);
+}
+
+#location-edit-page-inner input {
+  @extend %location-edit-textinput;
+}
+
+#location-edit-page-inner textarea {
+  @extend %location-edit-textinput;
+  resize: vertical;
+  height: 7em;
+}
+
+#location-edit-page-inner select {
+  @extend %location-edit-textinput;
+}
+
+#location-edit-submit-button {
+  color: #fff;
+  background-color: #1a8ceb;
+  border: 0;
+  padding: 0.4em 1.4em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-size: 1em;
+  text-transform: none;
+}
+
+#location-edit-submit-button:hover {
+  background-color: #2592ff;
+}
+
+#location-edit-cancel-link {
+  color: #1577da;
+  text-decoration: none;
+  font-size: 1em;
+  margin-left: 1em;
+}
+
+#location-edit-cancel-link:hover {
+  text-decoration: underline;
 }
