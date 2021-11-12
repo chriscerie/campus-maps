@@ -18,44 +18,6 @@
   text-shadow: none;
 }
 
-.signup-button {
-  display: flex;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin-top: -3px;
-  border: 3px solid #fff;
-  box-shadow: 0 0 5px #bbb;
-  padding: 6px 22px 8px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: background-color 0.4s ease, color 0.4s ease;
-  background-color: transparent;
-  color: #fff;
-  pointer-events: all;
-}
-
-.signup-button:hover {
-  transition: background-color 0.4s ease, color 0.4s ease;
-  background-color: #fff;
-  color: #666;
-}
-
-.signin-button {
-  display: flex;
-  box-sizing: border-box;
-  padding: 6px 8px 8px;
-  margin-right: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #fff;
-  pointer-events: all;
-}
-
-.signin-button:hover {
-  border-bottom: 3px solid #fff;
-  text-shadow: 0 0 5px #999;
-}
-
 @media (min-width: 769px) {
   .header-container {
     bottom: auto;
