@@ -123,6 +123,10 @@ describe('GET /v1/locations/loc-edit', () => {
     }).save();
   });
 
+  afterAll(async () => {
+    await mongoose.disconnect();
+  });
+
   it('should send all location edits data', async () => {
     await supertest(app)
       .get('/api/v1/locations/loc-edit')
@@ -143,6 +147,10 @@ describe('GET /v1/locations/loc-edit', () => {
 describe('POST /v1/locations/loc-edit/:id', () => {
   beforeAll(async () => {
     await mongoose.connect(process.env.MONGO_URL);
+  });
+
+  afterAll(async () => {
+    await mongoose.disconnect();
   });
 
   it('should status 401 if not logged in', async () => {
