@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { getComments as getCommentsApi } from './api';
 import { CommentType } from './Comment';
 import Comment from './Comment';
-import CommentForm from './CommentForm';
 import './index.scss';
 
 const CommentSection = () => {

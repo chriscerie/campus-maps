@@ -7,13 +7,19 @@ import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import type { LocationType } from '../../types/LocationType';
+import CommentForm from './CommentSection/Form/CommentForm';
+import { useState } from 'react';
+
 
 function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
+  const [showCommentForm, setShowCommentForm] = useState(false);
+
   return (
     <div id="location-page-left-column">
       <div id="location-page-left-buttons-container">
         <div className="location-page-left-button">
           <Button
+            onClick={setShowCommentForm.bind(null, true)}
             variant="contained"
             disableElevation
             startIcon={<ChatOutlinedIcon />}
@@ -21,6 +27,7 @@ function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
           >
             Write a comment
           </Button>
+          <CommentForm locationName={locationInfo.name} locationType={locationInfo.type} isVisible={showCommentForm} onClose={() => setShowCommentForm(false)}/> 
         </div>
         <div className="location-page-left-button">
           <Button
