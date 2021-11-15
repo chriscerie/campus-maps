@@ -11,3 +11,17 @@
   position: sticky;
   top: 1em;
 }
+
+.text-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.text-box {
+  border: 1px solid rgb(209, 209, 209);
+  border-bottom: none;
+  padding: 5px;
+}

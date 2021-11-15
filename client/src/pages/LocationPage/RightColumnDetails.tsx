@@ -4,8 +4,9 @@ function LeftColumnDetais() {
   return (
     <div id="location-page-right-column">
       <div id="sticky-sidebar">
-        <div className="building-info align-text-left">
-          <div>
+        {/* <div className="building-info align-text-left"> */}
+        <div className="text-boxes">
+          <div className="text-box">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             accumsan, purus at eleifend ornare, libero metus tincidunt velit,
             quis tincidunt nisl eros non tellus. Nunc ullamcorper porttitor
@@ -17,6 +18,10 @@ function LeftColumnDetais() {
             ornare erat, ut lacinia lacus volutpat id. Suspendisse potenti.
             Suspendisse et iaculis velit.
           </div>
+          <div className="text-box">dummy text</div>
+          <div className="text-box">dummy text</div>
+          <div className="text-box">dummy text</div>
+          <div className="text-box">dummy text</div>
         </div>
       </div>
     </div>
