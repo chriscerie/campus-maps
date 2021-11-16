@@ -36,7 +36,9 @@ function LocationPage() {
       />
 
       <Container id="location-page-container-inner">
-        {locationInfo && <LeftColumnDetails locationInfo={locationInfo} />}
+        {locationInfo && (
+          <LeftColumnDetails locationInfo={locationInfo} id={id} />
+        )}
         <RightColumnDetails />
       </Container>
     </div>

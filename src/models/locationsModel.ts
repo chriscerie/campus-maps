@@ -6,7 +6,7 @@ export interface ILocation extends Document {
   type?: string;
 }
 
-export const locationsSchemaValues = {
+export const locationsSchema = new Schema({
   id: {
     type: String,
     required: true,
@@ -57,9 +57,7 @@ export const locationsSchemaValues = {
       required: true,
     },
   },
-};
-
-const locationsSchema = new Schema(locationsSchemaValues);
+});
 
 const Location = mongoose.model<ILocation>('Location', locationsSchema);
 
