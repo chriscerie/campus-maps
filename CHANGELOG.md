@@ -1,3 +1,11 @@
+# 1.2.0 (November 15, 2021)
+
+* Add footer ([@jasonem225](https://github.com/jasonem225) in [#141](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/141))
+* Edit footer styling and change links to single-page links ([@jasonem225](https://github.com/jasonem225) in [#150](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/150))
+* Change button styling on homepage ([@birded](https://github.com/birded) in [#151](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/151))
+* Add location edit page ([@chriscerie](https://github.com/chriscerie) in [#154](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/154))
+* Add comment form and use database for comments ([@sarahkwon](https://github.com/sarahkwon) in [#159](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/159))
+
 ## 1.1.0 (November 8, 2021)
 
 * Use database for location description ([@chriscerie](https://github.com/chriscerie) in [#145](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/145))
