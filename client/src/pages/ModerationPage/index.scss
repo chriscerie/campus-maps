@@ -1,0 +1,41 @@
+.align-text-left {
+  text-align: left;
+}
+
+.header-text {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1.2em;
+  letter-spacing: -0.4px;
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+
+
+.profile-page-container {
+  display: block;
+  line-height: 2em;
+}
+
+.profile-icon-container {
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.submissions {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 32px;
+}
+
+#profile-greeting-icon {
+  float: left;
+  width: 32px;
+  height: 32px;
+}
+
+#profile-greeting-text {
+  font-size: 1.5em;
+  padding-left: 10px;
+}
