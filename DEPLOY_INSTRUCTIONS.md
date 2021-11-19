@@ -25,15 +25,13 @@
 
 ### Step 2: Clone repository
 
-- Clone repository
-  - `git clone https://github.com/ucsb-cs148-f21/project-t06-campusmaps.git .`
+- Fork repository
+- Clone fork
 - Install server dependencies
   - `yarn`
 - Install client dependencies
   - `cd client`
   - `yarn`
-- Checkout to branch deployment-testing
-  - `git checkout deployment-testing`
 
 ### Step 3: Create Google Auth credentials
 
@@ -46,19 +44,18 @@
 - Name the client ID whatever you would like
   - Go to `src/config/passport.ts` and replace clientID's string with your own as well as clientSecret's string with your own
   ![passport](docs/images/Screenshot-3.png)
+  - Commit and push diffs
+    - `git add src/config/passport.ts`
+    - `git commit -m "(any commit message you'd like)"`
+    - `git push`
   - We will set up the rest in step 5
-  - After editing `passport.ts`
-     - `git add src/config/passport.ts`
-     - `git commit -m "(any commit message youd like)"`
-     - `git push`
 
 ### Step 4: Deploy to Heroku
 - Go to account settings and connect GitHub account to Heroku account
 ![Link GitHub](https://lh3.googleusercontent.com/8pPLKr8uiSZ17xUliKnyhIgLx_o_wzvy-qv1rrQJ7yOHAY-HbEwP9M48m6Lpy_qatMSo5zxV8Q29dGW9WD8LYCkMRw-kRGB1zHkMbfYWPpUYw_t3dRu1nd__AXpkxicJqNR7IbRv)
 - Authorize Heroku from GitHub
 - Create new Heroku app
-- Connect to project-t06-campusmaps
-![passport](docs/images/Screenshot-4.png)
+- Connect to fork (under your personal account)
 - Go to app's settings tab
   - Create new config var
   - Key is `MONGODB_URI`
@@ -66,8 +63,7 @@
   - Remeber to enter your username and password into the specified fields of the connection string
   ![connection_string](docs/images/Screenshot-9.png)
 - Choose GitHub for deployment method
-- Go to manual deploy 
-  - Deploy `deployment-testing` branch
+- Deploy `main` branch
 
 ### Step 5: Set up Google Auth authorization
 - Authorized JavaScript origins should have `http://localhost:5000` as well as your heroku URL (https)
