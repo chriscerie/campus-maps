@@ -1,1 +1,1 @@
-MONGODB CONNECTION STRING: mongodb+srv://<username>:<password>@cluster0.po0cq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+MONGODB CONNECTION STRING:

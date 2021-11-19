@@ -13,12 +13,14 @@
 - Create Atlas cluster
 ![Shared Cluster](Images/Screenshot-1.png)
 - Create username and password
+![username](Images/Screenshot-7.png)
 - Add current IP address, then finish and close
+![IP](Images/Screenshot-8.png)
 - Wait for cluster to be created
 - Press connect button
   - Connect using MongoDB's native drivers
   - Driver should be Node.js with version 4.0 or later
-  - Copy connection string to a seperate file (we will need it later)
+  - Copy connection string to a seperate file (Deployment.txt) (we will need it later)
 <img src="https://cdn.discordapp.com/attachments/869080576236331048/911145078066675772/unknown.png" width="50%" height="50%">
 
 ### Step 2: Clone repository
@@ -41,10 +43,14 @@
 - Press create credentials button > OAuth client ID
 ![Creds](Images/Screenshot-2.png)
 - Select Web Application as application type
-- Name the client ID whatever youd like
+- Name the client ID whatever you would like
   - Go to `src/config/passport.ts` and replace clientID's string with your own as well as clientSecret's string with your own
   ![passport](Images/Screenshot-3.png)
   - We will set up the rest in step 5
+  - After editing `passport.ts`
+     - `git add src/config/passport.ts`
+     - `git commit -m "(any commit message youd like)"`
+     - `git push`
 
 ### Step 4: Deploy to Heroku
 - Go to account settings and connect GitHub account to Heroku account
@@ -57,7 +63,10 @@
   - Create new config var
   - Key is `MONGODB_URI`
   - Value is the connection string from step 1
+  - Remeber to enter your username and password into the specified fields of the connection string
+  ![connection_string](Images/Screenshot-9.png)
 - Choose GitHub for deployment method
+- Go to manual deploy 
   - Deploy `deployment-testing` branch
 
 ### Step 5: Set up Google Auth authorization
