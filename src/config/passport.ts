@@ -17,8 +17,8 @@ passport.use(
   new GoogleAuth.Strategy(
     {
       clientID:
-        '633719195159-mae5ouku2d3m4g649p16gfnnms6hfrts.apps.googleusercontent.com',
-      clientSecret: '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',
+        '',
+      clientSecret: '',
       callbackURL: '/api/v1/auth/google/callback',
       proxy: true,
     },
