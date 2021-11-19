@@ -9,7 +9,12 @@ function LoginPage() {
         <p>By signing in, you agree to Campus Maps's Privacy Policy.</p>
       </div>
       <div id="login-page-bottom">
-        <Button variant="contained" disableElevation id="login-page-button">
+        <Button
+          variant="contained"
+          disableElevation
+          id="login-page-button"
+          href="/api/v1/auth/google"
+        >
           Continue with Google
         </Button>
       </div>
