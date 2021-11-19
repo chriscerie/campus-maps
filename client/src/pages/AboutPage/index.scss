@@ -1,0 +1,37 @@
+.about-us-title {
+  font-size: 50px;
+  color: black;
+  padding: 20px;
+}
+
+.about-us-pic {
+  font-size: 30px;
+}
+
+.about-us-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.about-us-body-parts {
+  padding-top: 50px;
+  color: black;
+  padding-left: 350px;
+  padding-right: 350px;
+}
+
+.about-us-body-top {
+  font-size: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+  color: black;
+}
+
+.about-us-body-middle {
+  text-align: left;
+  font-size: 20px;
+  color: black;
+}
