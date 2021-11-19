@@ -1,0 +1,58 @@
+#login-page-container {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(
+    50% 50%,
+    rgb(93, 179, 255),
+    rgb(37, 100, 155) 150%
+  );
+  overflow: hidden;
+}
+
+#login-page-top {
+  color: #fff;
+  box-sizing: border-box;
+  padding: 14em 2em;
+}
+
+#login-page-top h1 {
+  margin: 0 0 0.5em;
+  font-size: 3em;
+}
+
+#login-page-top p {
+  font-size: 1em;
+  color: rgb(255, 255, 255, 0.9);
+}
+
+#login-page-bottom {
+  background-color: #fff;
+  padding: 0 0 8em;
+  margin-top: 3em;
+  position: relative;
+}
+
+#login-page-bottom::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -4em;
+  height: 5000px;
+  width: 100%;
+  transform: skewY(-4deg);
+  background-color: #fff;
+}
+
+#login-page-button {
+  top: -4.8em;
+  color: #fff;
+  background-color: rgb(255, 170, 60);
+  border: 0;
+  padding: 0.6em 2.8em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: none;
+  box-shadow: 0 0.5em 3em rgb(0, 0, 0, 0.2);
+  border: 0.2em solid #fff;
+}
