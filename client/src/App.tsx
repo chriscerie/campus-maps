@@ -5,6 +5,7 @@ import LocationPage from './pages/LocationPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
+import AboutPage from './pages/AboutPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { useEffect } from 'react';
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/loc-edit/:id" component={LocationEditPage} />
           <Route exact path="/write-review/:id" component={WriteReviewPage} />
           <Route exact path="/profile" component={ProfilePage} />
+          <Route exact path="/about" component={AboutPage} />
         </Switch>
 
         <Switch>
