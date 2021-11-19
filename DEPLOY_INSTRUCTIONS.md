@@ -11,11 +11,11 @@
 ### Step 1: Set up MongoDB
 
 - Create Atlas cluster
-![Shared Cluster](Images/Screenshot-1.png)
+![Shared Cluster](docs/images/Screenshot-1.png)
 - Create username and password
-![username](Images/Screenshot-7.png)
+![username](docs/images/Screenshot-7.png)
 - Add current IP address, then finish and close
-![IP](Images/Screenshot-8.png)
+![IP](docs/images/Screenshot-8.png)
 - Wait for cluster to be created
 - Press connect button
   - Connect using MongoDB's native drivers
@@ -41,11 +41,11 @@
 
 - Go to APIs & Services > Credentials 
 - Press create credentials button > OAuth client ID
-![Creds](Images/Screenshot-2.png)
+![Creds](docs/images/Screenshot-2.png)
 - Select Web Application as application type
 - Name the client ID whatever you would like
   - Go to `src/config/passport.ts` and replace clientID's string with your own as well as clientSecret's string with your own
-  ![passport](Images/Screenshot-3.png)
+  ![passport](docs/images/Screenshot-3.png)
   - We will set up the rest in step 5
   - After editing `passport.ts`
      - `git add src/config/passport.ts`
@@ -58,22 +58,22 @@
 - Authorize Heroku from GitHub
 - Create new Heroku app
 - Connect to project-t06-campusmaps
-![passport](Images/Screenshot-4.png)
+![passport](docs/images/Screenshot-4.png)
 - Go to app's settings tab
   - Create new config var
   - Key is `MONGODB_URI`
   - Value is the connection string from step 1
   - Remeber to enter your username and password into the specified fields of the connection string
-  ![connection_string](Images/Screenshot-9.png)
+  ![connection_string](docs/images/Screenshot-9.png)
 - Choose GitHub for deployment method
 - Go to manual deploy 
   - Deploy `deployment-testing` branch
 
 ### Step 5: Set up Google Auth authorization
 - Authorized JavaScript origins should have `http://localhost:5000` as well as your heroku URL (https)
-![passport](Images/Screenshot-5.png)
+![passport](docs/images/Screenshot-5.png)
 - Authorized redirect URIs should have `http://localhost:5000/api/v1/auth/google/callback` as well as your heroku URL (https) with `/api/v1/auth/google/callback` appended to the end
-![passport](Images/Screenshot-6.png)
+![passport](docs/images/Screenshot-6.png)
 
 ### Development on localhost
 
