@@ -104,9 +104,7 @@ function MapComponent() {
       className="map-container"
       ref={mapContainerRef}
       // Only render map if user is in root page
-      style={
-        location.pathname === '/' ? {} : { display: 'none' }
-      }
+      style={location.pathname === '/' ? {} : { display: 'none' }}
     >
       <Sidebar />
       {selected && (
