@@ -33,9 +33,9 @@ exports[`LoginPage should render successfully 1`] = `
       }
       data-emotion="css zddlty-MuiButtonBase-root-MuiButton-root"
     />
-    <button
+    <a
       className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root css-zddlty-MuiButtonBase-root-MuiButton-root"
-      disabled={false}
+      href="/api/v1/auth/google"
       id="login-page-button"
       onBlur={[Function]}
       onContextMenu={[Function]}
@@ -50,10 +50,9 @@ exports[`LoginPage should render successfully 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       tabIndex={0}
-      type="button"
     >
       Continue with Google
-    </button>
+    </a>
   </div>
 </div>
 `;
