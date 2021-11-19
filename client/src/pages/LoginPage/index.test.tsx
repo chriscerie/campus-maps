@@ -1,16 +1,18 @@
-import ShallowRenderer from 'react-test-renderer/shallow';
+import renderer from 'react-test-renderer';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../reducers';
 import LoginPage from './index';
 
 describe('LoginPage', () => {
   it('should render successfully', () => {
-    const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(
+    const tree = renderer.create(
       <Provider store={store}>
-        <LoginPage />
+        <MemoryRouter>
+          <LoginPage />
+        </MemoryRouter>
       </Provider>
-    );
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
