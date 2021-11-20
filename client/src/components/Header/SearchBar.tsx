@@ -25,12 +25,14 @@ function SearchBar() {
         marker: false, // Do not use the default marker style
         placeholder: 'Search', // Placeholder text for the search bar
         trackProximity: true,
+        types: "place, poi, address",
       });
 
       const setProximity = () => {
         const center = mapInstance.getCenter().wrap();
         geocoder.setProximity({ longitude: center.lng, latitude: center.lat });
       };
+
       mapInstance.on('load', setProximity);
       mapInstance.on('moveend', setProximity);
 
