@@ -39,7 +39,7 @@ function SearchBar() {
       geocoder.addTo('#mapbox-geocoder-container');
 
       //axios.get('https://api.mapbox.com/v4/').then(res => {
-
+/*
       const features = mapInstance.querySourceFeatures('composite', {
         sourceLayer: 'poi_label',
       });
@@ -51,11 +51,11 @@ function SearchBar() {
         });
         console.log(points);
       });
-
+*/
       geocoder.on('result', (e) => {
         console.log(e);
 
-        const feature = e.result[0];
+        //const feature = e.result[0];
 
         mapInstance.flyTo({
           center: e.result.geometry.coordinates,
