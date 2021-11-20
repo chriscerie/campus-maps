@@ -25,7 +25,7 @@ function SearchBar() {
         marker: false, // Do not use the default marker style
         placeholder: 'Search', // Placeholder text for the search bar
         trackProximity: true,
-        types: "place, poi, address",
+        types: 'place, poi, address',
       });
 
       const setProximity = () => {
