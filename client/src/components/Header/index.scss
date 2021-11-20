@@ -4,4 +4,54 @@
   width: 1.8em;
   height: 1.8em;
   cursor: pointer;
+  pointer-events: all;
+}
+
+.header-sign-buttons {
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.6em 1.1em;
+  text-decoration: none;
+  transition: all 0.8s ease;
+}
+
+.header-signup-button {
+  font-weight: 600;
+  background-color: #2537ff;
+  color: #fff;
+  pointer-events: all;
+}
+
+.header-signup-button:hover {
+  box-shadow: 0 0 5px #bbb;
+  text-decoration: underline;
+}
+
+.header-signin-button {
+  margin-right: 0.8em;
+  font-weight: 600;
+  outline: 1px solid #aaa;
+  color: #444;
+  pointer-events: all;
+  background-color: #fff;
+}
+
+.header-signin-button:hover {
+  background-color: #ccc;
+}
+
+#location-header-signup-button:hover {
+  box-shadow: 0 0 5px #bbb;
+}
+
+#location-header-signin-button {
+  margin-right: 0.8em;
+  font-weight: 600;
+  outline: 1px solid #aaa;
+  color: #444;
+}
+
+#location-header-signin-button:hover {
+  background-color: #ccc;
 }

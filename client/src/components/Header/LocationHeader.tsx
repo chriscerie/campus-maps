@@ -18,20 +18,18 @@ function LocationHeader() {
         <ProfileIcon />
       ) : (
         <Fragment>
-          <a
-            href="/auth/google"
-            id="location-header-signin-button"
-            className="location-header-sign-buttons"
+          <Link
+            to="/login"
+            className="header-sign-buttons header-signin-button"
           >
             Sign in
-          </a>
-          <a
-            href="/auth/google"
-            id="location-header-signup-button"
-            className="location-header-sign-buttons"
+          </Link>
+          <Link
+            to="/login"
+            className="header-sign-buttons header-signup-button"
           >
             Sign up
-          </a>
+          </Link>
         </Fragment>
       )}
     </Container>

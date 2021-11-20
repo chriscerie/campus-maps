@@ -6,36 +6,6 @@
   align-items: center;
 }
 
-.location-header-sign-buttons {
-  display: flex;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 0.6em 1.1em;
-  text-decoration: none;
-  transition: all 0.8s ease;
-}
-
-#location-header-signup-button {
-  font-weight: 600;
-  background-color: rgb(37, 55, 255);
-  color: #fff;
-}
-
-#location-header-signup-button:hover {
-  box-shadow: 0 0 5px #bbb;
-}
-
-#location-header-signin-button {
-  margin-right: 0.8em;
-  font-weight: 600;
-  outline: 1px solid #aaa;
-  color: #444;
-}
-
-#location-header-signin-button:hover {
-  background-color: #ccc;
-}
-
 .header-logo-link {
   display: flex;
   background-image: url('../../images/logo32px.png');

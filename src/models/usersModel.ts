@@ -1,7 +1,25 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const usersSchema = new mongoose.Schema({
-  name: {
+export interface IUser extends Document {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  profile_picture: string;
+  account_type: 'User' | 'Admin';
+  accounts: {
+    google: {
+      id: string;
+    };
+  };
+}
+
+const UserSchema = new Schema({
+  first_name: {
+    type: String,
+    required: true,
+  },
+  last_name: {
     type: String,
     required: true,
   },
@@ -9,16 +27,25 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  googleId: {
+  profile_picture: {
     type: String,
     required: true,
   },
-  photo: {
+  accounts: {
+    google: {
+      id: {
+        type: String,
+        required: true,
+      },
+    },
+  },
+  account_type: {
     type: String,
-    required: true,
+    enum: ['User', 'Admin'],
+    default: 'User',
   },
 });
 
-const User = mongoose.model('User', usersSchema);
+const User = mongoose.model<IUser>('User', UserSchema);
 
 export default User;

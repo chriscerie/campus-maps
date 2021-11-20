@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import { Fragment } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import './MapHeader.scss';
 import ProfileIcon from './ProfileIcon';
@@ -31,18 +32,18 @@ function MapHeader() {
         ) : (
           isBigScreen && (
             <Fragment>
-              <a
-                href="/auth/google"
-                className="signin-button  header-text-shadow"
+              <Link
+                to="/login"
+                className="header-sign-buttons header-signin-button"
               >
                 Sign in
-              </a>
-              <a
-                href="/auth/google"
-                className="signup-button  header-text-shadow"
+              </Link>
+              <Link
+                to="/login"
+                className="header-sign-buttons header-signup-button"
               >
                 Sign up
-              </a>
+              </Link>
             </Fragment>
           )
         )}

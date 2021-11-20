@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: "deploy"
+    name: deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -20,3 +20,31 @@ jobs:
             heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
             heroku_app_name: "campusmaps"
             heroku_email: "me@chrisc.dev"
+
+  deploy_docs:
+    name: deploy_docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache server dependencies
+        id: node-cache-server
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        if: steps.node-cache-server.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Create docs
+        run: yarn typedoc src/index.ts
+
+      - name: Deploy docs
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: docs

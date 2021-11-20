@@ -1,0 +1,67 @@
+.review-container {
+  margin-bottom: 3em;
+}
+
+.review-header-container {
+  display: table;
+  border-spacing: 1.5em 0;
+  vertical-align: middle;
+  margin: 0 -1.5em 1.5em;
+}
+
+.review-header-leftside {
+  display: table-cell;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.review-header-rightside {
+  display: table-cell;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.review-header-leftside-body {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 1.5em 0;
+  margin: 0 -1.5em;
+}
+
+.review-profile-image-container {
+  display: table-cell;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.review-profile-image {
+  height: 4em;
+  width: 4em;
+  aspect-ratio: auto 1;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.review-user-info-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.review-user-info {
+  display: block;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.review-text-container {
+  width: 90%;
+}
+
+.review-text {
+  margin: 0;
+  font-size: smaller;
+  line-height: 1.7em;
+}

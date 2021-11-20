@@ -6,12 +6,9 @@ import './index.scss';
 function Header() {
   return (
     <Switch>
-      <Route exact path="/">
-        <MapHeader />
-      </Route>
-      <Route path="/loc">
-        <LocationHeader />
-      </Route>
+      <Route exact path="/" component={MapHeader} />
+      <Route exact path="/login" />
+      <Route path="/" component={LocationHeader} />
     </Switch>
   );
 }

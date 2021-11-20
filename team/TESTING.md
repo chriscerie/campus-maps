@@ -11,7 +11,7 @@
 ### Plans
 
 * Add unit tests for hooks and functions
-* Add end-to-end tests
+* Add end-to-end tests (e.g., fetching comments, fetching user info)
 
 ### Current tests
 

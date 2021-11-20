@@ -16,13 +16,19 @@ exports[`PhotoHeader should render successfully 1`] = `
         <div
           className="photo-header-heading"
         >
-          ...
+          name
         </div>
-        <div
+        <span
           className="photo-header-subheading"
         >
-          ...
-        </div>
+          type
+        </span>
+        <Link
+          className="photo-header-edit-button"
+          to="/loc-edit/1111"
+        >
+          Edit
+        </Link>
       </div>
       <Link
         id="see-more-button"
