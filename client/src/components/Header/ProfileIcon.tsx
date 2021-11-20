@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import type { RootState } from '../../reducers';
+import axios from 'axios';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -81,13 +82,15 @@ function ProfileIcon() {
             Settings
           </Link>
         </MenuItem>
-        <MenuItem>
+        <MenuItem
+          onClick={() => {
+            axios.post('/api/v1/auth/logout');
+          }}
+        >
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          <a href="/api/v1/auth/logout" className="menu-item-link">
-            Logout
-          </a>
+          Logout
         </MenuItem>
       </Menu>
     </Fragment>
