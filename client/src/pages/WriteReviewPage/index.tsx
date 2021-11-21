@@ -18,7 +18,6 @@ function WriteReviewPage() {
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
   const { register, setValue, handleSubmit } = useForm<{
     body: string;
-    photos: null | FileList;
   }>();
 
   const [photos, setPhotos] = useState<Array<File>>([]);
