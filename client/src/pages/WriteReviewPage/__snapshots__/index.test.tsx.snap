@@ -17,17 +17,94 @@ Array [
     <div
       id="write-review-page-inner"
     >
-      <h2 />
+      <a
+        href="/loc/1111"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#000",
+            "textDecoration": "none",
+          }
+        }
+      >
+        <h1
+          style={
+            Object {
+              "fontSize": "2em",
+            }
+          }
+        />
+      </a>
       <p>
         All reviews are subject to moderation.
       </p>
       <form>
         <ul>
-          <li>
+          <li
+            style={
+              Object {
+                "marginBottom": "3em",
+              }
+            }
+          >
             <textarea
               name="body"
               placeholder="Write a review."
             />
+          </li>
+          <li>
+            <h3
+              style={
+                Object {
+                  "fontSize": "1.3em",
+                }
+              }
+            >
+              Attach Photos
+            </h3>
+            <div
+              id="write-review-photos-section"
+            >
+              <div
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
+              >
+                <div
+                  id="write-review-add-photos-container"
+                  style={Object {}}
+                >
+                  <style
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": ".css-18xo0gl-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;margin:1.5em 0;width:1.2em;height:1.2em;}",
+                      }
+                    }
+                    data-emotion="css 18xo0gl-MuiSvgIcon-root"
+                  />
+                  <svg
+                    aria-hidden={true}
+                    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18xo0gl-MuiSvgIcon-root"
+                    data-testid="UploadFileIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"
+                    />
+                  </svg>
+                  <input
+                    accept=".png, .jpg, .jpeg"
+                    id="write-review-add-photos"
+                    multiple={true}
+                    onChange={[Function]}
+                    type="file"
+                  />
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
         <div
@@ -73,7 +150,7 @@ Array [
             tabIndex={0}
             type="button"
           >
-            Submit Changes
+            Post Review
           </button>
           <a
             href="/loc/1111"
