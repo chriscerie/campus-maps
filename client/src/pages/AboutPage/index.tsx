@@ -11,14 +11,14 @@ function AboutPage() {
       </div>
       <div className="about-us-body">
         <div className="about-us-body-parts">
-          <div className="about-us-body-top">Members in our group:</div>
-          <div className="about-us-body-middle">
-            Chris, Max, Janet, Jonathan, Sarah, Jason
-          </div>
+          <div className="about-us-body-top">CS 148</div>
+          <div className="about-us-body-middle">12pm t06-campusmaps</div>
         </div>
         <div className="about-us-body-parts">
-          <div className="about-us-body-top">test</div>
-          <div className="about-us-body-middle">test</div>
+          <div className="about-us-body-top">Members:</div>
+          <div className="about-us-body-middle">
+            Chris, Janet, Jason, Jonathan, Max, Sarah
+          </div>
         </div>
         <div className="about-us-body-parts">
           <div className="about-us-body-top">
