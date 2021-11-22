@@ -2,21 +2,48 @@ import { Avatar } from '@mui/material';
 import { Grid, Container } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { IconButton, Button, Divider } from '@mui/material';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
+import axios from 'axios';
+import type { UserType} from '../../types/UserType'
+import { SubmissionType } from './Submission';
+import Submission from './Submission';
 import './index.scss';
 
 function ModerationPage() {
   const currentUser = useSelector((state: RootState) => state.currentUser);
 
+  const [backendSubmissions, setBackendSubmissions] = useState<Array<SubmissionType>>([]);
+
+  useEffect(() => {
+    axios
+      .get<Array<SubmissionType>>('/api/v1/locations/loc-edit')
+      .then(async (res) => {
+        setBackendSubmissions(
+          await Promise.all(
+            res.data.map((submission) => {
+              return axios
+                .get<UserType>(`/api/v1/users/${submission.author_id}`)
+                .then((res) => {
+                  submission.author = res.data;
+                  return submission;
+                });
+            })
+          )
+        );
+
+      });
+  }, []);
+
   return (
     <div className="profile-page-container align-text-left">
       {/* TODO: only display page and allow user to accept/reject if they are a moderator */}
       {currentUser ? (
+        // {currentUser.account_type =="User" ? (
         <Fragment>
           <Container>
-            <div className="header-text">Moderation</div>
+            <div className="header-text">Moderation Panel</div>
             <Grid container>
               <Grid item xs={12}>
                 <div className="profile-icon-container">
@@ -32,62 +59,11 @@ function ModerationPage() {
               <Grid item xs={12}>
                 <div className="submissions">
                   <h1>Pending Submissions</h1>
-
-                  {/* This is the submission container, it should probably be another component.
-                  Has hardcoded data */}
-                  <li className="submissions-container">
-                    
-                  <Divider className="submission-divider"/>
-
-                    <div className="submission-header-container">
-                      <div>
-                        <div className="submission-header-body">
-                          <div className="submission-profile-image-container">
-                            <img
-                            // Change to submitter's profile picture
-                              src={currentUser ? currentUser.profile_picture : ''}
-                              alt="profile"
-                              className="submission-profile-image"
-                            />
-                          </div>
-                          <div className="submission-location-info-container">
-                            <div className="submission-location-info">
-                              {'Phelps Hall'}
-                            </div>
-                            <div>Description update by USERNAME</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="submission-text-container">
-                      <p className="submission-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius tortor orci, ac efficitur risus faucibus in.
-                        Fusce ornare efficitur convallis. Nulla sit amet leo tellus. Vivamus viverra dictum dapibus. Nullam ultricies feugiat
-                        nulla quis pulvinar. Fusce a nibh eget enim bibendum tempus. Aenean nulla lorem, hendrerit ac neque non, vestibulum
-                        sagittis eros. Nam iaculis pharetra sem, non fermentum urna finibus at. Quisque molestie erat in fermentum iaculis.
-                        Cras in dui neque. Sed fringilla risus quis sollicitudin sodales. Vivamus facilisis sapien eu mauris rhoncus, a tempus
-                        risus condimentum. Donec tristique neque neque, quis dignissim massa congue quis.</p>
-                      <div className="acceptance-buttons-container">
-                        <Fragment>
-                          <Button
-                            variant="contained"
-                            disableElevation
-                            id="submission-accept-button"
-                          >
-                            Accept
-                          </Button>
-                          <Button
-                            variant="contained"
-                            disableElevation
-                            id="submission-reject-button"
-                          >
-                            Reject
-                          </Button>
-                          
-                        </Fragment>
-                      </div>
-                    </div>
-                  </li>
+                  <ul>
+                    {backendSubmissions.map((rootComment: SubmissionType) => (
+                      <Submission key={rootComment._id} submission={rootComment} />
+                    ))}
+                  </ul>
                 </div>
               </Grid>
             </Grid>
@@ -110,6 +86,6 @@ function ModerationPage() {
       )}
     </div>
   );
-}
+};
 
 export default ModerationPage;

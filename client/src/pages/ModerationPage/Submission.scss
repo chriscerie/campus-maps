@@ -1,0 +1,111 @@
+.acceptance-buttons-container {
+    text-align: right;
+}
+
+.acceptance-buttons {
+    padding-left: 50px;
+}
+
+.submission-link {
+    color: #2592ff;
+    text-decoration: none;
+}
+
+.submission-link:hover {
+    color: #2537ff;
+}
+
+.submissions-container {
+    margin-bottom: 1.5em;
+}
+
+.submission-divider {
+    width: 90%;
+}
+
+.submission-header-container {
+    display: table;
+    border-spacing: 1.5em 0;
+    vertical-align: middle;
+    margin: 0 -1.5em 1.5em;
+    margin-top: 1.5em;
+}
+
+.submission-header-body {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1.5em 0;
+    margin: 0 -1.5em;
+}
+
+.submission-profile-image-container {
+    display: table-cell;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.submission-profile-image {
+    height: 4em;
+    width: 4em;
+    aspect-ratio: auto 1;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.submission-location-info-container {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.submission-location-info {
+    display: block;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.submission-text-container {
+    width: 90%;
+}
+
+.submission-text {
+    margin: 0;
+    font-size: smaller;
+    line-height: 1.7em;
+}
+
+#submission-accept-button {
+    color: #fff;
+    background-color: #2592ff;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid #2592ff;
+    padding: 0.4em 1.4em;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: none;
+}
+
+#submission-accept-button:hover {
+    background-color: #2537ff;
+    border: 1px solid #2537ff;
+}
+
+#submission-reject-button {
+    color: #929292;
+    background-color: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid #929292;
+    padding: 0.4em 1.4em;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: none;
+}
+
+#submission-reject-button:hover {
+    background-color: #929292;
+    color: #fff;
+}
