@@ -17,7 +17,12 @@ function AboutPage() {
         <div className="about-us-body-parts">
           <div className="about-us-body-top">Members:</div>
           <div className="about-us-body-middle">
-            Chris, Janet, Jason, Jonathan, Max, Sarah
+            Christopher Chang<br></br>
+            Janet Zhou<br></br>
+            Jason Em <br></br>
+            Jonathan Wang<br></br>
+            Max Binham<br></br>
+            Sarah Kwon
           </div>
         </div>
         <div className="about-us-body-parts">
