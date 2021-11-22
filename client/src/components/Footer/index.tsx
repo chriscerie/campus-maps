@@ -17,12 +17,6 @@ function Footer() {
         >
           GITHUB
         </a>
-        <Link className="footer-link" to="/about">
-          LINK 3
-        </Link>
-        <Link className="footer-link" to="/about">
-          LINK 4
-        </Link>
       </div>
       <p>Copyright © 2021</p>
     </div>
