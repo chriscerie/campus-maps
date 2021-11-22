@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 export type CurrentUserState = null | {
+  account_type: 'User' | 'Admin';
   first_name: string;
   last_name: string;
   email: string;
