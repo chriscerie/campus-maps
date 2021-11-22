@@ -38,9 +38,7 @@ function ModerationPage() {
 
   return (
     <div className="profile-page-container align-text-left">
-      {/* TODO: only display page and allow user to accept/reject if they are a moderator */}
-      {currentUser ? (
-        // {currentUser.account_type =="User" ? (
+      {currentUser?.account_type =="Admin" ? (
         <Fragment>
           <Container>
             <div className="header-text">Moderation Panel</div>
@@ -51,7 +49,7 @@ function ModerationPage() {
                     id="profile-greeting-icon"
                     src={currentUser ? currentUser.profile_picture : ''}
                   />
-                  <div id="profile-greeting-text">
+                  <div className="profile-greeting-text">
                     You are logged in as {currentUser.first_name} {currentUser.last_name}.
                   </div>
                 </div>
@@ -77,7 +75,7 @@ function ModerationPage() {
               <Grid item xs={12}>
                 <div className="profile-icon-container">
                   <Avatar id="profile-greeting-icon" src={''} />
-                  <div id="profile-greeting-text">You must be logged in as a moderator to access this page.</div>
+                  <div className="profile-greeting-text">You must be logged in as an admin to access this page.</div>
                 </div>
               </Grid>
             </Grid>

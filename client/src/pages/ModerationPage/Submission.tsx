@@ -34,7 +34,6 @@ const Submission = ({ submission }: { submission: SubmissionType }) => {
             <div className="submission-header-body">
               <div className="submission-profile-image-container">
                 <img
-                  // Change to submitter's profile picture
                   src={submission.author ? submission.author.profile_picture : ''}
                   alt="profile"
                   className="submission-profile-image"
@@ -60,6 +59,7 @@ const Submission = ({ submission }: { submission: SubmissionType }) => {
             <strong>ZIP Code:</strong> {submission.zip_code} <br />
           </p>
           <div className="acceptance-buttons-container">
+            {/* Buttons are nonfunctional currently */}
             <Fragment>
               <Button
                 variant="contained"
