@@ -2,17 +2,25 @@ import './index.scss';
 
 function AboutPage() {
   return (
-    <div>
-      <div className="about-us-title">Campus Maps about page</div>
-      <div className="about-us-pic">Picture can go here if needed</div>
+    <div className="about-us-all">
+      <div className="about-us-title">Where Maps meet Campuses</div>
+      <div className="about-us-text">
+        We dreamed of a time when students would no longer spend hours going
+        around campus just to find their classes. That's why we made this to
+        help you find your classes with ease.
+      </div>
       <div className="about-us-body">
         <div className="about-us-body-parts">
-          <div className="about-us-body-top">Top</div>
-          <div className="about-us-body-middle">text</div>
+          <div className="about-us-body-top">
+            The genius behind this project
+          </div>
+          <div className="about-us-body-middle">Chris is a genius!!!</div>
         </div>
         <div className="about-us-body-parts">
-          <div className="about-us-body-top">Top</div>
-          <div className="about-us-body-middle">text</div>
+          <div className="about-us-body-top">Now everybody else</div>
+          <div className="about-us-body-middle">
+            Max, Janet, Jonathan, Sarah, Jason
+          </div>
         </div>
         <div className="about-us-body-parts">
           <div className="about-us-body-top">

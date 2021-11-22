@@ -1,11 +1,14 @@
 .about-us-title {
-  font-size: 50px;
+  font-size: 100px;
+  font-weight: bold;
   color: black;
   padding: 20px;
 }
 
-.about-us-pic {
+.about-us-text {
   font-size: 30px;
+  padding-left: 300px;
+  padding-right: 300px;
 }
 
 .about-us-body {
@@ -17,7 +20,7 @@
 }
 
 .about-us-body-parts {
-  padding-top: 50px;
+  padding-top: 25px;
   color: black;
   padding-left: 350px;
   padding-right: 350px;
@@ -34,4 +37,6 @@
   text-align: left;
   font-size: 20px;
   color: black;
+  border-bottom: 1px solid gray;
+  padding-bottom: 25px;
 }
