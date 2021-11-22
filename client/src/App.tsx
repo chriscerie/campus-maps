@@ -1,6 +1,10 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.scss';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from './reducers';
+import { setCurrentUser } from './actions/currentUserActions';
 import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 import LocationPage from './pages/LocationPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
@@ -8,11 +12,10 @@ import ProfilePage from './pages/ProfilePage';
 import ModerationPage from './pages/ModerationPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { setCurrentUser } from './actions/currentUserActions';
+import './App.scss';
 
 function App() {
+  const currentUser = useSelector((state: RootState) => state.currentUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,11 +28,22 @@ function App() {
         <Header />
         <HomePage />
         <Switch>
+          <Route exact path="/login">
+            {currentUser ? <Redirect to="/" /> : <LoginPage />}
+          </Route>
           <Route exact path="/loc/:id" component={LocationPage} />
-          <Route exact path="/loc-edit/:id" component={LocationEditPage} />
-          <Route exact path="/write-review/:id" component={WriteReviewPage} />
-          <Route exact path="/profile" component={ProfilePage} />
-          <Route exact path="/moderation" component={ModerationPage} />
+          <Route exact path="/loc-edit/:id">
+            {currentUser ? <LocationEditPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/write-review/:id" component={WriteReviewPage}>
+            {currentUser ? <WriteReviewPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/profile" component={ProfilePage}>
+            {currentUser ? <ProfilePage /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/moderation" component={ModerationPage}>
+            {currentUser ? <ModerationPage /> : <Redirect to="/login" />}
+          </Route>
         </Switch>
 
         <Switch>
