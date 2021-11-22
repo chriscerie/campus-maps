@@ -11,7 +11,7 @@ function AboutPage() {
       </div>
       <div className="about-us-body">
         <div className="about-us-body-parts">
-          <div className="about-us-body-top">CS 148</div>
+          <div className="about-us-body-top">UCSB CS 148</div>
           <div className="about-us-body-middle">12pm t06-campusmaps</div>
         </div>
         <div className="about-us-body-parts">
