@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import { useParams, Link } from 'react-router-dom';
@@ -10,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
 import type { LocationType } from '../../types/LocationType';
+import PhotoPopup from './PhotoPopup';
 import './index.scss';
 
 function WriteReviewPage() {
@@ -19,10 +19,8 @@ function WriteReviewPage() {
   const { register, setValue, handleSubmit } = useForm<{
     body: string;
   }>();
-
-  const [photos, setPhotos] = useState<Array<File>>([]);
-
-  console.log(photos);
+  const [photos, setPhotos] = useState<Array<{ imageSrc: string }>>([]);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
 
   // Set review
   useEffect(() => {
@@ -80,26 +78,42 @@ function WriteReviewPage() {
                       onChange={(e) => {
                         if (e.target.files) {
                           setPhotos((prev) =>
-                            prev.concat(Array.from(e.target.files || []))
+                            prev.concat(
+                              Array.from(e.target.files || []).map((file) => ({
+                                imageSrc: URL.createObjectURL(file),
+                              }))
+                            )
                           );
                         }
                       }}
                     />
                   </div>
                 </div>
+                <PhotoPopup
+                  photos={photos}
+                  index={selectedPhotoIndex}
+                  setIndex={setSelectedPhotoIndex}
+                  onClose={(e) => {
+                    setSelectedPhotoIndex(-1);
+                  }}
+                />
                 {photos &&
                   photos.map((photo, index) => (
-                    <div className="write-review-photo-container">
-                      <img
-                        src={URL.createObjectURL(photo)}
-                        alt={photo.name}
-                        style={{
-                          width: '8.2em',
-                          height: '8.2em',
-                        }}
-                      />
+                    <div
+                      className="write-review-photo-container"
+                      style={{
+                        backgroundImage: `url(${photo.imageSrc})`,
+                        width: '8.2em',
+                        height: '8.2em',
+                      }}
+                    >
                       <div className="write-review-photo-background">
-                        <div className="text-area">
+                        <div
+                          className="text-area"
+                          onClick={() => {
+                            setSelectedPhotoIndex(index);
+                          }}
+                        >
                           <p style={{ margin: 0, fontWeight: 700 }}>
                             Add caption
                           </p>

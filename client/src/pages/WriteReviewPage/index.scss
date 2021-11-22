@@ -77,10 +77,10 @@
 .write-review-photo-container {
   position: relative;
   margin-left: 0.5em;
-}
-
-.write-review-photo-container:hover {
-  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 0 0 auto;
 }
 
 .write-review-photo-background {
@@ -117,6 +117,10 @@
   padding: 1.2em;
   color: #fff;
   text-align: center;
+}
+
+.write-review-photo-background .text-area:hover {
+  cursor: pointer;
 }
 
 #write-review-submit-button {
