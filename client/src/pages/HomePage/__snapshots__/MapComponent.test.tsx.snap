@@ -1,29 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MapComponent should render successfully 1`] = `
-<Context.Provider
-  value={
-    Object {
-      "store": Object {
-        "@@observable": [Function],
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "onStateChange": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
+<div
+  className="map-container"
+  style={Object {}}
 >
-  <MapComponent />
-</Context.Provider>
+  <div
+    className="side-arrow-left MuiBox-root css-0"
+    onClick={[Function]}
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}",
+        }
+      }
+      data-emotion="css i4bv87-MuiSvgIcon-root"
+    />
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="ChevronLeftIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
+  </div>
+</div>
 `;
