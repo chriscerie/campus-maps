@@ -7,6 +7,7 @@ function Header() {
   return (
     <Switch>
       <Route exact path="/" component={MapHeader} />
+      <Route exact path="/login" />
       <Route path="/" component={LocationHeader} />
     </Switch>
   );
