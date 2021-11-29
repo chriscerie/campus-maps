@@ -12,6 +12,7 @@ export interface IUser extends Document {
       id: string;
     };
   };
+  photos: Array<{ location_id: string; photo_id: string }>;
 }
 
 const UserSchema = new Schema({
@@ -44,6 +45,18 @@ const UserSchema = new Schema({
     enum: ['User', 'Admin'],
     default: 'User',
   },
+  photos: [
+    {
+      location_id: {
+        type: String,
+        required: true,
+      },
+      photo_id: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model<IUser>('User', UserSchema);
