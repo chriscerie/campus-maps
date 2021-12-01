@@ -10,6 +10,7 @@ import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
 import SettingsPage from './pages/SettingsPage';
+import ModerationPage from './pages/ModerationPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -23,11 +24,12 @@ function App() {
     dispatch(setCurrentUser());
   }, [dispatch]);
 
-  return (
+  return currentUser != null ? (
     <BrowserRouter>
       <div className="App">
         <Header />
         <HomePage />
+
         <Switch>
           <Route exact path="/login">
             {currentUser ? <Redirect to="/" /> : <LoginPage />}
@@ -44,6 +46,8 @@ function App() {
           </Route>
           <Route exact path="/settings" component={SettingsPage}>
             {currentUser ? <SettingsPage /> : <Redirect to="/login" />}
+          <Route exact path="/moderation" component={ModerationPage}>
+            {currentUser ? <ModerationPage /> : <Redirect to="/login" />}
           </Route>
         </Switch>
 
@@ -53,7 +57,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-  );
+  ) : null;
 }
 
 export default App;
