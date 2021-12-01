@@ -1,9 +1,21 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ILocation extends Document {
-  name: string;
+  _id: string;
   id: string;
-  type?: string;
+  name: string;
+  type: string;
+  description: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  tile: {
+    x: number;
+    y: number;
+    z: number;
+  };
 }
 
 export const locationsSchema = new Schema({

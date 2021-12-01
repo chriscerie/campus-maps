@@ -16,15 +16,10 @@
   padding-bottom: 32px;
 }
 
-.profile-page-container {
+.moderation-page-container {
   display: block;
   line-height: 2em;
-}
-
-.profile-icon-container {
-  display: inline-block;
-  white-space: nowrap;
-  margin-bottom: 10px;
+  min-height: 100vh;
 }
 
 #profile-greeting-icon {

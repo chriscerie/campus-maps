@@ -1,16 +1,17 @@
-import ShallowRenderer from 'react-test-renderer/shallow';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../../reducers';
 import ModerationPage from './index';
 
-describe('ProfilePage', () => {
+describe('ModerationPage', () => {
   it('should render successfully', () => {
-    const renderer = ShallowRenderer.createRenderer();
-    const tree = renderer.render(
-      <Provider store={store}>
-        <ModerationPage />
-      </Provider>
-    );
+    const tree = renderer
+      .create(
+        <Provider store={store}>
+          <ModerationPage />
+        </Provider>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

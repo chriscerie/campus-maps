@@ -1,6 +1,7 @@
 import express from 'express';
 import { Error } from 'mongoose';
 import requireLogin from '../middlewares/requireLogin';
+import requireAdmin from '../middlewares/requireAdmin';
 import Location, { ILocation } from '../models/locationsModel';
 import LocationEdit, { ILocationEdit } from '../models/locationEditsModel';
 
@@ -110,6 +111,69 @@ router.post('/v1/locations/loc-edit/:id', requireLogin, (req, res) => {
       res.status(404).send('Location not found');
     }
   });
+});
+
+// Accepts or denies location edit
+// decision: 'Accept' | 'Deny'
+router.post('/v1/locations/moderation/:id', requireAdmin, (req, res) => {
+  LocationEdit.findOne(
+    { _id: req.params.id },
+    (err: Error, locationEdit: ILocationEdit) => {
+      if (!err && locationEdit) {
+        if (req.body.decision === 'Accept') {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          Location.findOne(
+            { id: locationEdit.id },
+            (err: Error, location: ILocation) => {
+              if (!err && location) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                location.name = locationEdit.name;
+                location.type = locationEdit.type;
+                location.description = locationEdit.description;
+                location.address1 = locationEdit.address1;
+                location.address2 = locationEdit.address2;
+                location.city = locationEdit.city;
+                location.state = locationEdit.state;
+                location.zip_code = locationEdit.zip_code;
+                location.save((err: Error, location: ILocation) => {
+                  if (err) {
+                    console.log(err);
+                    res.status(500).send(err);
+                  } else {
+                    // Delete location edit
+                    locationEdit.remove((err: Error) => {
+                      if (err) {
+                        console.log(err);
+                        res.status(500).send(err);
+                      } else {
+                        res.status(201).send(location);
+                      }
+                    });
+                  }
+                });
+              } else {
+                res.status(404).send('Location not found');
+              }
+            }
+          );
+        } else {
+          // Delete location edit
+          locationEdit.remove((err: Error) => {
+            if (err) {
+              console.log(err);
+              res.status(500).send(err);
+            } else {
+              res.status(201).send(locationEdit);
+            }
+          });
+        }
+      } else {
+        res.status(404).send('Location edit not found');
+      }
+    }
+  );
 });
 
 export default router;

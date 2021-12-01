@@ -1,8 +1,8 @@
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { IconButton, Button, Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import type { UserType } from '../../types/UserType';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Submission.scss';
 
 export type SubmissionType = {
@@ -21,9 +21,13 @@ export type SubmissionType = {
   author?: UserType;
 };
 
-const Submission = ({ submission }: { submission: SubmissionType }) => {
-  console.log(submission);
-  console.log(submission.author);
+const Submission = ({
+  submission,
+  resetSubmissions,
+}: {
+  submission: SubmissionType;
+  resetSubmissions: () => void;
+}) => {
   return (
     <Fragment>
       <li className="submissions-container">
@@ -34,16 +38,26 @@ const Submission = ({ submission }: { submission: SubmissionType }) => {
             <div className="submission-header-body">
               <div className="submission-profile-image-container">
                 <img
-                  src={submission.author ? submission.author.profile_picture : ''}
+                  src={
+                    submission.author ? submission.author.profile_picture : ''
+                  }
                   alt="profile"
                   className="submission-profile-image"
                 />
               </div>
               <div className="submission-location-info-container">
                 <div className="submission-location-info">
-                  <Link className="submission-link" to={`/loc/${submission.id}`}>{submission.name}</Link>
+                  <Link
+                    className="submission-link"
+                    to={`/loc/${submission.id}`}
+                  >
+                    {submission.name}
+                  </Link>
                 </div>
-                <div>Update by {submission.author?.first_name} {submission.author?.last_name}</div>
+                <div>
+                  Update by {submission.author?.first_name}{' '}
+                  {submission.author?.last_name}
+                </div>
               </div>
             </div>
           </div>
@@ -65,6 +79,15 @@ const Submission = ({ submission }: { submission: SubmissionType }) => {
                 variant="contained"
                 disableElevation
                 id="submission-accept-button"
+                onClick={() => {
+                  axios
+                    .post(`/api/v1/locations/moderation/${submission._id}`, {
+                      decision: 'Accept',
+                    })
+                    .then(() => {
+                      resetSubmissions();
+                    });
+                }}
               >
                 Accept
               </Button>
@@ -72,10 +95,18 @@ const Submission = ({ submission }: { submission: SubmissionType }) => {
                 variant="contained"
                 disableElevation
                 id="submission-reject-button"
+                onClick={() => {
+                  axios
+                    .post(`/api/v1/locations/moderation/${submission._id}`, {
+                      decision: 'Deny',
+                    })
+                    .then(() => {
+                      resetSubmissions();
+                    });
+                }}
               >
                 Reject
               </Button>
-
             </Fragment>
           </div>
         </div>
