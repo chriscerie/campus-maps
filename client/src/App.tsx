@@ -22,11 +22,12 @@ function App() {
     dispatch(setCurrentUser());
   }, [dispatch]);
 
-  return (
+  return currentUser != null ? (
     <BrowserRouter>
       <div className="App">
         <Header />
         <HomePage />
+
         <Switch>
           <Route exact path="/login">
             {currentUser ? <Redirect to="/" /> : <LoginPage />}
@@ -52,7 +53,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-  );
+  ) : null;
 }
 
 export default App;
