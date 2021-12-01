@@ -3,26 +3,43 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Container, Button } from '@mui/material';
-import { useForm } from 'react-hook-form';
+import { Container, Button, Grid } from '@mui/material';
+import { Close } from '@mui/icons-material';
+import { Controller, useForm, useFieldArray } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
 import { StatesList } from '../../types/StatesList';
 import './index.scss';
 
+type ClassroomData = {
+  classroomId: string | undefined;
+  classroomName: string | undefined;
+}
+
+type FormValues = {
+  name: string;
+  type: string;
+  description: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  classrooms: ClassroomData[];
+};
+
 function LocationEditPage() {
   const { id } = useParams<{ id: string }>();
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-  const { register, setValue, handleSubmit } = useForm<{
-    name: string;
-    type: string;
-    description: string;
-    address1: string;
-    address2: string;
-    city: string;
-    state: string;
-    zip_code: string;
-  }>();
+  const { register, control, setValue, handleSubmit, formState: { errors } } = useForm<FormValues>({
+    shouldUnregister: false,
+  });
+
+  const { fields, append, remove } = useFieldArray<FormValues, 'classrooms', 'classroomId'>({
+    control,
+    name: 'classrooms',
+    keyName: 'classroomId',
+  });
 
   // Set point
   useEffect(() => {
@@ -37,6 +54,7 @@ function LocationEditPage() {
           setValue('city', '');
           setValue('state', '');
           setValue('zip_code', '');
+          setValue('classrooms', [{ classroomId: '', classroomName: '' }]);
         }
       });
     }
@@ -116,6 +134,52 @@ function LocationEditPage() {
                 placeholder="11111"
               />
             </li>
+
+            <li key="Classrooms">
+              <label>Classrooms</label> <br />
+              {fields.map((item, index) => (
+                <Grid container item xs={12} key={item.classroomId}>
+                  <Grid item>
+                    {index == 0 ? (
+                      <Controller
+                        name={`classrooms.${index}.classroomName`}
+                        control={control}
+                        defaultValue={item.classroomName}
+                        render={({ field }) => <input {...field} placeholder='e.g. CHEM 1171' />}
+                      />
+                    ) : (
+                      <Controller
+                        name={`classrooms.${index}.classroomName`}
+                        control={control}
+                        defaultValue={item.classroomName}
+                        render={({ field }) => <input {...field} placeholder='' />}
+                      />
+                    )}
+                  </Grid>
+                  <Grid item>
+                    <Button
+                      id="remove-classroom-button"
+                      onClick={() => {
+                        remove(index);
+                      }}
+                    >
+                      <Close id="close-icon" />
+                    </Button>
+                  </Grid>
+                </Grid>
+              ))}
+              <Button
+                variant="contained"
+                disableElevation
+                id="location-edit-add-class-button"
+                onClick={() => {
+                  append({ classroomId: fields.length.toString(), classroomName: '' });
+                }}
+              >
+                Add
+              </Button>
+            </li>
+
           </ul>
           <div style={{ marginTop: '2em' }}>
             <Button
