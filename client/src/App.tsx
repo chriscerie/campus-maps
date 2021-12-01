@@ -9,8 +9,10 @@ import LocationPage from './pages/LocationPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
+import SettingsPage from './pages/SettingsPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 import './App.scss';
 
 function App() {
@@ -39,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/profile" component={ProfilePage}>
             {currentUser ? <ProfilePage /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/settings" component={SettingsPage}>
+            {currentUser ? <SettingsPage /> : <Redirect to="/login" />}
           </Route>
         </Switch>
 

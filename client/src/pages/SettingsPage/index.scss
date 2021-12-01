@@ -1,0 +1,84 @@
+#profile-greeting-icon {
+  float: left;
+  width: 48px;
+  height: 48px;
+}
+
+#settings-page-container {
+  display: table;
+  margin-top: 4em;
+  margin-bottom: 10em;
+}
+
+#settings-profile-picture-container {
+  margin-bottom: 2em;
+}
+
+#settings-page-inner {
+  float: left;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+%settings-textinput {
+  display: block;
+  margin: 0 0 1em;
+  padding: 0.4em 0.8em;
+  border: 1px solid #999;
+  border-radius: 0.3em;
+  width: 100%;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+%settings-textinput:focus {
+  outline: none;
+  border-color: #2592ff;
+  box-shadow: 0 0 3px rgba(52, 160, 255, 0.5);
+}
+
+#settings-page-inner h2 {
+  margin-bottom: 0.5em;
+}
+
+#settings-page-inner input {
+  @extend %settings-textinput;
+}
+
+#settings-page-inner textarea {
+  @extend %settings-textinput;
+  resize: vertical;
+  height: 7em;
+}
+
+#settings-page-inner select {
+  @extend %settings-textinput;
+}
+
+#settings-submit-button {
+  color: #fff;
+  background-color: #1a8ceb;
+  border: 0;
+  padding: 0.4em 1.4em;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-size: 1em;
+  text-transform: none;
+}
+
+#settings-submit-button:hover {
+  background-color: #2592ff;
+}
+
+#settings-cancel-link {
+  color: #1577da;
+  text-decoration: none;
+  font-size: 1em;
+  margin-left: 1em;
+}
+
+#settings-cancel-link:hover {
+  text-decoration: underline;
+}

@@ -78,7 +78,7 @@ function ProfileIcon() {
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          <Link to="/" className="menu-item-link">
+          <Link to="/settings" className="menu-item-link">
             Settings
           </Link>
         </MenuItem>
