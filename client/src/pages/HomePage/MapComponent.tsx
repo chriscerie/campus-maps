@@ -106,7 +106,6 @@ function MapComponent() {
       // Only render map if user is in root page
       style={location.pathname === '/' ? {} : { display: 'none' }}
     >
-      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}
