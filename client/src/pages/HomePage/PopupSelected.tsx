@@ -47,6 +47,10 @@ function PopupSelected(props: {
           </Link>
         </Box>
         <Divider variant="middle" />
+        <div className="address">Address</div>
+        <div className="address-details">Santa Barbara</div>
+        <div className="address-details">CA 93106</div>
+        <div className="address-details">United States</div>
       </BottomPopup>
     )
   );

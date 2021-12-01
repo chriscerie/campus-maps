@@ -43,3 +43,19 @@
 #popup-location-button:hover {
   background-color: #1c57c6;
 }
+
+.address {
+  display: flex;
+  padding-top: 0.5em;
+  font-size: 1.4em;
+  padding-right: 8.7em;
+  font-weight: lighter;
+}
+
+.address-details {
+  display: flex;
+  padding-top: 0.2em;
+  font-size: 1.5em;
+  padding-right: 1.7em;
+  color: #000 !important;
+}
