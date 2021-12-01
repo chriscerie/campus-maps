@@ -43,13 +43,13 @@ function SettingsPage() {
             <div id="settings-profile-picture-container">
               <li key="Profile_Picture">
                 <label>Profile Picture</label>
-                  <br></br>
+                <br></br>
                 <Avatar
                   id="profile-greeting-icon"
                   src={currentUser ? currentUser.profile_picture : ''}
                 />
               </li>
-              </div>
+            </div>
             <li key="Name">
               <br></br>
               <label>Name</label>

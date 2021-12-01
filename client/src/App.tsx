@@ -46,6 +46,7 @@ function App() {
           </Route>
           <Route exact path="/settings" component={SettingsPage}>
             {currentUser ? <SettingsPage /> : <Redirect to="/login" />}
+          </Route>
           <Route exact path="/moderation" component={ModerationPage}>
             {currentUser ? <ModerationPage /> : <Redirect to="/login" />}
           </Route>
