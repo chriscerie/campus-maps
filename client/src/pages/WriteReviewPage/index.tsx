@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
+import { getBase64 } from '../../api/GetBase64';
 import type { LocationType } from '../../types/LocationType';
 import PhotoPopup from './PhotoPopup';
 import './index.scss';
@@ -19,7 +20,9 @@ function WriteReviewPage() {
   const { register, setValue, handleSubmit } = useForm<{
     body: string;
   }>();
-  const [photos, setPhotos] = useState<Array<{ imageSrc: string }>>([]);
+  const [photos, setPhotos] = useState<Array<{ imageSrc: string; file: File }>>(
+    []
+  );
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
 
   // Set review
@@ -38,6 +41,35 @@ function WriteReviewPage() {
     }
   }, [id, mapInstance]);
 
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    handleSubmit((data) => {
+      const imageBase64s: Array<string> = [];
+      
+      Promise.all(
+        photos.map(async (photo) => {
+          const base64 = await getBase64(photo.file);
+          imageBase64s.push(base64);
+        })
+      ).then(() => {
+        console.log(imageBase64s);
+
+        axios
+          .post(`/api/v1/review/${id}`, {
+            body: data.body,
+            photos: imageBase64s,
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+    })();
+  };
+
   return (
     <Container maxWidth="md" id="write-review-page-container">
       <div id="write-review-page-inner">
@@ -50,7 +82,7 @@ function WriteReviewPage() {
           </h1>
         </Link>
         <p>All reviews are subject to moderation.</p>
-        <form>
+        <form onSubmit={onSubmit}>
           <ul>
             <li key="Review" style={{ marginBottom: '3em' }}>
               <textarea {...register('body')} placeholder="Write a review." />
@@ -81,6 +113,7 @@ function WriteReviewPage() {
                             prev.concat(
                               Array.from(e.target.files || []).map((file) => ({
                                 imageSrc: URL.createObjectURL(file),
+                                file: file,
                               }))
                             )
                           );
@@ -140,16 +173,7 @@ function WriteReviewPage() {
               variant="contained"
               disableElevation
               id="write-review-submit-button"
-              onClick={handleSubmit((data) => {
-                axios
-                  .post(`/api/v1/review/${id}`, { body: data.body })
-                  .then((res) => {
-                    console.log(res);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
-              })}
+              type="submit"
             >
               Post Review
             </Button>

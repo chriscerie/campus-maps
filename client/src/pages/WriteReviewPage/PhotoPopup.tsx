@@ -9,7 +9,7 @@ function PhotoPopup({
   setIndex,
   onClose,
 }: {
-  photos: Array<{ imageSrc: string }>;
+  photos: Array<{ imageSrc: string; file: File }>;
   index: number;
   setIndex: React.Dispatch<React.SetStateAction<number>>;
   onClose: (event: {}) => void;

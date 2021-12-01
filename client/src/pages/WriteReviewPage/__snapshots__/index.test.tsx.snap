@@ -38,7 +38,9 @@ Array [
       <p>
         All reviews are subject to moderation.
       </p>
-      <form>
+      <form
+        onSubmit={[Function]}
+      >
         <ul>
           <li
             style={
@@ -135,7 +137,6 @@ Array [
             disabled={false}
             id="write-review-submit-button"
             onBlur={[Function]}
-            onClick={[Function]}
             onContextMenu={[Function]}
             onDragLeave={[Function]}
             onFocus={[Function]}
@@ -148,7 +149,7 @@ Array [
             onTouchMove={[Function]}
             onTouchStart={[Function]}
             tabIndex={0}
-            type="button"
+            type="submit"
           >
             Post Review
           </button>
