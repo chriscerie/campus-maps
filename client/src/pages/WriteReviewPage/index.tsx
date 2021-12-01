@@ -46,7 +46,7 @@ function WriteReviewPage() {
 
     handleSubmit((data) => {
       const imageBase64s: Array<string> = [];
-      
+
       Promise.all(
         photos.map(async (photo) => {
           const base64 = await getBase64(photo.file);
