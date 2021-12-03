@@ -15,7 +15,7 @@ function LeftColumnDetais({
   locationInfo,
   id,
 }: {
-  locationInfo: LocationType;
+  locationInfo: LocationType | null;
   id: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,7 @@ function LeftColumnDetais({
       <div id="location-page-left-buttons-container">
         <div className="location-page-left-button">
           <Link
-            to={`/write-review/${locationInfo.id}`}
+            to={`/write-review/${locationInfo && locationInfo.id}`}
             style={{ textDecoration: 'none' }}
           >
             <Button
@@ -80,7 +80,9 @@ function LeftColumnDetais({
 
       <LocationSection title="Description">
         <div className="building-info align-text-left">
-          <p style={{ margin: 0 }}>{locationInfo.description}</p>
+          <p style={{ margin: 0 }}>
+            {locationInfo && locationInfo.description}
+          </p>
         </div>
       </LocationSection>
 
