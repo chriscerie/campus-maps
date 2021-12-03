@@ -11,7 +11,7 @@ export interface ILocation extends Document {
   city: string;
   state: string;
   zip_code: string;
-  photos: Array<{ author_id: string; photo_id: string }>;
+  photos: Array<{ author_id: string; photo: string }>;
   rooms: Array<{
     room_id: string;
     room_name: string;
@@ -43,18 +43,7 @@ export const locationsSchema = new Schema({
   city: String,
   state: String,
   zip_code: String,
-  photos: [
-    {
-      author_id: {
-        type: String,
-        required: true,
-      },
-      photo_id: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  photos: Array,
   rooms: Array,
   tile: {
     x: {
