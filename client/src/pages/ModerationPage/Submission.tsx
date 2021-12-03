@@ -17,6 +17,10 @@ export type SubmissionType = {
   city: string;
   state: string;
   zip_code: string;
+  rooms: Array<{
+    room_name: string;
+    room_id: string;
+  }>;
   __v: string;
   author?: UserType;
 };
@@ -71,6 +75,14 @@ const Submission = ({
             <strong>City:</strong> {submission.city} <br />
             <strong>State:</strong> {submission.state} <br />
             <strong>ZIP Code:</strong> {submission.zip_code} <br />
+            <strong>Rooms:</strong> <br />
+            {submission.rooms &&
+              submission.rooms.map((room) => (
+                <div>
+                  {'• ' + room.room_name}
+                  <br />
+                </div>
+              ))}
           </p>
           <div className="acceptance-buttons-container">
             {/* Buttons are nonfunctional currently */}

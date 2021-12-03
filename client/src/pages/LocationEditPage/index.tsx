@@ -5,40 +5,33 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Container, Button, Grid } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import { Controller, useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
 import { StatesList } from '../../types/StatesList';
 import './index.scss';
 
-type ClassroomData = {
-  classroomId: string | undefined;
-  classroomName: string | undefined;
-}
-
-type FormValues = {
-  name: string;
-  type: string;
-  description: string;
-  address1: string;
-  address2: string;
-  city: string;
-  state: string;
-  zip_code: string;
-  classrooms: ClassroomData[];
-};
-
 function LocationEditPage() {
   const { id } = useParams<{ id: string }>();
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-  const { register, control, setValue, handleSubmit, formState: { errors } } = useForm<FormValues>({
+  const { register, control, setValue, handleSubmit, getValues } = useForm<{
+    name: string;
+    type: string;
+    description: string;
+    address1: string;
+    address2: string;
+    city: string;
+    state: string;
+    zip_code: string;
+    rooms: Array<{
+      room_name: string;
+    }>;
+  }>({
     shouldUnregister: false,
   });
-
-  const { fields, append, remove } = useFieldArray<FormValues, 'classrooms', 'classroomId'>({
+  const { fields, append, remove } = useFieldArray({
     control,
-    name: 'classrooms',
-    keyName: 'classroomId',
+    name: 'rooms',
   });
 
   // Set point
@@ -49,12 +42,12 @@ function LocationEditPage() {
           setValue('name', res.name || '');
           setValue('type', res.type || '');
           setValue('description', res.description || '');
-          setValue('address1', '');
-          setValue('address2', '');
-          setValue('city', '');
-          setValue('state', '');
-          setValue('zip_code', '');
-          setValue('classrooms', [{ classroomId: '', classroomName: '' }]);
+          setValue('address1', res.address1 || '');
+          setValue('address2', res.address2 || '');
+          setValue('city', res.city || '');
+          setValue('state', res.state || '');
+          setValue('zip_code', res.zip_code || '');
+          setValue('rooms', res.rooms || [{ room_name: '' }]);
         }
       });
     }
@@ -107,9 +100,9 @@ function LocationEditPage() {
             <li key="City">
               <label>City</label>
               <input
-                {...register('state')}
+                {...register('city')}
                 type="text"
-                placeholder="New York City"
+                placeholder="San Francisco"
               />
             </li>
 
@@ -135,37 +128,31 @@ function LocationEditPage() {
               />
             </li>
 
-            <li key="Classrooms">
-              <label>Classrooms</label> <br />
+            <li key="Rooms">
+              <label>Room Numbers</label> <br />
               {fields.map((item, index) => (
-                <Grid container item xs={12} key={item.classroomId}>
+                <Grid container item xs={12}>
                   <Grid item>
-                    {index == 0 ? (
-                      <Controller
-                        name={`classrooms.${index}.classroomName`}
-                        control={control}
-                        defaultValue={item.classroomName}
-                        render={({ field }) => <input {...field} placeholder='e.g. CHEM 1171' />}
-                      />
-                    ) : (
-                      <Controller
-                        name={`classrooms.${index}.classroomName`}
-                        control={control}
-                        defaultValue={item.classroomName}
-                        render={({ field }) => <input {...field} placeholder='' />}
-                      />
-                    )}
+                    <input
+                      {...register(`rooms.${index}.room_name` as const)}
+                      type="text"
+                      placeholder={'1111'}
+                    />
                   </Grid>
-                  <Grid item>
-                    <Button
-                      id="remove-classroom-button"
-                      onClick={() => {
-                        remove(index);
-                      }}
-                    >
-                      <Close id="close-icon" />
-                    </Button>
-                  </Grid>
+                  {fields.length > 1 && index < fields.length - 1 && (
+                    <Grid item>
+                      <Button
+                        id="remove-classroom-button"
+                        onClick={() => {
+                          if (fields.length > 1) {
+                            remove(index);
+                          }
+                        }}
+                      >
+                        <Close id="close-icon" />
+                      </Button>
+                    </Grid>
+                  )}
                 </Grid>
               ))}
               <Button
@@ -173,13 +160,18 @@ function LocationEditPage() {
                 disableElevation
                 id="location-edit-add-class-button"
                 onClick={() => {
-                  append({ classroomId: fields.length.toString(), classroomName: '' });
+                  const lastRoom =
+                    getValues('rooms')[getValues('rooms').length - 1];
+                  if (lastRoom.room_name !== '') {
+                    append({
+                      room_name: '',
+                    });
+                  }
                 }}
               >
                 Add
               </Button>
             </li>
-
           </ul>
           <div style={{ marginTop: '2em' }}>
             <Button
@@ -187,6 +179,7 @@ function LocationEditPage() {
               disableElevation
               id="location-edit-submit-button"
               onClick={handleSubmit((data) => {
+                console.log(data);
                 axios
                   .post(`/api/v1/locations/loc-edit/${id}`, data)
                   .then((res) => {
