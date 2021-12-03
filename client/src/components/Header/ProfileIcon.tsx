@@ -84,7 +84,9 @@ function ProfileIcon() {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            axios.post('/api/v1/auth/logout');
+            axios.post('/api/v1/auth/logout').then(() => {
+              window.location.reload();
+            });
           }}
         >
           <ListItemIcon>

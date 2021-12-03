@@ -12,7 +12,7 @@ function LeftColumnDetais({
         <div className="sidebar-box">{locationInfo?.name}</div>
         <div className="sidebar-box">{locationInfo?.type}</div>
         <div className="sidebar-box">
-          {locationInfo?.rooms.length.toString()} rooms
+          {locationInfo?.rooms?.length?.toString()} rooms
         </div>
         {locationInfo?.address1 && (
           <div className="sidebar-box">{locationInfo.address1}</div>
