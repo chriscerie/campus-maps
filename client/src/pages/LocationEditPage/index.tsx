@@ -11,23 +11,6 @@ import { getLocationInfo } from '../../api/LocationAPI';
 import { StatesList } from '../../types/StatesList';
 import './index.scss';
 
-type ClassroomData = {
-  classroomId: string | undefined;
-  classroomName: string | undefined;
-}
-
-type FormValues = {
-  name: string;
-  type: string;
-  description: string;
-  address1: string;
-  address2: string;
-  city: string;
-  state: string;
-  zip_code: string;
-  classrooms: ClassroomData[];
-};
-
 function LocationEditPage() {
   const { id } = useParams<{ id: string }>();
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
