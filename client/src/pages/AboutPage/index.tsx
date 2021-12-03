@@ -25,16 +25,6 @@ function AboutPage() {
             Sarah Kwon
           </div>
         </div>
-        <div className="about-us-body-parts">
-          <div className="about-us-body-top">
-            test test test test test test test test test test test
-          </div>
-          <div className="about-us-body-last">
-            test test test test test test test test test test test test test
-            test test test test test test test test test test test tests tests
-            tests tests tests tests tests tests tests
-          </div>
-        </div>
       </div>
     </div>
   );
