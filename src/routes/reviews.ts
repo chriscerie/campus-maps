@@ -2,7 +2,7 @@ import express from 'express';
 import { Error } from 'mongoose';
 import requireLogin from '../middlewares/requireLogin';
 import Location, { ILocation } from '../models/locationsModel';
-import User from '../models/usersModel';
+import User, { IUser } from '../models/usersModel';
 import Review, { IReview } from '../models/reviewsModel';
 
 const router = express.Router();
@@ -78,51 +78,58 @@ router.post('/v1/review/:id', requireLogin, (req, res) => {
           const validPhotos = validateBase64Images(req.body.photos);
 
           // Remove all location.photos for user_id and replace them with new photos
-          location.update(
-            {
+          location
+            .updateOne({
               $pull: { photos: { author_id: user_id } },
-              $push: {
-                photos: {
-                  $each: validPhotos.map((image) => {
-                    return {
-                      author_id: user_id,
-                      photo: image,
-                    };
-                  }),
-                },
-              },
-            },
-            (err: Error) => {
-              if (err) {
-                console.log(err);
-                res.status(500).send(err);
-              }
-            }
-          );
+            })
+            .then(() => {
+              location
+                .updateOne({
+                  $push: {
+                    photos: {
+                      $each: validPhotos.map((image) => {
+                        return {
+                          author_id: user_id,
+                          photo: image,
+                        };
+                      }),
+                    },
+                  },
+                })
+                .catch((err: Error) => {
+                  console.log(err);
+                  res.status(500).send(err);
+                });
+            });
 
           // Remove all User.photos for location_id and replace them with new photos
-          User.findOneAndUpdate(
-            { _id: user_id },
-            {
-              $pull: { photos: { location_id: req.params.id } },
-              $push: {
-                photos: {
-                  $each: validPhotos.map((image) => {
-                    return {
-                      location_id: location.id,
-                      photo: image,
-                    };
-                  }),
-                },
-              },
-            },
-            (err: Error) => {
-              if (err) {
-                console.log(err);
-                res.status(500).send(err);
-              }
+          User.findOne({ _id: user_id }, (err: Error, user: IUser) => {
+            if (!err && user) {
+              user
+                .updateOne({
+                  $pull: { photos: { location_id: req.params.id } },
+                })
+                .then(() => {
+                  user
+                    .updateOne({
+                      $push: {
+                        photos: {
+                          $each: validPhotos.map((image) => {
+                            return {
+                              location_id: location.id,
+                              photo: image,
+                            };
+                          }),
+                        },
+                      },
+                    })
+                    .catch((err: Error) => {
+                      console.log(err);
+                      res.status(500).send(err);
+                    });
+                });
             }
-          );
+          });
         }
       );
     } else {
