@@ -30,94 +30,156 @@ function PhotosPage() {
   //temporary photos for testing
   const backendPhotos: PhotoType[] = new Array<PhotoType>();
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
   backendPhotos.push({
-    _id: '1',
-    user_id: 'J',
+    _id: "1",
+    user_id: "J",
     photo_src:
-      'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
+  });
+  backendPhotos.push({
+    _id: "1",
+    user_id: "J",
+    photo_src:
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
+  });
+  backendPhotos.push({
+    _id: "1",
+    user_id: "J",
+    photo_src:
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
+  });
+  backendPhotos.push({
+    _id: "1",
+    user_id: "J",
+    photo_src:
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
+  });
+  backendPhotos.push({
+    _id: "1",
+    user_id: "J",
+    photo_src:
+      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
+    photo_link:
+      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
   });
 
   return (
@@ -127,7 +189,7 @@ function PhotosPage() {
           Photos for {locationInfo && locationInfo.name}
         </h1>
         <div className="subheader-container">
-          <h3 className="subheader-title">Subheader here</h3>
+          <h3 className="subheader-title">{locationInfo && locationInfo.description}</h3>
           <div className="add-photo-button">
             <Button
               variant="outlined"

@@ -5,6 +5,7 @@ export type PhotoType = {
   _id: string;
   user_id: string;
   photo_src: string;
+  photo_link: string;
   // user?: UserType; time posted, etc..
 };
 
@@ -21,6 +22,7 @@ const PhotoBox = ({ photo }: { photo: PhotoType }) => {
           width="226"
           height="226"
         />
+        <a className="photo-link" href={photo.photo_link}></a>
       </div>
     </li>
   );
