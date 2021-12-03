@@ -11,6 +11,11 @@ export interface ILocation extends Document {
   city: string;
   state: string;
   zip_code: string;
+  rooms: Array<{
+    room_id: string;
+    room_name: string;
+    room_description?: string;
+  }>;
   tile: {
     x: number;
     y: number;
@@ -55,6 +60,7 @@ export const locationsSchema = new Schema({
     type: String,
     default: '',
   },
+  rooms: Array,
   tile: {
     x: {
       type: Number,
