@@ -1,9 +1,26 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ILocation extends Document {
-  name: string;
+  _id: string;
   id: string;
-  type?: string;
+  name: string;
+  type: string;
+  description: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  rooms: Array<{
+    room_id: string;
+    room_name: string;
+    room_description?: string;
+  }>;
+  tile: {
+    x: number;
+    y: number;
+    z: number;
+  };
 }
 
 export const locationsSchema = new Schema({
@@ -43,6 +60,7 @@ export const locationsSchema = new Schema({
     type: String,
     default: '',
   },
+  rooms: Array,
   tile: {
     x: {
       type: Number,
