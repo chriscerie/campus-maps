@@ -55,7 +55,7 @@ router.get('/v1/locations/loc-edit', (req, res) => {
 });
 
 function processRooms(rooms: ILocationEdit['rooms']) {
-  if (rooms.length > 0) {
+  if (rooms && rooms.length > 0) {
     rooms = rooms.map((room) => {
       // Remove spaces on edges
       room.room_name = room.room_name.trim();
