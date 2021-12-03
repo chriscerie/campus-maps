@@ -1,4 +1,5 @@
-import CommentSection from './CommentSection';
+import { Link } from 'react-router-dom';
+import ReviewSection from './ReviewSection';
 import LocationSection from './LocationSection';
 import './LeftColumnDetails.scss';
 import { Button } from '@mui/material';
@@ -8,19 +9,30 @@ import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import type { LocationType } from '../../types/LocationType';
 
-function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
+function LeftColumnDetais({
+  locationInfo,
+  id,
+}: {
+  locationInfo: LocationType;
+  id: string;
+}) {
   return (
     <div id="location-page-left-column">
       <div id="location-page-left-buttons-container">
         <div className="location-page-left-button">
-          <Button
-            variant="contained"
-            disableElevation
-            startIcon={<ChatOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
+          <Link
+            to={`/write-review/${locationInfo.id}`}
+            style={{ textDecoration: 'none' }}
           >
-            Write a comment
-          </Button>
+            <Button
+              variant="contained"
+              disableElevation
+              startIcon={<ChatOutlinedIcon />}
+              sx={{ textTransform: 'none', fontSize: '1em' }}
+            >
+              Write a Review
+            </Button>
+          </Link>
         </div>
         <div className="location-page-left-button">
           <Button
@@ -62,7 +74,7 @@ function LeftColumnDetais({ locationInfo }: { locationInfo: LocationType }) {
 
       <LocationSection title="Comments">
         <div className="align-text-left">
-          <CommentSection />
+          <ReviewSection id={id} />
         </div>
       </LocationSection>
     </div>

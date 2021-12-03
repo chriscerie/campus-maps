@@ -6,14 +6,12 @@ import mapboxgl from '!mapbox-gl';
 import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
-import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
 import { setMapInstance } from '../../actions/mapActions';
 import { useDispatch } from 'react-redux';
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiY2hyaXNjZXJpZSIsImEiOiJja3VvcXBiaGExcG5vMnFtYjhnc3gxcGprIn0.eX9g2ClfVBqYEvecwIPLYw';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || '';
 
 function MapComponent() {
   const location = useLocation();
@@ -105,11 +103,8 @@ function MapComponent() {
       className="map-container"
       ref={mapContainerRef}
       // Only render map if user is in root page
-      style={
-        location.pathname === '/' ? {} : { visibility: 'hidden', height: 0 }
-      }
+      style={location.pathname === '/' ? {} : { display: 'none' }}
     >
-      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}
