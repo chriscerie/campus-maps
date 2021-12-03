@@ -55,15 +55,15 @@ const Review = ({ comm }: { comm: ReviewType }) => {
               <button onClick={handleClick}>
                 <MoreHorizIcon />
               </button>
-              <Menu className="popup"
+              <Menu
                 anchorEl={anchorEl}
                 open={anchorEl !== null}
                 onClose={handleClose}
                 onClick={handleClose}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
               >
-                <MenuItem>
-                  Delete
-                </MenuItem>
+                <MenuItem>Delete</MenuItem>
               </Menu>
             </Fragment>
           )}
