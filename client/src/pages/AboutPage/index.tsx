@@ -14,9 +14,9 @@ function AboutPage() {
           <div className="about-us-body-top">UCSB CS 148</div>
           <div className="about-us-body-middle">12pm t06-campusmaps</div>
         </div>
-        <div className="about-us-body-last">
+        <div className="about-us-body-parts">
           <div className="about-us-body-top">Members:</div>
-          <div className="about-us-body-middle">
+          <div className="about-us-body-last">
             Christopher Chang<br></br>
             Janet Zhou<br></br>
             Jason Em <br></br>
