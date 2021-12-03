@@ -1,5 +1,7 @@
 import './RightColumnDetails.scss';
 
+
+
 function LeftColumnDetais() {
   return (
     <div id="location-page-right-column">
