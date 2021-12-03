@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Container, Button } from '@mui/material';
-import { useForm } from 'react-hook-form';
+import { Container, Button, Grid } from '@mui/material';
+import { Close } from '@mui/icons-material';
+import { useForm, useFieldArray } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
 import { StatesList } from '../../types/StatesList';
@@ -13,7 +14,7 @@ import './index.scss';
 function LocationEditPage() {
   const { id } = useParams<{ id: string }>();
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-  const { register, setValue, handleSubmit } = useForm<{
+  const { register, control, setValue, handleSubmit, getValues } = useForm<{
     name: string;
     type: string;
     description: string;
@@ -22,7 +23,16 @@ function LocationEditPage() {
     city: string;
     state: string;
     zip_code: string;
-  }>();
+    rooms: Array<{
+      room_name: string;
+    }>;
+  }>({
+    shouldUnregister: false,
+  });
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'rooms',
+  });
 
   // Set point
   useEffect(() => {
@@ -32,11 +42,12 @@ function LocationEditPage() {
           setValue('name', res.name || '');
           setValue('type', res.type || '');
           setValue('description', res.description || '');
-          setValue('address1', '');
-          setValue('address2', '');
-          setValue('city', '');
-          setValue('state', '');
-          setValue('zip_code', '');
+          setValue('address1', res.address1 || '');
+          setValue('address2', res.address2 || '');
+          setValue('city', res.city || '');
+          setValue('state', res.state || '');
+          setValue('zip_code', res.zip_code || '');
+          setValue('rooms', res.rooms || [{ room_name: '' }]);
         }
       });
     }
@@ -89,9 +100,9 @@ function LocationEditPage() {
             <li key="City">
               <label>City</label>
               <input
-                {...register('state')}
+                {...register('city')}
                 type="text"
-                placeholder="New York City"
+                placeholder="San Francisco"
               />
             </li>
 
@@ -116,6 +127,51 @@ function LocationEditPage() {
                 placeholder="11111"
               />
             </li>
+
+            <li key="Rooms">
+              <label>Room Numbers</label> <br />
+              {fields.map((item, index) => (
+                <Grid container item xs={12}>
+                  <Grid item>
+                    <input
+                      {...register(`rooms.${index}.room_name` as const)}
+                      type="text"
+                      placeholder={'1111'}
+                    />
+                  </Grid>
+                  {fields.length > 1 && index < fields.length - 1 && (
+                    <Grid item>
+                      <Button
+                        id="remove-classroom-button"
+                        onClick={() => {
+                          if (fields.length > 1) {
+                            remove(index);
+                          }
+                        }}
+                      >
+                        <Close id="close-icon" />
+                      </Button>
+                    </Grid>
+                  )}
+                </Grid>
+              ))}
+              <Button
+                variant="contained"
+                disableElevation
+                id="location-edit-add-class-button"
+                onClick={() => {
+                  const lastRoom =
+                    getValues('rooms')[getValues('rooms').length - 1];
+                  if (lastRoom.room_name !== '') {
+                    append({
+                      room_name: '',
+                    });
+                  }
+                }}
+              >
+                Add
+              </Button>
+            </li>
           </ul>
           <div style={{ marginTop: '2em' }}>
             <Button
@@ -123,6 +179,7 @@ function LocationEditPage() {
               disableElevation
               id="location-edit-submit-button"
               onClick={handleSubmit((data) => {
+                console.log(data);
                 axios
                   .post(`/api/v1/locations/loc-edit/${id}`, data)
                   .then((res) => {
