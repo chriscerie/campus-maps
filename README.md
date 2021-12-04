@@ -34,6 +34,10 @@ Jason Em @jasonem225
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
 
+## Deployment information
+* [Deployment Instructions](./docs/DEPLOY.md)
+
+
 ## License
 
 Campus Maps is distributed under the MIT license. See [LICENSE](./LICENSE) for details.

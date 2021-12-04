@@ -14,8 +14,8 @@
 ![Shared Cluster](docs/images/Screenshot-1.png)
 - Create username and password
 ![username](docs/images/Screenshot-7.png)
-- Add current IP address, then finish and close
-![IP](docs/images/Screenshot-8.png)
+- Add IP 0.0.0.0/0 to allow access from all IPs
+![IP](docs/images/Screenshot-10.png)
 - Wait for cluster to be created
 - Press connect button
   - Connect using MongoDB's native drivers
@@ -62,6 +62,8 @@
   - Value is the connection string from step 1
   - Remeber to enter your username and password into the specified fields of the connection string
   ![connection_string](docs/images/Screenshot-9.png)
+  - Also remeber that the string should not include the <> characters.
+  - Ex: mongod+srv:username:password@cluster0..
 - Choose GitHub for deployment method
 - Deploy `main` branch
 
