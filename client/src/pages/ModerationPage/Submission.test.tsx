@@ -23,6 +23,7 @@ describe('Submission', () => {
                 city: 'city',
                 state: 'state',
                 zip_code: 'zip_code',
+                rooms: [],
                 __v: '__v',
               }}
               resetSubmissions={() => {}}

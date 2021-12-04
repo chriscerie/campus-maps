@@ -1,15 +1,16 @@
 import ShallowRenderer from 'react-test-renderer/shallow';
 import { Provider } from 'react-redux';
 import store from '../../reducers';
-import Sidebar from './index';
+import AboutPage from './index';
 
-describe('Sidebar', () => {
+describe('AboutPage', () => {
   it('should render successfully', () => {
     const renderer = ShallowRenderer.createRenderer();
-    renderer.render(
+    const tree = renderer.render(
       <Provider store={store}>
-        <Sidebar />
+        <AboutPage />
       </Provider>
     );
+    expect(tree).toMatchSnapshot();
   });
 });

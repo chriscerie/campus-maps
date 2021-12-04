@@ -6,7 +6,6 @@ import mapboxgl from '!mapbox-gl';
 import { Map, MapLayerMouseEvent, Popup } from 'mapbox-gl';
 import { Feature } from 'geojson';
 import PopupSelected from './PopupSelected';
-import Sidebar from '../../components/Sidebar';
 import './MapComponent.scss';
 import { useLocation } from 'react-router-dom';
 import { setMapInstance } from '../../actions/mapActions';
@@ -106,7 +105,6 @@ function MapComponent() {
       // Only render map if user is in root page
       style={location.pathname === '/' ? {} : { display: 'none' }}
     >
-      <Sidebar />
       {selected && (
         <PopupSelected
           selected={selected.feature}

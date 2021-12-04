@@ -108,6 +108,11 @@ exports[`Submission should render successfully 1`] = `
       zip_code
        
       <br />
+      <strong>
+        Rooms:
+      </strong>
+       
+      <br />
     </p>
     <div
       className="acceptance-buttons-container"

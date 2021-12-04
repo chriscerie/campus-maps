@@ -11,6 +11,10 @@ export interface ILocationEdit extends Document {
   city: string;
   state: string;
   zip_code: string;
+  rooms: Array<{
+    room_id: string;
+    room_name: string;
+  }>;
 }
 
 const locationEditsSchema = new Schema({
@@ -34,26 +38,12 @@ const locationEditsSchema = new Schema({
     type: String,
     required: true,
   },
-  address1: {
-    type: String,
-    default: '',
-  },
-  address2: {
-    type: String,
-    default: '',
-  },
-  city: {
-    type: String,
-    default: '',
-  },
-  state: {
-    type: String,
-    default: '',
-  },
-  zip_code: {
-    type: String,
-    default: '',
-  },
+  address1: String,
+  address2: String,
+  city: String,
+  state: String,
+  zip_code: String,
+  rooms: Array,
 });
 
 const LocationEdit = mongoose.model<ILocationEdit>(
