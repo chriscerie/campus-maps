@@ -7,16 +7,18 @@ export type CurrentUserState =
   | null
   | false
   | {
-      account_type: 'User' | 'Admin';
+      _id: string;
       first_name: string;
       last_name: string;
       email: string;
       profile_picture: string;
+      account_type: 'User' | 'Admin';
       accounts: {
         google: {
           id: string;
         };
       };
+      photos: Array<{ location_id: string; photo: string }>;
     };
 
 export const currentUserActionTypes = {

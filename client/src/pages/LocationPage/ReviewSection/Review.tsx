@@ -1,5 +1,5 @@
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import type { UserType } from '../../../types/UserType';
+import type { ReviewType } from '../../../types/ReviewType';
 import './Review.scss';
 import { useState, MouseEvent } from 'react';
 import { useSelector } from 'react-redux';
@@ -7,15 +7,6 @@ import type { RootState } from '../../../reducers';
 import { Fragment } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-export type ReviewType = {
-  _id: string;
-  author_id: string;
-  body: string;
-  liked_by: Array<string>;
-  created_at: string;
-  author?: UserType;
-};
 
 const Review = ({ comm }: { comm: ReviewType }) => {
   console.log(comm);

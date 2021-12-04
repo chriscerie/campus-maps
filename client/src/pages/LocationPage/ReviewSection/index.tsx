@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ReviewType } from './Review';
+import type { ReviewType } from '../../../types/ReviewType';
 import Review from './Review';
 import type { UserType } from '../../../types/UserType';
 import './index.scss';

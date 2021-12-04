@@ -10,6 +10,7 @@ export type LocationType = {
   city: string;
   state: typeof StatesList[keyof typeof StatesList];
   zip_code: string;
+  photos: Array<{ author_id: string; photo: string }>;
   rooms: Array<{
     room_id: string;
     room_name: string;
