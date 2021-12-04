@@ -8,10 +8,16 @@ export type PhotoType = {
   photo_link: string;
 };
 
-const PhotoBox = ({ photoSrc }: { photoSrc: string }) => {
+const PhotoBox = ({
+  photoSrc,
+  onClick,
+}: {
+  photoSrc: string;
+  onClick?: () => void;
+}) => {
   return (
     <li className="photo-container">
-      <div className="photo-box">
+      <div className="photo-box" onClick={onClick}>
         <img
           className="photo-box-img"
           src={photoSrc}

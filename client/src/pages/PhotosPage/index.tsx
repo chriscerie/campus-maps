@@ -10,6 +10,7 @@ import { getLocationInfo } from '../../api/LocationAPI';
 import { getFilesFromBase64 } from '../../api/GetBase64';
 import type { LocationType } from '../../types/LocationType';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
+import PhotoPopup from '../../components/PhotoPopup';
 import './index.scss';
 
 function PhotosPage() {
@@ -20,6 +21,7 @@ function PhotosPage() {
   const [photos, setPhotos] = useState<Array<{ imageSrc: string; file: File }>>(
     []
   );
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
 
   useEffect(() => {
     if (mapInstance) {
@@ -85,11 +87,24 @@ function PhotosPage() {
       </div>
       <div className="photos-grid-container">
         <ul className="photos-grid">
-          {photos.map((currentPhoto) => (
-            <PhotoBox photoSrc={currentPhoto.imageSrc} />
+          {photos.map((currentPhoto, index) => (
+            <PhotoBox
+              photoSrc={currentPhoto.imageSrc}
+              onClick={() => {
+                setSelectedPhotoIndex(index);
+              }}
+            />
           ))}
         </ul>
       </div>
+      <PhotoPopup
+        photos={photos}
+        index={selectedPhotoIndex}
+        setIndex={setSelectedPhotoIndex}
+        onClose={(e) => {
+          setSelectedPhotoIndex(-1);
+        }}
+      />
     </div>
   );
 }

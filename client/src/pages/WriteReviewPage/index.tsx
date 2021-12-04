@@ -12,7 +12,7 @@ import { getBase64, getFilesFromBase64 } from '../../api/GetBase64';
 import { setCurrentUser } from '../../actions/currentUserActions';
 import type { LocationType } from '../../types/LocationType';
 import type { ReviewType } from '../../types/ReviewType';
-import PhotoPopup from './PhotoPopup';
+import PhotoPopup from '../../components/PhotoPopup';
 import './index.scss';
 
 function WriteReviewPage() {
