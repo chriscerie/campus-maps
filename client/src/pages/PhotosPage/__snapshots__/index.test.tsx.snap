@@ -5,7 +5,7 @@ exports[`PhotosPage should render successfully 1`] = `
   className="photos-page-container"
 >
   <div
-    className="header-container"
+    className="photos-header-container"
   >
     <div
       className="subheader-container"
