@@ -58,9 +58,14 @@ function PhotosPage() {
     <div className="photos-page-container">
       <div className="header-container">
         <div className="subheader-container">
-          <h1 className="subheader-title">
-            {locationInfo && locationInfo.name}
-          </h1>
+          <Link
+            to={`/loc/${id}`}
+            style={{ textDecoration: 'none', color: '#000' }}
+          >
+            <h1 className="subheader-title">
+              {locationInfo && locationInfo.name}
+            </h1>
+          </Link>
           <div className="add-photo-button">
             <Link
               to={`/write-review/${id}`}

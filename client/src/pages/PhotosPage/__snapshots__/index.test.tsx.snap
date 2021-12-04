@@ -10,9 +10,20 @@ exports[`PhotosPage should render successfully 1`] = `
     <div
       className="subheader-container"
     >
-      <h1
-        className="subheader-title"
-      />
+      <a
+        href="/loc/undefined"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#000",
+            "textDecoration": "none",
+          }
+        }
+      >
+        <h1
+          className="subheader-title"
+        />
+      </a>
       <div
         className="add-photo-button"
       >
