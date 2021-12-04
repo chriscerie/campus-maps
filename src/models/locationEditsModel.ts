@@ -38,26 +38,11 @@ const locationEditsSchema = new Schema({
     type: String,
     required: true,
   },
-  address1: {
-    type: String,
-    default: '',
-  },
-  address2: {
-    type: String,
-    default: '',
-  },
-  city: {
-    type: String,
-    default: '',
-  },
-  state: {
-    type: String,
-    default: '',
-  },
-  zip_code: {
-    type: String,
-    default: '',
-  },
+  address1: String,
+  address2: String,
+  city: String,
+  state: String,
+  zip_code: String,
   rooms: Array,
 });
 

@@ -6,9 +6,11 @@ import { setCurrentUser } from './actions/currentUserActions';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import LocationPage from './pages/LocationPage';
+import PhotosPage from './pages/PhotosPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
+import AboutPage from './pages/AboutPage';
 import ModerationPage from './pages/ModerationPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -33,6 +35,7 @@ function App() {
             {currentUser ? <Redirect to="/" /> : <LoginPage />}
           </Route>
           <Route exact path="/loc/:id" component={LocationPage} />
+          <Route exact path="/loc/:id/photos" component={PhotosPage} />
           <Route exact path="/loc-edit/:id">
             {currentUser ? <LocationEditPage /> : <Redirect to="/login" />}
           </Route>
@@ -42,6 +45,7 @@ function App() {
           <Route exact path="/profile" component={ProfilePage}>
             {currentUser ? <ProfilePage /> : <Redirect to="/login" />}
           </Route>
+          <Route exact path="/about" component={AboutPage} />
           <Route exact path="/moderation" component={ModerationPage}>
             {currentUser ? <ModerationPage /> : <Redirect to="/login" />}
           </Route>

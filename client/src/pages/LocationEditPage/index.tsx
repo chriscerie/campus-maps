@@ -14,7 +14,7 @@ import './index.scss';
 function LocationEditPage() {
   const { id } = useParams<{ id: string }>();
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-  const { register, control, setValue, handleSubmit, getValues } = useForm<{
+  const { register, control, setValue, handleSubmit } = useForm<{
     name: string;
     type: string;
     description: string;
@@ -160,13 +160,9 @@ function LocationEditPage() {
                 disableElevation
                 id="location-edit-add-class-button"
                 onClick={() => {
-                  const lastRoom =
-                    getValues('rooms')[getValues('rooms').length - 1];
-                  if (lastRoom.room_name !== '') {
-                    append({
-                      room_name: '',
-                    });
-                  }
+                  append({
+                    room_name: '',
+                  });
                 }}
               >
                 Add
@@ -179,12 +175,9 @@ function LocationEditPage() {
               disableElevation
               id="location-edit-submit-button"
               onClick={handleSubmit((data) => {
-                console.log(data);
                 axios
                   .post(`/api/v1/locations/loc-edit/${id}`, data)
-                  .then((res) => {
-                    console.log(res);
-                  })
+                  .then((res) => {})
                   .catch((err) => {
                     console.log(err);
                   });

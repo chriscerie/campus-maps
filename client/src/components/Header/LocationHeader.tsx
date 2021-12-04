@@ -14,7 +14,9 @@ function LocationHeader() {
 
   return (
     <Container id="header-container" maxWidth="xl">
-      <Link to="/" className="header-logo-link" />
+      <a href="/" className="header-logo-link">
+        {' '}
+      </a>
       {isLargeScreen && <SearchBar />}
       {currentUser ? (
         <ProfileIcon />

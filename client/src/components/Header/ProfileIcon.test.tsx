@@ -1,12 +1,11 @@
-import ShallowRenderer from 'react-test-renderer/shallow';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../../reducers';
 import ProfileIcon from './ProfileIcon';
 
 describe('ProfileIcon', () => {
   it('should render successfully', () => {
-    const renderer = ShallowRenderer.createRenderer();
-    renderer.render(
+    renderer.create(
       <Provider store={store}>
         <ProfileIcon />
       </Provider>

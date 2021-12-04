@@ -10,6 +10,7 @@ import RightColumnDetails from './RightColumnDetails';
 import { getLocationInfo } from '../../api/LocationAPI';
 import type { LocationType } from '../../types/LocationType';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { getFilesFromBase64 } from '../../api/GetBase64';
 import './index.scss';
 
 function LocationPage() {
@@ -17,8 +18,9 @@ function LocationPage() {
   const [locationInfo, setLocationInfo] = useState<null | LocationType>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
   const isLargeScreen = useMediaQuery('(min-width:640px)');
-
-  console.log(isLargeScreen);
+  const [photos, setPhotos] = useState<Array<{ imageSrc: string; file: File }>>(
+    []
+  );
 
   // Set point
   useEffect(() => {
@@ -26,6 +28,14 @@ function LocationPage() {
       getLocationInfo(id, mapInstance).then((res) => {
         if (res) {
           setLocationInfo(res);
+
+          getFilesFromBase64(
+            res.photos.map((photo) => {
+              return photo.photo;
+            })
+          ).then((photos) => {
+            setPhotos(photos);
+          });
         }
       });
     }
@@ -36,6 +46,7 @@ function LocationPage() {
       <PhotoHeader
         name={locationInfo ? locationInfo.name : ''}
         type={locationInfo ? locationInfo.type : ''}
+        photos={photos}
         id={id}
       />
 

@@ -55,7 +55,7 @@ router.get('/v1/locations/loc-edit', (req, res) => {
 });
 
 function processRooms(rooms: ILocationEdit['rooms']) {
-  if (rooms.length > 0) {
+  if (rooms && rooms.length > 0) {
     rooms = rooms.map((room) => {
       // Remove spaces on edges
       room.room_name = room.room_name.trim();
@@ -156,7 +156,7 @@ router.post('/v1/locations/moderation/:id', requireAdmin, (req, res) => {
     (err: Error, locationEdit: ILocationEdit) => {
       if (!err && locationEdit) {
         if (req.body.decision === 'Accept') {
-          req.body.rooms = processRooms(req.body.rooms);
+          const rooms = processRooms(locationEdit.rooms);
 
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
@@ -174,7 +174,7 @@ router.post('/v1/locations/moderation/:id', requireAdmin, (req, res) => {
                 location.city = locationEdit.city;
                 location.state = locationEdit.state;
                 location.zip_code = locationEdit.zip_code;
-                location.rooms = locationEdit.rooms;
+                location.rooms = rooms;
                 location.save((err: Error, location: ILocation) => {
                   if (err) {
                     console.log(err);
