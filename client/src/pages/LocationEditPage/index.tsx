@@ -175,12 +175,9 @@ function LocationEditPage() {
               disableElevation
               id="location-edit-submit-button"
               onClick={handleSubmit((data) => {
-                console.log(data);
                 axios
                   .post(`/api/v1/locations/loc-edit/${id}`, data)
-                  .then((res) => {
-                    console.log(res);
-                  })
+                  .then((res) => {})
                   .catch((err) => {
                     console.log(err);
                   });
