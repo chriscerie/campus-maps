@@ -44,14 +44,19 @@ function LeftColumnDetais({
           </Link>
         </div>
         <div className="location-page-left-button">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<CameraAltOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
+          <Link
+            to={`/write-review/${id}`}
+            style={{ textDecoration: 'none', color: '#000' }}
           >
-            Add Photo
-          </Button>
+            <Button
+              variant="outlined"
+              color="inherit"
+              startIcon={<CameraAltOutlinedIcon />}
+              sx={{ textTransform: 'none', fontSize: '1em' }}
+            >
+              Add Photo
+            </Button>
+          </Link>
         </div>
         <div className="location-page-left-button">
           <Button
