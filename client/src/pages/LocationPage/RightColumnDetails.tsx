@@ -1,7 +1,7 @@
 import type { LocationType } from '../../types/LocationType';
 import './RightColumnDetails.scss';
 
-function LeftColumnDetais({
+function RightColumnDetails({
   locationInfo,
 }: {
   locationInfo: LocationType | null;
@@ -38,4 +38,4 @@ function LeftColumnDetais({
   );
 }
 
-export default LeftColumnDetais;
+export default RightColumnDetails;

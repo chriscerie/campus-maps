@@ -9,7 +9,7 @@ import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import type { LocationType } from '../../types/LocationType';
 
-function LeftColumnDetais({
+function LeftColumnDetails({
   locationInfo,
   id,
 }: {
@@ -74,7 +74,30 @@ function LeftColumnDetais({
         </div>
       </LocationSection>
 
-      <LocationSection title="Comments">
+      <LocationSection title="Classrooms">
+        <div
+          className="align-text-left"
+          id="location-page-left-buttons-container"
+        >
+          {locationInfo &&
+            locationInfo.rooms.map((rooms) => (
+              <Link
+                to={`/classrooms/${rooms && rooms.room_id}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  sx={{ textTransform: 'none', fontSize: '1em' }}
+                >
+                  {rooms.room_name}
+                </Button>
+              </Link>
+            ))}
+        </div>
+      </LocationSection>
+
+      <LocationSection title="Reviews">
         <div className="align-text-left">
           <ReviewSection id={id} />
         </div>
@@ -83,4 +106,4 @@ function LeftColumnDetais({
   );
 }
 
-export default LeftColumnDetais;
+export default LeftColumnDetails;
