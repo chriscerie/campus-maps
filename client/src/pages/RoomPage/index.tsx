@@ -10,44 +10,35 @@ import { getLocationInfo } from '../../api/LocationAPI';
 import type { LocationType } from '../../types/LocationType';
 import './index.scss';
 
-function ClassroomPage() {
-  const { id } = useParams<{ id: string }>();
-  const [locationInfo, setLocationInfo] = useState<null | LocationType>(null);
+function RoomPage() {
+  const { id, room_id } = useParams<{ id: string; room_id: string }>();
+  const [roomInfo, setRoomInfo] = useState<null | { room_name: string }>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
-  var class_name;
 
   // Set point
   useEffect(() => {
     if (mapInstance) {
       getLocationInfo(id, mapInstance).then((res) => {
         if (res) {
-          setLocationInfo(res);
+          // Get room_name that matches room_id
+          const room_name = res.rooms.find((room) => room.room_id === room_id);
+          if (room_name) {
+            setRoomInfo({ room_name: room_name.room_name });
+          }
         }
       });
     }
-  }, [id, mapInstance]);
-
-  {
-    locationInfo &&
-      locationInfo.rooms.map((rooms) => {
-        if (rooms.room_id === id) {
-          class_name = rooms.room_name;
-        }
-      });
-  }
+  }, [id, mapInstance, room_id]);
 
   return (
     <div className="location-page-container">
-      <PhotoHeader name={class_name ? class_name[0] : ''} id={id} />
+      <PhotoHeader name={roomInfo?.room_name || ''} id={id} />
 
       <Container id="location-page-container-inner">
-        <LeftColumnDetails
-          classroomInfo={class_name ? class_name[0] : ''}
-          id={id}
-        />
+        <LeftColumnDetails classroomInfo={roomInfo?.room_name || ''} id={id} />
       </Container>
     </div>
   );
 }
 
-export default ClassroomPage;
+export default RoomPage;

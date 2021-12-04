@@ -74,15 +74,15 @@ function LeftColumnDetails({
         </div>
       </LocationSection>
 
-      <LocationSection title="Classrooms">
+      <LocationSection title="Rooms">
         <div
           className="align-text-left"
           id="location-page-left-buttons-container"
         >
           {locationInfo &&
-            locationInfo.rooms.map((rooms) => (
+            locationInfo.rooms.map((room) => (
               <Link
-                to={`/classrooms/${rooms && rooms.room_id}`}
+                to={`/loc/${id}/${room.room_id}`}
                 style={{ textDecoration: 'none' }}
               >
                 <Button
@@ -90,7 +90,7 @@ function LeftColumnDetails({
                   color="inherit"
                   sx={{ textTransform: 'none', fontSize: '1em' }}
                 >
-                  {rooms.room_name}
+                  {room.room_name}
                 </Button>
               </Link>
             ))}
