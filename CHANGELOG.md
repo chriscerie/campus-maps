@@ -1,3 +1,21 @@
+## 2.0.0 (December 3, 2021)
+
+* Create moderation page by ([@birded](https://github.com/birded) in [#180](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/180))
+* Remove sidebar by ([@birded](https://github.com/birded) in [#196](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/196))
+* Add rooms list to location edit page and render rooms in moderation page by ([@birded](https://github.com/birded) in [#190](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/190))
+* Display location information in right sticky sidebar by ([@jasonem225](https://github.com/jasonem225) in [#161](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/161))
+* Uploaded new logo by ([@mpbonham](https://github.com/mpbonham) in [#200](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/200))
+* Add AboutPage by ([@jasonem225](https://github.com/jasonem225) in [#170](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/170))
+* add delete button by ([@jasonem225](https://github.com/jasonem225) in [#198](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/198))
+* Refresh page after user logout by ([@chriscerie](https://github.com/chriscerie) in [#208](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/208))
+* Add image upload option in review page by ([@chriscerie](https://github.com/chriscerie) in [#182](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/182))
+* Remove location save button by ([@birded](https://github.com/birded) in [#202](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/202))
+* Add photos page and display photos in location page by ([@sarahkwon](https://github.com/sarahkwon) in [#195](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/195))
+* Add review delete option for admins and review authors by ([@chriscerie](https://github.com/chriscerie) in [#210](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/210))
+* Create share feature in location page by ([@mpbonham](https://github.com/mpbonham) in [#199](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/199))
+* Change profile dropdown to display moderation page if admin by ([@birded](https://github.com/birded) in [#207](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/207))
+* Add classrooms page by ([@jwangathan](https://github.com/jwangathan) in [#211](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/211))
+
 ## 1.3.0 (November 29, 2021)
 
 * Add login page and redirect to login for pages that require login by ([@chriscerie](https://github.com/chriscerie) in [#171](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/pull/171))
