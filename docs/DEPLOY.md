@@ -42,6 +42,8 @@
 ![Creds](images/Screenshot-2.png)
 - Select Web Application as application type
 - Name the client ID whatever you would like
+  - Copy the clientID and clientSecret from your credentials, values should be located here:
+  ![client](images/Screenshot-11.png)
   - Go to `src/config/passport.ts` and replace clientID's string with your own as well as clientSecret's string with your own
   ![passport](images/Screenshot-3.png)
   - Commit and push diffs
@@ -69,6 +71,7 @@
 - Deploy `main` branch
 
 ### Step 5: Set up Google Auth authorization
+- Go back to Google Cloud Platform and click on the credential you created
 - Authorized JavaScript origins should have `http://localhost:5000` as well as your heroku URL (https)
 ![passport](images/Screenshot-5.png)
 - Authorized redirect URIs should have `http://localhost:5000/api/v1/auth/google/callback` as well as your heroku URL (https) with `/api/v1/auth/google/callback` appended to the end
@@ -77,3 +80,6 @@
 ### Development on localhost
 
 When developing locally, MongoDB needs to be connected to work on localhost. The simplest way is to go to `src/index.ts` and replace the `mongodb://127.0.0.1:27017/Primary` string with the connection string from step 1. Since the string is supposed to be kept secret, ensure you don't commit the change.
+
+### Extra information
+If needed, contact Max Bonham on slack to get deployment help
