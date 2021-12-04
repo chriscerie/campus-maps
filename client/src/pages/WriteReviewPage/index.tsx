@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
 import { useParams, Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
@@ -8,8 +8,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { getLocationInfo } from '../../api/LocationAPI';
-import { getBase64 } from '../../api/GetBase64';
+import { getBase64, getFilesFromBase64 } from '../../api/GetBase64';
+import { setCurrentUser } from '../../actions/currentUserActions';
 import type { LocationType } from '../../types/LocationType';
+import type { ReviewType } from '../../types/ReviewType';
 import PhotoPopup from './PhotoPopup';
 import './index.scss';
 
@@ -17,6 +19,7 @@ function WriteReviewPage() {
   const { id } = useParams<{ id: string }>();
   const [locationInfo, setLocationInfo] = useState<null | LocationType>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
+  const currentUser = useSelector((state: RootState) => state.currentUser);
   const { register, setValue, handleSubmit } = useForm<{
     body: string;
   }>();
@@ -24,11 +27,38 @@ function WriteReviewPage() {
     []
   );
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentUser());
+  }, [dispatch]);
 
   // Set review
   useEffect(() => {
-    setValue('body', '');
-  }, [id, setValue]);
+    if (locationInfo && currentUser) {
+      axios
+        .get<ReviewType>(`/api/v1/reviews/${id}`, {
+          params: { filter_by: 'current_user' },
+        })
+        .then(async (res) => {
+          setValue('body', res.data.body);
+        });
+
+      // Get all currentUser.photos that match location_id with id
+      const currentPhotos = currentUser.photos.filter(
+        (photo) => photo.location_id === id
+      );
+
+      // Set photos
+      getFilesFromBase64(
+        currentPhotos.map((photo) => {
+          return photo.photo;
+        })
+      ).then((photos) => {
+        setPhotos(photos);
+      });
+    }
+  }, [id, locationInfo, currentUser, setValue]);
 
   // Set point
   useEffect(() => {

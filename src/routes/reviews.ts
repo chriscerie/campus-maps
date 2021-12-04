@@ -8,21 +8,39 @@ import Review, { IReview } from '../models/reviewsModel';
 const router = express.Router();
 
 // Get location reviews
-// filter_by: 'author' | 'location'
+// filter_by: 'author' | 'location' | 'current_user' (User's review given location)
 router.get('/v1/reviews/:id', (req, res) => {
-  Review.find(
-    {
-      [req.body.filter_by === 'author' ? 'author_id' : 'location_id']:
-        req.params.id,
-    },
-    (err: Error, reviews: Array<IReview>) => {
-      if (!err && reviews) {
-        res.status(200).send(reviews);
-      } else {
-        res.status(404).send('Reviews not found');
+  if (req.query.filter_by === 'current_user') {
+    Review.findOne(
+      {
+        location_id: req.params.id,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        author_id: req.user._id,
+      },
+      (err: Error, reviews: Array<IReview>) => {
+        if (!err && reviews) {
+          res.status(200).send(reviews);
+        } else {
+          res.status(404).send('Reviews not found');
+        }
       }
-    }
-  );
+    );
+  } else {
+    Review.find(
+      {
+        [req.query.filter_by === 'author' ? 'author_id' : 'location_id']:
+          req.params.id,
+      },
+      (err: Error, reviews: Array<IReview>) => {
+        if (!err && reviews) {
+          res.status(200).send(reviews);
+        } else {
+          res.status(404).send('Reviews not found');
+        }
+      }
+    );
+  }
 });
 
 // Return valid base 64 images
