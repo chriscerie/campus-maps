@@ -7,6 +7,7 @@ import { Button } from '@mui/material';
 import PhotoBox from './PhotoBox';
 import { PhotoType } from './PhotoBox';
 import { getLocationInfo } from '../../api/LocationAPI';
+import { getFilesFromBase64 } from '../../api/GetBase64';
 import type { LocationType } from '../../types/LocationType';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import './index.scss';
@@ -16,196 +17,71 @@ function PhotosPage() {
   //const [backendPhotos, setBackendPhotos] = useState<Array<PhotoType>>([]);
   const [locationInfo, setLocationInfo] = useState<null | LocationType>(null);
   const mapInstance = useSelector((state: RootState) => state.mapInstance.map);
+  const [photos, setPhotos] = useState<Array<{ imageSrc: string; file: File }>>(
+    []
+  );
 
   useEffect(() => {
     if (mapInstance) {
       getLocationInfo(id, mapInstance).then((res) => {
         if (res) {
           setLocationInfo(res);
+
+          // Set photos
+          getFilesFromBase64(
+            res.photos.map((photo) => {
+              return photo.photo;
+            })
+          ).then((photos) => {
+            setPhotos(photos);
+          });
         }
       });
     }
-  }, [id, mapInstance]);
+  }, [id, mapInstance, setPhotos]);
 
   //temporary photos for testing
   const backendPhotos: PhotoType[] = new Array<PhotoType>();
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
-  backendPhotos.push({
-    _id: "1",
-    user_id: "J",
-    photo_src:
-      "https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg",
-    photo_link:
-      "/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw"
-  });
+
+  for (let i = 0; i < 1; i++) {
+    backendPhotos.push({
+      _id: '1',
+      user_id: 'J',
+      photo_src:
+        'https://s3-media0.fl.yelpcdn.com/bphoto/jrsxTUcsuV6PDSQp50T-Cw/258s.jpg',
+      photo_link:
+        '/biz_photos/popping-yolk-cafe-hacienda-heights-2?select=jrsxTUcsuV6PDSQp50T-Cw',
+    });
+  }
 
   return (
     <div className="photos-page-container">
       <div className="header-container">
-        <h1 className="header-title">
-          Photos for {locationInfo && locationInfo.name}
-        </h1>
         <div className="subheader-container">
-          <h3 className="subheader-title">{locationInfo && locationInfo.description}</h3>
+          <h1 className="subheader-title">
+            {locationInfo && locationInfo.name}
+          </h1>
           <div className="add-photo-button">
-            <Button
-              variant="outlined"
-              color="inherit"
-              startIcon={<CameraAltOutlinedIcon />}
-              sx={{ textTransform: 'none', fontSize: '1em' }}
+            <Link
+              to={`/write-review/${id}`}
+              style={{ textDecoration: 'none', color: '#000' }}
             >
-              Add Photo
-            </Button>
+              <Button
+                variant="outlined"
+                color="inherit"
+                startIcon={<CameraAltOutlinedIcon />}
+                sx={{ textTransform: 'none', fontSize: '1em' }}
+              >
+                Add Photo
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
       <div className="photos-grid-container">
         <ul className="photos-grid">
-          {backendPhotos.map((currentPhoto: PhotoType) => (
-            <PhotoBox key={currentPhoto._id} photo={currentPhoto} />
+          {photos.map((currentPhoto) => (
+            <PhotoBox photoSrc={currentPhoto.imageSrc} />
           ))}
         </ul>
       </div>

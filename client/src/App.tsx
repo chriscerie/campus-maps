@@ -6,6 +6,7 @@ import { setCurrentUser } from './actions/currentUserActions';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import LocationPage from './pages/LocationPage';
+import PhotosPage from './pages/PhotosPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
@@ -34,6 +35,7 @@ function App() {
             {currentUser ? <Redirect to="/" /> : <LoginPage />}
           </Route>
           <Route exact path="/loc/:id" component={LocationPage} />
+          <Route exact path="/loc/:id/photos" component={PhotosPage} />
           <Route exact path="/loc-edit/:id">
             {currentUser ? <LocationEditPage /> : <Redirect to="/login" />}
           </Route>

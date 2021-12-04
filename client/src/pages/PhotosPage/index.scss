@@ -3,14 +3,19 @@ ul {
   padding: 0;
   margin: 0;
   border: 0;
+  max-height: 50em;
 }
 
 .photos-page-container {
-  width: 960px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 960px;
+  box-sizing: border-box;
   margin: 0 auto;
-  padding: 15px;
+  padding: 1em;
   padding-bottom: 36px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .header-container {

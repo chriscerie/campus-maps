@@ -1,12 +1,12 @@
 .photo-container {
   display: block;
   float: left;
-  width: 150px;
-  margin: 0 12px 12px 0;
+  width: calc(100% / 3 - 1em);
+  margin: 0 1em 1em 0;
 }
 
 .photo-box {
-  height: 150px;
+  aspect-ratio: 1;
   position: relative;
 }
 
@@ -14,10 +14,11 @@
   filter: opacity(80%);
 }
 
-
 .photo-box-img {
   max-width: 100%;
   max-height: 100%;
+  object-position: center;
+  object-fit: cover;
 }
 
 .photo-box .photo-box-img {
@@ -34,4 +35,22 @@
   height: 100%;
   background-color: white;
   opacity: 0;
+}
+
+@media (min-width: 481px) {
+  .photo-container {
+    width: calc(100% / 4 - 1em);
+  }
+}
+
+@media (min-width: 769px) {
+  .photo-container {
+    width: calc(100% / 5 - 1em);
+  }
+}
+
+@media (min-width: 1025px) {
+  .photo-container {
+    width: calc(100% / 6 - 1em);
+  }
 }
