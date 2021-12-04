@@ -54,16 +54,6 @@ function LeftColumnDetais({
             Share
           </Button>
         </div>
-        <div className="location-page-left-button">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<BookmarkBorderOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
-          >
-            Save
-          </Button>
-        </div>
       </div>
 
       <LocationSection title="Description">
