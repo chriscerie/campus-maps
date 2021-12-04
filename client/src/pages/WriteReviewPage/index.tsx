@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Redirect } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Container, Button } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
@@ -26,6 +26,7 @@ function WriteReviewPage() {
   const [photos, setPhotos] = useState<Array<{ imageSrc: string; file: File }>>(
     []
   );
+  const [submitted, setSubmitted] = useState(false);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(-1);
   const dispatch = useDispatch();
 
@@ -83,8 +84,6 @@ function WriteReviewPage() {
           imageBase64s.push(base64);
         })
       ).then(() => {
-        console.log(imageBase64s);
-
         axios
           .post(`/api/v1/review/${id}`, {
             body: data.body,
@@ -96,11 +95,15 @@ function WriteReviewPage() {
           .catch((err) => {
             console.log(err);
           });
+
+        setSubmitted(true);
       });
     })();
   };
 
-  return (
+  return submitted ? (
+    <Redirect to={`/loc/${id}`} />
+  ) : (
     <Container maxWidth="md" id="write-review-page-container">
       <div id="write-review-page-inner">
         <Link
