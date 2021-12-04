@@ -54,10 +54,43 @@ router.get('/v1/locations/loc-edit', (req, res) => {
   });
 });
 
+function processRooms(rooms: ILocationEdit['rooms']) {
+  if (rooms && rooms.length > 0) {
+    rooms = rooms.map((room) => {
+      // Remove spaces on edges
+      room.room_name = room.room_name.trim();
+
+      // Remove duplicate spaces
+      room.room_name = room.room_name.replace(/\s\s+/g, ' ');
+
+      // Capitalize all letters
+      room.room_name =
+        room.room_name.charAt(0).toUpperCase() + room.room_name.slice(1);
+
+      // Remove all non-alphanumeric characters except for spaces and dashes
+      room.room_name = room.room_name.replace(/[^a-zA-Z0-9 -]/g, '');
+
+      // Set room_id to room_name lowercase and replace spaces with dashes
+      room.room_id = room.room_name.toLowerCase().replace(/ /g, '-');
+
+      return room;
+    });
+
+    // Remove all empty and duplicate rooms
+    rooms = rooms.filter((room, index) => {
+      return room.room_name !== '' && rooms.indexOf(room) === index;
+    });
+  }
+
+  return rooms;
+}
+
 // Adds location edit
 router.post('/v1/locations/loc-edit/:id', requireLogin, (req, res) => {
   Location.findOne({ id: req.params.id }, (err: Error, location: ILocation) => {
     if (!err && location) {
+      req.body.rooms = processRooms(req.body.rooms);
+
       LocationEdit.findOne(
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -73,6 +106,7 @@ router.post('/v1/locations/loc-edit/:id', requireLogin, (req, res) => {
               (locationEdit.city = req.body.city),
               (locationEdit.state = req.body.state),
               (locationEdit.zip_code = req.body.zip_code),
+              (locationEdit.rooms = req.body.rooms),
               locationEdit.save((err: Error, locationEdit: ILocationEdit) => {
                 if (err) {
                   console.log(err);
@@ -96,6 +130,7 @@ router.post('/v1/locations/loc-edit/:id', requireLogin, (req, res) => {
               city: req.body.city,
               state: req.body.state,
               zip_code: req.body.zip_code,
+              rooms: req.body.rooms,
             }).save((err: Error, locationEdit: ILocationEdit) => {
               if (err) {
                 console.log(err);
@@ -121,6 +156,8 @@ router.post('/v1/locations/moderation/:id', requireAdmin, (req, res) => {
     (err: Error, locationEdit: ILocationEdit) => {
       if (!err && locationEdit) {
         if (req.body.decision === 'Accept') {
+          const rooms = processRooms(locationEdit.rooms);
+
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           Location.findOne(
@@ -137,6 +174,7 @@ router.post('/v1/locations/moderation/:id', requireAdmin, (req, res) => {
                 location.city = locationEdit.city;
                 location.state = locationEdit.state;
                 location.zip_code = locationEdit.zip_code;
+                location.rooms = rooms;
                 location.save((err: Error, location: ILocation) => {
                   if (err) {
                     console.log(err);

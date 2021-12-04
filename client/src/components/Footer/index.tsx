@@ -4,20 +4,21 @@ import './index.scss';
 function Footer() {
   return (
     <div className="footer-container">
-      <Link to="/" className="footer-logo-link" />
+      <a href="/" className="footer-logo-link">
+        {' '}
+      </a>
       <div className="footer-link-section">
-        <Link className="footer-link" to="/loc/3588023830">
-          LINK 1
+        <Link className="footer-link" to="/about">
+          ABOUT
         </Link>
-        <Link className="footer-link" to="/loc/3588023830">
-          LINK 2
-        </Link>
-        <Link className="footer-link" to="/loc/3588023830">
-          LINK 3
-        </Link>
-        <Link className="footer-link" to="/loc/3588023830">
-          LINK 4
-        </Link>
+        <a
+          className="footer-link"
+          href="https://github.com/ucsb-cs148-f21/project-t06-campusmaps"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GITHUB
+        </a>
       </div>
       <p>Copyright © 2021</p>
     </div>

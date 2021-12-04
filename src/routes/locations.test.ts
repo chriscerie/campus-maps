@@ -18,17 +18,6 @@ const sendLocationData = {
   },
 };
 
-const sendLocationEditData = {
-  name: 'Test name',
-  type: 'Test type',
-  description: 'Test description',
-  address1: 'Test address1',
-  address2: 'Test address2',
-  city: 'Test city',
-  state: 'Test state',
-  zip_code: 'Test zip_code',
-};
-
 describe('GET /v1/locations/loc/:id', () => {
   beforeAll(async () => {
     await mongoose.connect(process.env.MONGO_URL);

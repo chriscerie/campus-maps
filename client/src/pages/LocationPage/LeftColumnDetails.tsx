@@ -6,22 +6,31 @@ import { Button } from '@mui/material';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import type { LocationType } from '../../types/LocationType';
+import SharePopup from './SharePopup';
+import { useState } from 'react';
 
 function LeftColumnDetais({
   locationInfo,
   id,
 }: {
-  locationInfo: LocationType;
+  locationInfo: LocationType | null;
   id: string;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div id="location-page-left-column">
       <div id="location-page-left-buttons-container">
         <div className="location-page-left-button">
           <Link
-            to={`/write-review/${locationInfo.id}`}
+            to={`/write-review/${locationInfo && locationInfo.id}`}
             style={{ textDecoration: 'none' }}
           >
             <Button
@@ -35,40 +44,39 @@ function LeftColumnDetais({
           </Link>
         </div>
         <div className="location-page-left-button">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<CameraAltOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
+          <Link
+            to={`/write-review/${id}`}
+            style={{ textDecoration: 'none', color: '#000' }}
           >
-            Add Photo
-          </Button>
+            <Button
+              variant="outlined"
+              color="inherit"
+              startIcon={<CameraAltOutlinedIcon />}
+              sx={{ textTransform: 'none', fontSize: '1em' }}
+            >
+              Add Photo
+            </Button>
+          </Link>
         </div>
         <div className="location-page-left-button">
           <Button
             variant="outlined"
             color="inherit"
+            onClick={handleOpen}
             startIcon={<ScreenShareOutlinedIcon />}
             sx={{ textTransform: 'none', fontSize: '1em' }}
           >
             Share
           </Button>
-        </div>
-        <div className="location-page-left-button">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<BookmarkBorderOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
-          >
-            Save
-          </Button>
+          <SharePopup onClose={handleClose} isOpen={isOpen} />
         </div>
       </div>
 
       <LocationSection title="Description">
         <div className="building-info align-text-left">
-          <p style={{ margin: 0 }}>{locationInfo.description}</p>
+          <p style={{ margin: 0 }}>
+            {locationInfo && locationInfo.description}
+          </p>
         </div>
       </LocationSection>
 
