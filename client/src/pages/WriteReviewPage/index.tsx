@@ -12,7 +12,7 @@ import { getBase64, getFilesFromBase64 } from '../../api/GetBase64';
 import { setCurrentUser } from '../../actions/currentUserActions';
 import type { LocationType } from '../../types/LocationType';
 import type { ReviewType } from '../../types/ReviewType';
-import PhotoPopup from './PhotoPopup';
+import PhotoPopup from '../../components/PhotoPopup';
 import './index.scss';
 
 function WriteReviewPage() {
@@ -121,7 +121,9 @@ function WriteReviewPage() {
               <textarea {...register('body')} placeholder="Write a review." />
             </li>
             <li key="Photos">
-              <h3 style={{ fontSize: '1.3em' }}>Attach Photos</h3>
+              <h3 style={{ fontSize: '1.3em' }}>
+                Attach Photos (32 KB file limit)
+              </h3>
               <div id="write-review-photos-section">
                 <div style={photos.length === 0 ? { width: '100%' } : {}}>
                   <div
@@ -142,9 +144,23 @@ function WriteReviewPage() {
                       id="write-review-add-photos"
                       onChange={(e) => {
                         if (e.target.files) {
+                          // Only allow up to 32 KB
+                          const files = Array.from(e.target.files).filter(
+                            (file) => file.size < 32000
+                          );
+
+                          // Alert if any file got filtered
+                          if (
+                            files.length < Array.from(e.target.files).length
+                          ) {
+                            alert(
+                              'File size is too large. File limit is 32 KB.'
+                            );
+                          }
+
                           setPhotos((prev) =>
                             prev.concat(
-                              Array.from(e.target.files || []).map((file) => ({
+                              files.map((file) => ({
                                 imageSrc: URL.createObjectURL(file),
                                 file: file,
                               }))

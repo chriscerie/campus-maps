@@ -1,6 +1,6 @@
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import CloseButton from '../../components/CloseButton';
+import CloseButton from './CloseButton';
 import './PhotoPopup.scss';
 
 function PhotoPopup({
