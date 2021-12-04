@@ -11,11 +11,11 @@
 ### Step 1: Set up MongoDB
 
 - Create Atlas cluster
-![Shared Cluster](docs/images/Screenshot-1.png)
+![Shared Cluster](images/Screenshot-1.png)
 - Create username and password
-![username](docs/images/Screenshot-7.png)
-- Add current IP address, then finish and close
-![IP](docs/images/Screenshot-8.png)
+![username](images/Screenshot-7.png)
+- Add IP 0.0.0.0/0 to allow access from all IPs
+![IP](images/Screenshot-10.png)
 - Wait for cluster to be created
 - Press connect button
   - Connect using MongoDB's native drivers
@@ -39,11 +39,13 @@
 
 - Go to APIs & Services > Credentials 
 - Press create credentials button > OAuth client ID
-![Creds](docs/images/Screenshot-2.png)
+![Creds](images/Screenshot-2.png)
 - Select Web Application as application type
 - Name the client ID whatever you would like
+  - Copy the clientID and clientSecret from your credentials, values should be located here:
+  ![client](images/Screenshot-11.png)
   - Go to `src/config/passport.ts` and replace clientID's string with your own as well as clientSecret's string with your own
-  ![passport](docs/images/Screenshot-3.png)
+  ![passport](images/Screenshot-3.png)
   - Commit and push diffs
     - `git add src/config/passport.ts`
     - `git commit -m "(any commit message you'd like)"`
@@ -57,20 +59,27 @@
 - Create new Heroku app
 - Connect to fork (under your personal account)
 - Go to app's settings tab
+  - Reveal config vars
   - Create new config var
   - Key is `MONGODB_URI`
   - Value is the connection string from step 1
   - Remeber to enter your username and password into the specified fields of the connection string
-  ![connection_string](docs/images/Screenshot-9.png)
+  ![connection_string](images/Screenshot-9.png)
+  - Also remeber that the string should not include the <> characters.
+  - Ex: mongod+srv:username:password@cluster0..
 - Choose GitHub for deployment method
 - Deploy `main` branch
 
 ### Step 5: Set up Google Auth authorization
+- Go back to Google Cloud Platform and click on the credential you created
 - Authorized JavaScript origins should have `http://localhost:5000` as well as your heroku URL (https)
-![passport](docs/images/Screenshot-5.png)
+![passport](images/Screenshot-5.png)
 - Authorized redirect URIs should have `http://localhost:5000/api/v1/auth/google/callback` as well as your heroku URL (https) with `/api/v1/auth/google/callback` appended to the end
-![passport](docs/images/Screenshot-6.png)
+![passport](images/Screenshot-6.png)
 
 ### Development on localhost
 
 When developing locally, MongoDB needs to be connected to work on localhost. The simplest way is to go to `src/index.ts` and replace the `mongodb://127.0.0.1:27017/Primary` string with the connection string from step 1. Since the string is supposed to be kept secret, ensure you don't commit the change.
+
+### Extra information
+If needed, contact Max Bonham on slack to get deployment help
