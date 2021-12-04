@@ -1,0 +1,40 @@
+.location-page-container {
+  display: block;
+  line-height: 2em;
+}
+
+#location-page-container-inner {
+  display: table;
+  margin-top: 30px;
+}
+
+.images-list-container {
+  height: 100%;
+}
+
+.align-text-left {
+  text-align: left;
+}
+
+.align-text-right {
+  text-align: right;
+}
+
+.grid-item {
+  padding: 16px !important;
+  padding-bottom: 0px;
+}
+
+.building-info {
+  padding-bottom: 0px !important;
+}
+
+.building-title-header {
+  padding-top: 40px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#header-image {
+  z-index: -1;
+}

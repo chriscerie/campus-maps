@@ -10,7 +10,7 @@ import type { LocationType } from '../../types/LocationType';
 import SharePopup from './SharePopup';
 import { useState } from 'react';
 
-function LeftColumnDetais({
+function LeftColumnDetails({
   locationInfo,
   id,
 }: {
@@ -80,7 +80,30 @@ function LeftColumnDetais({
         </div>
       </LocationSection>
 
-      <LocationSection title="Comments">
+      <LocationSection title="Rooms">
+        <div
+          className="align-text-left"
+          id="location-page-left-buttons-container"
+        >
+          {locationInfo &&
+            locationInfo.rooms.map((room) => (
+              <Link
+                to={`/loc/${id}/${room.room_id}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  sx={{ textTransform: 'none', fontSize: '1em' }}
+                >
+                  {room.room_name}
+                </Button>
+              </Link>
+            ))}
+        </div>
+      </LocationSection>
+
+      <LocationSection title="Reviews">
         <div className="align-text-left">
           <ReviewSection id={id} />
         </div>
@@ -89,4 +112,4 @@ function LeftColumnDetais({
   );
 }
 
-export default LeftColumnDetais;
+export default LeftColumnDetails;

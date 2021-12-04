@@ -58,7 +58,7 @@ function PhotosPage() {
 
   return (
     <div className="photos-page-container">
-      <div className="header-container">
+      <div className="photos-header-container">
         <div className="subheader-container">
           <Link
             to={`/loc/${id}`}
