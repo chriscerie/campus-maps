@@ -90,13 +90,11 @@ function WriteReviewPage() {
             photos: imageBase64s,
           })
           .then((res) => {
-            console.log(res);
+            setSubmitted(true);
           })
           .catch((err) => {
             console.log(err);
           });
-
-        setSubmitted(true);
       });
     })();
   };

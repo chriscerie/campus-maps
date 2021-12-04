@@ -4,7 +4,9 @@ import './index.scss';
 function Footer() {
   return (
     <div className="footer-container">
-      <Link to="/" className="footer-logo-link" />
+      <a href="/" className="footer-logo-link">
+        {' '}
+      </a>
       <div className="footer-link-section">
         <Link className="footer-link" to="/about">
           ABOUT

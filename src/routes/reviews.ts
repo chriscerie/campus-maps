@@ -156,4 +156,36 @@ router.post('/v1/review/:id', requireLogin, (req, res) => {
   });
 });
 
+// Delete review
+router.delete('/v1/review/:id', requireLogin, (req, res) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const user_id = req.user._id;
+
+  Review.findOne({ _id: req.params.id }, (err: Error, review: IReview) => {
+    if (!err && review) {
+      User.findOne({ _id: user_id }, (err: Error, user: IUser) => {
+        if (!err && user) {
+          if (user.account_type === 'Admin' || review.author_id == user_id) {
+            review.remove((err: Error) => {
+              if (err) {
+                console.log(err);
+                res.status(500).send(err);
+              } else {
+                res.status(200).send('Review deleted');
+              }
+            });
+          } else {
+            res.status(403).send('Forbidden');
+          }
+        } else {
+          res.status(404).send('User not found');
+        }
+      });
+    } else {
+      res.status(404).send('Review not found');
+    }
+  });
+});
+
 export default router;
