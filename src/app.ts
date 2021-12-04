@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import * as path from 'path';
@@ -7,6 +8,7 @@ import './models/usersModel';
 
 const app = express();
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

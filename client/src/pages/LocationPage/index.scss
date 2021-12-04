@@ -37,4 +37,13 @@
 
 #header-image {
   z-index: -1;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+#header-image-placeholder {
+  @extend #header-image;
+  content: url('../../images/ucsb.jpg');
 }

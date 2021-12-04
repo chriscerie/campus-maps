@@ -16,7 +16,7 @@
   display: block;
   margin: 0 0 1em;
   padding: 0.4em 0.8em;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   border-radius: 0.3em;
   width: 100%;
   font-size: 1em;
@@ -38,11 +38,96 @@
   padding: 1.5em;
 }
 
+#write-review-photos-section {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+#write-review-add-photos-container {
+  @extend %write-review-textinput;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  color: #ddd;
+  pointer-events: all;
+  margin: 0;
+  height: 100%;
+}
+
+#write-review-add-photos-container:hover {
+  box-shadow: 0px 0px 0px 1px #aaa inset;
+  border-color: #aaa;
+}
+
+#write-review-add-photos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.0001;
+}
+
+#write-review-add-photos:hover {
+  cursor: pointer;
+}
+
+.write-review-photo-container {
+  position: relative;
+  margin-left: 0.5em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 0 0 auto;
+}
+
+.write-review-photo-background {
+  position: absolute;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+  background-color: transparent;
+  padding: 0.2em;
+  vertical-align: bottom;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.3em;
+}
+
+.write-review-photo-delete-icon {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  border-radius: 0.3em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2px 2px 0;
+  pointer-events: all;
+}
+
+.write-review-photo-delete-icon:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.write-review-photo-background .text-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2em;
+  color: #fff;
+  text-align: center;
+}
+
+.write-review-photo-background .text-area:hover {
+  cursor: pointer;
+}
+
 #write-review-submit-button {
   color: #fff;
   background-color: #1a8ceb;
   border: 0;
-  padding: 0.4em 1.4em;
+  padding: 0.4em 2em;
   border-radius: 0.3em;
   font-weight: bold;
   font-size: 1em;

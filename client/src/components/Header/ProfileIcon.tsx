@@ -1,9 +1,10 @@
 import { Avatar } from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import type { RootState } from '../../reducers';
+import { setCurrentUser } from '../../actions/currentUserActions';
 import axios from 'axios';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,7 +16,6 @@ import './ProfileIcon.scss';
 
 function ProfileIcon() {
   const currentUser = useSelector((state: RootState) => state.currentUser);
-
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -23,6 +23,7 @@ function ProfileIcon() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const dispatch = useDispatch();
 
   return (
     <Fragment>
@@ -78,13 +79,15 @@ function ProfileIcon() {
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          <Link to="/" className="menu-item-link">
+          <a href="/" className="menu-item-link">
             Settings
-          </Link>
+          </a>
         </MenuItem>
         <MenuItem
           onClick={() => {
-            axios.post('/api/v1/auth/logout');
+            axios.post('/api/v1/auth/logout').then(() => {
+              dispatch(setCurrentUser());
+            });
           }}
         >
           <ListItemIcon>

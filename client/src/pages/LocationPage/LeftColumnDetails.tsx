@@ -6,7 +6,6 @@ import { Button } from '@mui/material';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import ScreenShareOutlinedIcon from '@mui/icons-material/ScreenShareOutlined';
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import type { LocationType } from '../../types/LocationType';
 import SharePopup from './SharePopup';
 import { useState } from 'react';
@@ -65,16 +64,6 @@ function LeftColumnDetais({
             Share
           </Button>
           <SharePopup onClose={handleClose} isOpen={isOpen} />
-        </div>
-        <div className="location-page-left-button">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<BookmarkBorderOutlinedIcon />}
-            sx={{ textTransform: 'none', fontSize: '1em' }}
-          >
-            Save
-          </Button>
         </div>
       </div>
 

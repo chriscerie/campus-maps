@@ -1,20 +1,31 @@
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { IconButton } from '@mui/material';
-import type { UserType } from '../../../types/UserType';
+import type { ReviewType } from '../../../types/ReviewType';
+import { useState, MouseEvent } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../../reducers';
+import { Fragment } from 'react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import axios from 'axios';
 import './Review.scss';
 
-export type ReviewType = {
-  _id: string;
-  author_id: string;
-  body: string;
-  liked_by: Array<string>;
-  created_at: string;
-  author?: UserType;
-};
+const Review = ({
+  comm,
+  setComments,
+}: {
+  comm: ReviewType;
+  setComments: () => void;
+}) => {
+  const currentUser = useSelector((state: RootState) => state.currentUser);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-const Review = ({ comm }: { comm: ReviewType }) => {
-  console.log(comm);
-  console.log(comm.author);
   return (
     <li className="review-container">
       <div className="review-header-container">
@@ -36,9 +47,35 @@ const Review = ({ comm }: { comm: ReviewType }) => {
           </div>
         </div>
         <div className="review-header-rightside">
-          <IconButton>
-            <MoreHorizIcon />
-          </IconButton>
+          {currentUser &&
+            (currentUser.account_type === 'Admin' ||
+              currentUser._id === comm.author_id) && (
+              <Fragment>
+                <div className="review-header-rightside">
+                  <IconButton onClick={handleClick}>
+                    <MoreHorizIcon />
+                  </IconButton>
+                </div>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={anchorEl !== null}
+                  onClose={handleClose}
+                  onClick={handleClose}
+                  transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                  anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      axios.delete(`/api/v1/review/${comm._id}`).then(() => {
+                        setComments();
+                      });
+                    }}
+                  >
+                    Delete
+                  </MenuItem>
+                </Menu>
+              </Fragment>
+            )}
         </div>
       </div>
       <div className="review-text-container">
