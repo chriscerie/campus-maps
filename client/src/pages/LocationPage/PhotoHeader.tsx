@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import './PhotoHeader.scss';
 
 function PhotoHeader({
-  // TODO: change any type to LocationType
   name = '...',
   type = '...',
+  photos = [],
   id,
 }: {
   name: string;
   type: string;
+  photos: Array<{ imageSrc: string; file: File }>;
   id: string;
 }) {
   return (
@@ -23,7 +24,7 @@ function PhotoHeader({
               Edit
             </Link>
           </div>
-          <Link to="/" id="see-more-button">
+          <Link to={`/loc/${id}/photos`} id="see-more-button">
             See more photos
           </Link>
         </Container>
@@ -34,21 +35,12 @@ function PhotoHeader({
           spacing={0}
           className="images-list-container"
         >
-          <img
-            src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
-            id="header-image"
-            alt="Map"
-          ></img>
-          <img
-            src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
-            id="header-image"
-            alt="Map"
-          ></img>
-          <img
-            src="https://www.engineering.ucsb.edu/sites/engineering.ucsb.edu/files/images/ucsbengineeringmap.jpg"
-            id="header-image"
-            alt="Map"
-          ></img>
+          {photos.map((photo) => (
+            <img src={photo.imageSrc} alt={photo.file.name} id="header-image" />
+          ))}
+          <img alt="ucsb" id="header-image-placeholder" />
+          <img alt="ucsb" id="header-image-placeholder" />
+          <img alt="ucsb" id="header-image-placeholder" />
         </Stack>
       </div>
     </div>

@@ -1,0 +1,60 @@
+.photos-page-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 960px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1em;
+  padding-bottom: 36px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.header-container {
+  margin-top: 18px;
+  margin-bottom: 11px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.subheader-container {
+  display: table;
+  min-width: 100%;
+  table-layout: auto;
+  margin-bottom: 12px;
+}
+
+.subheader-title {
+  width: 100%;
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.add-photo-button {
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.photos-grid-container {
+  margin-right: -12px;
+  transform-style: preserve-3d;
+  margin-top: 18px;
+  *zoom: 1;
+  overflow: auto;
+}
+
+.photos-grid {
+  overflow: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  max-height: 50em;
+  cursor: pointer;
+}
+
+.pagination-container {
+  border-bottom: 1px solid #e6e6e6;
+}
