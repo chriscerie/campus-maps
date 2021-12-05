@@ -36,8 +36,8 @@ function App() {
             {currentUser ? <Redirect to="/" /> : <LoginPage />}
           </Route>
           <Route exact path="/loc/:id" component={LocationPage} />
-          <Route exact path="/loc/:id/:room_id" component={RoomPage} />
           <Route exact path="/loc/:id/photos" component={PhotosPage} />
+          <Route exact path="/loc/:id/:room_id" component={RoomPage} />
           <Route exact path="/loc-edit/:id">
             {currentUser ? <LocationEditPage /> : <Redirect to="/login" />}
           </Route>

@@ -81,14 +81,6 @@ function ProfileIcon() {
               <ListItemIcon>
                 <Settings fontSize="small" />
               </ListItemIcon>
-              <Link to="/" className="menu-item-link">
-                Settings
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <ListItemIcon>
-                <Settings fontSize="small" />
-              </ListItemIcon>
               <Link to="/moderation" className="menu-item-link">
                 Moderation
               </Link>
@@ -155,14 +147,6 @@ function ProfileIcon() {
               </Link>
             </MenuItem>
             <Divider />
-            <MenuItem>
-              <ListItemIcon>
-                <Settings fontSize="small" />
-              </ListItemIcon>
-              <Link to="/" className="menu-item-link">
-                Settings
-              </Link>
-            </MenuItem>
             <MenuItem
               onClick={() => {
                 axios.post('/api/v1/auth/logout').then(() => {

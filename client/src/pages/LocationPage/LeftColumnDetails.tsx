@@ -89,7 +89,11 @@ function LeftColumnDetails({
             locationInfo.rooms.map((room) => (
               <Link
                 to={`/loc/${id}/${room.room_id}`}
-                style={{ textDecoration: 'none' }}
+                style={{
+                  textDecoration: 'none',
+                  color: '#000',
+                  margin: '0 1em 1em 0',
+                }}
               >
                 <Button
                   variant="outlined"
