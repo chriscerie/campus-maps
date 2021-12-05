@@ -18,10 +18,10 @@ function AboutPage() {
           <div className="about-us-body-top">Members:</div>
           <div className="about-us-body-last">
             Christopher Chang<br></br>
-            Janet Zhou<br></br>
+            Janet Zhao<br></br>
             Jason Em <br></br>
             Jonathan Wang<br></br>
-            Max Binham<br></br>
+            Max Bonham<br></br>
             Sarah Kwon
           </div>
         </div>
