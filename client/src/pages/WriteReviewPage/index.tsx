@@ -94,6 +94,7 @@ function WriteReviewPage() {
           })
           .catch((err) => {
             console.log(err);
+            setSubmitted(true);
           });
       });
     })();
