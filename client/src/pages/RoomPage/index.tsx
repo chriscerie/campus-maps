@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LeftColumnDetails from './LeftColumnDetails';
 import { getLocationInfo } from '../../api/LocationAPI';
-import type { LocationType } from '../../types/LocationType';
 import './index.scss';
 
 function RoomPage() {

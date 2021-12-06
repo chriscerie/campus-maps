@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
 import LocationSection from './LocationSection';
 import './LeftColumnDetails.scss';
-import { Button } from '@mui/material';
 
 function LeftColumnDetails({
   classroomInfo,

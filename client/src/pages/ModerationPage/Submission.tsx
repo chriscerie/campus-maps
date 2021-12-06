@@ -59,7 +59,7 @@ const Submission = ({
                   </Link>
                 </div>
                 <div>
-                  Update by {submission.author?.first_name}{' '}
+                  Submitted by {submission.author?.first_name}{' '}
                   {submission.author?.last_name}
                 </div>
               </div>

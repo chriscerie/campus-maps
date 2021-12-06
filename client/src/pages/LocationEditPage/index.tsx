@@ -1,8 +1,8 @@
 /* eslint-disable eqeqeq */
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducers';
-import { useParams, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useParams, Link, Redirect } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Container, Button, Grid } from '@mui/material';
 import { Close } from '@mui/icons-material';
 import { useForm, useFieldArray } from 'react-hook-form';
@@ -33,6 +33,7 @@ function LocationEditPage() {
     control,
     name: 'rooms',
   });
+  const [submitted, setSubmitted] = useState(false);
 
   // Set point
   useEffect(() => {
@@ -53,11 +54,13 @@ function LocationEditPage() {
     }
   }, [id, mapInstance, setValue]);
 
-  return (
+  return submitted ? (
+    <Redirect to={`/loc/${id}`} />
+  ) : (
     <Container maxWidth="md" id="location-edit-page-container">
       <div id="location-edit-page-inner">
         <h2>Update location details</h2>
-        <p>All changes are subject to moderation.</p>
+        <p>All changes will be queued for approval by moderators.</p>
         <form>
           <ul>
             <li key="Name">
@@ -177,9 +180,12 @@ function LocationEditPage() {
               onClick={handleSubmit((data) => {
                 axios
                   .post(`/api/v1/locations/loc-edit/${id}`, data)
-                  .then((res) => {})
+                  .then((res) => {
+                    setSubmitted(true);
+                  })
                   .catch((err) => {
                     console.log(err);
+                    setSubmitted(true);
                   });
               })}
             >
