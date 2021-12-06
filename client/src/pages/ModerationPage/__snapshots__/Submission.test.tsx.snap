@@ -46,7 +46,7 @@ exports[`Submission should render successfully 1`] = `
             </a>
           </div>
           <div>
-            Update by 
+            Submitted by 
              
           </div>
         </div>

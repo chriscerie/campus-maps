@@ -1,5 +1,4 @@
 import { Container, Stack } from '@mui/material';
-import { Link } from 'react-router-dom';
 import './PhotoHeader.scss';
 
 function PhotoHeader({
