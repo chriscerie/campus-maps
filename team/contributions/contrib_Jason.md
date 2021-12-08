@@ -1,6 +1,6 @@
 # Contributions
 
-Name: Jason
+Name: Jason Em
 
 * Created About Page
 * Created footer
