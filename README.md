@@ -36,6 +36,7 @@ Contributions should follow our [contribution guide](./CONTRIBUTING.md).
 
 ## Deployment information
 * [Deployment Instructions](./docs/DEPLOY.md)
+* Live deployment: [Campus Maps](https://campusmaps.herokuapp.com/) 
 
 
 ## License
