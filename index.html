@@ -1,51 +1,31 @@
 <!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>campus-map</title><meta name="description" content="Documentation for campus-map"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">campus-map</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> campus-map</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
-<a href="#campus-maps-middot-----" id="campus-maps-middot-----" style="color: inherit; text-decoration: none;">
-  <h1><a href="https://campusmaps.herokuapp.com/"><strong>Campus Maps</strong></a> &middot; <a href="https://github.com/ucsb-cs148-f21/project-t06-campusmaps/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a> <a href="https://ucsb-cs148-f21.github.io/project-t06-campusmaps/"><img src="https://img.shields.io/badge/docs-website-blue.svg" alt="Docs"></a> <a href="https://github.com/ucsb-cs148-f21/project-t06-campusmaps/actions"><img src="https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/ci/badge.svg" alt="GitHub Actions"></a> <a href="https://campusmaps.herokuapp.com/"><img src="https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/cd/badge.svg" alt="Deployment"></a> <a href="https://coveralls.io/github/ucsb-cs148-f21/project-t06-campusmaps?branch=main"><img src="https://coveralls.io/repos/github/ucsb-cs148-f21/project-t06-campusmaps/badge.svg" alt="Coveralls Coverage"></a></h1>
+<a href="#campus-maps-middot----" id="campus-maps-middot----" style="color: inherit; text-decoration: none;">
+  <h1><a href="https://campusmaps.herokuapp.com/"><strong>Campus Maps</strong></a> &middot; <a href="https://github.com/chriscerie/campus-maps/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a> <a href="https://github.com/chriscerie/campus-maps/actions/workflows/ci.yml"><img src="https://github.com/chriscerie/campus-maps/workflows/ci/badge.svg" alt="ci"></a> <a href="https://github.com/chriscerie/campus-maps/actions/workflows/cd.yml"><img src="https://github.com/chriscerie/campus-maps/workflows/cd/badge.svg" alt="cd"></a> <a href="https://coveralls.io/github/chriscerie/campus-maps?branch=main"><img src="https://coveralls.io/repos/github/chriscerie/campus-maps/badge.svg" alt="Coveralls Coverage"></a></h1>
 </a>
-<p>Campus Maps is a crowd-sourced platform that offers detailed locations of individual classrooms of university campuses.</p>
+<p>Campus Maps is a crowd-sourced platform that offers detailed locations of individual classrooms of university campuses. Users can share written directions and tips to individual classrooms via comments as well as upload images to guide other users to their destinations.</p>
 
-<a href="#contributors" id="contributors" style="color: inherit; text-decoration: none;">
-  <h2>Contributors</h2>
-</a>
-<p>Christopher Chang @chriscerie</p>
-<p>Janet Zhao @birded</p>
-<p>Jonathan Wang @jwangathan</p>
-<p>Max Bonham @mpbonham</p>
-<p>Sarah Kwon @sarahkwon</p>
-<p>Jason Em @jasonem225</p>
-
-<a href="#tech-stack" id="tech-stack" style="color: inherit; text-decoration: none;">
-  <h2>Tech Stack</h2>
+<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+  <h2>Features</h2>
 </a>
 <ul>
-<li>React</li>
-<li>Redux</li>
-<li>Node</li>
-<li>Express</li>
-<li>MongoDB</li>
+<li>Interactive map from MapboxGL</li>
+<li>Comment sections and image uploads</li>
+<li>Data submission system</li>
+<li>Google OAuth 2.0 login</li>
+<li>Moderator panels for moderators</li>
 </ul>
 
-<a href="#user-roles" id="user-roles" style="color: inherit; text-decoration: none;">
-  <h2>User Roles</h2>
+<a href="#about-the-tech" id="about-the-tech" style="color: inherit; text-decoration: none;">
+  <h2>About the Tech</h2>
 </a>
-<ul>
-<li>User can look for locations </li>
-<li>Users with UCSB ID can comment</li>
-<li>Admins can add more content and delete irrelevant/inappropriate comments</li>
-</ul>
+<p>Campus Maps is written in TypeScript using React.js, Redux, Node.js, Express.js, and MongoDB. Its interactive map is powered by MapboxGL.</p>
+<p>To store additional location data beyond those provided by MapboxGL, we maintain MongoDB documents that live in parallel to Mapbox&#39;s data. This handles any future changes to Mapbox&#39;s locations data (e.g., construction of new buildings). To minimize server strain, all parallel data is lazy initialized in an event-driven manner when users first load a location page.</p>
+<p>With the exception of the map page, Campus Maps is a single-page application to improve loading speed for users. In addition, we&#39;ve adopted the mobile-first design strategy for the UI to improve UX.</p>
 
 <a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
   <h2>Contributing</h2>
 </a>
 <p>Contributions should follow our <a href="./CONTRIBUTING.md">contribution guide</a>.</p>
-
-<a href="#deployment-information" id="deployment-information" style="color: inherit; text-decoration: none;">
-  <h2>Deployment information</h2>
-</a>
-<ul>
-<li><a href="./docs/DEPLOY.md">Deployment Instructions</a></li>
-<li>Live deployment: <a href="https://campusmaps.herokuapp.com/">Campus Maps</a></li>
-</ul>
 
 <a href="#license" id="license" style="color: inherit; text-decoration: none;">
   <h2>License</h2>
