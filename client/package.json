@@ -35,6 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
     "test-report": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",

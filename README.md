@@ -1,43 +1,25 @@
-# [**Campus Maps**](https://campusmaps.herokuapp.com/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/blob/main/LICENSE) [![Docs](https://img.shields.io/badge/docs-website-blue.svg)](https://ucsb-cs148-f21.github.io/project-t06-campusmaps/) [![GitHub Actions](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/ci/badge.svg)](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/actions) [![Deployment](https://github.com/ucsb-cs148-f21/project-t06-campusmaps/workflows/cd/badge.svg)](https://campusmaps.herokuapp.com/) [![Coveralls Coverage](https://coveralls.io/repos/github/ucsb-cs148-f21/project-t06-campusmaps/badge.svg)](https://coveralls.io/github/ucsb-cs148-f21/project-t06-campusmaps?branch=main)
+# [**Campus Maps**](https://campusmaps.herokuapp.com/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/chriscerie/campus-maps/blob/main/LICENSE) [![ci](https://github.com/chriscerie/campus-maps/workflows/ci/badge.svg)](https://github.com/chriscerie/campus-maps/actions/workflows/ci.yml) [![cd](https://github.com/chriscerie/campus-maps/workflows/cd/badge.svg)](https://github.com/chriscerie/campus-maps/actions/workflows/cd.yml) [![Coveralls Coverage](https://coveralls.io/repos/github/chriscerie/campus-maps/badge.svg)](https://coveralls.io/github/chriscerie/campus-maps?branch=main)
 
-Campus Maps is a crowd-sourced platform that offers detailed locations of individual classrooms of university campuses.
+Campus Maps is a crowd-sourced platform that offers detailed locations of individual classrooms of university campuses. Users can share written directions and tips to individual classrooms via comments as well as upload images to guide other users to their destinations.
 
-## Contributors
+## Features
+* Interactive map from MapboxGL
+* Comment sections and image uploads
+* Data submission system
+* Google OAuth 2.0 login
+* Moderator panels for moderators
 
-Christopher Chang @chriscerie
+## About the Tech
 
-Janet Zhao @birded
+Campus Maps is written in TypeScript using React.js, Redux, Node.js, Express.js, and MongoDB. Its interactive map is powered by MapboxGL.
 
-Jonathan Wang @jwangathan
+To store additional location data beyond those provided by MapboxGL, we maintain MongoDB documents that live in parallel to Mapbox's data. This handles any future changes to Mapbox's locations data (e.g., construction of new buildings). To minimize server strain, all parallel data is lazy initialized in an event-driven manner when users first load a location page.
 
-Max Bonham @mpbonham
-
-Sarah Kwon @sarahkwon
-
-Jason Em @jasonem225
-
-## Tech Stack
-
-* React
-* Redux
-* Node
-* Express
-* MongoDB
-
-## User Roles
-
-- User can look for locations 
-- Users with UCSB ID can comment
-- Admins can add more content and delete irrelevant/inappropriate comments
+With the exception of the map page, Campus Maps is a single-page application to improve loading speed for users. In addition, we've adopted the mobile-first design strategy for the UI to improve UX.
 
 ## Contributing
 
 Contributions should follow our [contribution guide](./CONTRIBUTING.md).
-
-## Deployment information
-* [Deployment Instructions](./docs/DEPLOY.md)
-* Live deployment: [Campus Maps](https://campusmaps.herokuapp.com/) 
-
 
 ## License
 
