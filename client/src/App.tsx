@@ -10,11 +10,13 @@ import PhotosPage from './pages/PhotosPage';
 import LocationEditPage from './pages/LocationEditPage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import ProfilePage from './pages/ProfilePage';
+import SettingsPage from './pages/SettingsPage';
 import AboutPage from './pages/AboutPage';
 import ModerationPage from './pages/ModerationPage';
 import RoomPage from './pages/RoomPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 import './App.scss';
 
 function App() {
@@ -46,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/profile" component={ProfilePage}>
             {currentUser ? <ProfilePage /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/settings" component={SettingsPage}>
+            {currentUser ? <SettingsPage /> : <Redirect to="/login" />}
           </Route>
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/moderation" component={ModerationPage}>
